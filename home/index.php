@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../sources/styles/index.css">
 </head>
 <body>
+    <div class="container">
     <?php
         if (!isset($_SESSION["USER_AUTH"])) {
             require_once("../sources/templates/home/index-no-login.php");
@@ -17,5 +18,6 @@
             require_once("../sources/templates/home/footer.php");
         }
     ?>
+    </div>
 </body>
 </html>
