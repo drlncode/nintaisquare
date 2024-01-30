@@ -7,7 +7,7 @@
             <div class="space"></div>
             <!--Div logo-->
             <div class="logo">
-                <img src="logo.png" alt="NintaiSquare">
+                <img src="../../img/test.png" alt="NintaiSquare">
             </div>
             <!--Div user-->
             <div class="user">
