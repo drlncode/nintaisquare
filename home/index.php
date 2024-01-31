@@ -12,10 +12,10 @@
     <?php
         if (!isset($_SESSION["USER_AUTH"])) {
             require_once("../sources/templates/home/index-no-login.php");
-            require_once("../sources/templates/home/footer.php");
+            require_once("../sources/templates/footer/footer.php");
         } else {
             require_once("../sources/templates/home/index-login.php");
-            require_once("../sources/templates/home/footer.php");
+            require_once("../sources/templates/footer/footer.php");
         }
     ?>
     </div>
