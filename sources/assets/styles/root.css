@@ -11,11 +11,6 @@
 }
 
 @font-face {
-    font-family: WorkSans-Textos;
-    src: url("../fonts/Work_Sans/static/WorkSans-Regular.ttf");
-}
-
-@font-face {
     font-family: Nunito-Sistema;
     src: url("../fonts/Nunito/static/Nunito-Light.ttf");
 }

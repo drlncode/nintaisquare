@@ -33,6 +33,10 @@
     align-items: center;
 }
 
+.header-content .space {
+    width: 70px;
+}
+
 .header-content .logo img {
     width: 200px;
 }
@@ -40,4 +44,80 @@
 .header-content .user .sistema {
     color: var(--text-color);
     text-decoration: none;
+}
+
+.header-content .user .login:hover {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.body-container {
+    width: 100%;
+    margin-top: 18vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.body-container .landing-content {
+    width: 90%;
+    height: 73vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: start;
+}
+
+.div-content-1 .content-text {
+    width: 30vw;
+    padding: 10px;
+}
+
+.text-content .title-landing {
+    font-family: Merriweather-Titulos;
+}
+
+.text-content .text-landing {
+    font-family: Nunito-Sistema;
+    margin: 13px 0px 30px 0px ;
+}
+
+.text-content .title-landing .text-black {
+    text-decoration: 3px underline var(--border-color);
+}
+
+.div-content-1 .content-img img {
+    width: 525px;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.content-text .link-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4%;
+    background-color: var(--border-color);
+    color: white;
+}
+
+.content-text .link-button a {
+    text-decoration: none;
+    color: unset;
+}
+
+.link-button:hover {
+    background-color: unset;
+    color: unset;
+    transition: all 0.2s ease-in-out;
+}
+
+.a-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    vertical-align: center;
 }
