@@ -1,0 +1,21 @@
+:root {
+    --background-color: #f3f3f3; 
+    --text-color: #0f0f0f;
+    --text-color-hover: #1b1a1a;
+    --border-color: #4e4d4d;
+}
+
+@font-face {
+    font-family: Merriweather-Titulos;
+    src: url("../fonts/Merriweather/Merriweather-Light.ttf");
+}
+
+@font-face {
+    font-family: WorkSans-Textos;
+    src: url("../fonts/Work_Sans/static/WorkSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: Nunito-Sistema;
+    src: url("../fonts/Nunito/static/Nunito-Light.ttf");
+}

@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.sistema {
+    font-family: Nunito-Sistema;
+    font-size: 0.9em;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color);
+}
+
+.header-container {
+    width: 100%;
+    background-color: var(--background-color);
+    border-bottom: 0.5px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
+
+.header-content {
+    width: 90%;
+    height: 8.5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content .logo img {
+    width: 200px;
+}
+
+.header-content .user .sistema {
+    color: var(--text-color);
+    text-decoration: none;
+}
