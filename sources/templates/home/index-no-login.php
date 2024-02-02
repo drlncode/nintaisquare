@@ -24,9 +24,7 @@
                 <p class="text-landing">Crear un negocio desde cero y darle publicidad puede ser algo tedioso, por eso estamos aqui, para ayudarte a hacer crecer tu negocio sin muchas complicaciones de por medio.</p>
             </div>
             <div class="link-button">
-                <div class="a-button">
-                    <a href="../user/signin.php">Empezar ahora</a><i class="fa-solid fa-arrow-right-long"></i>
-                </div>
+                <a href="../user/signin.php" class="button">Empezar ahora <i class="fa-solid fa-arrow-right-long"></i></a>
             </div>
         </div>
         <div class="content-img">
