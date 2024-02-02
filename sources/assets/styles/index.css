@@ -27,7 +27,7 @@
 
 .header-content {
     width: 90%;
-    height: 8.5vh;
+    height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -52,7 +52,7 @@
 
 .body-container {
     width: 100%;
-    margin-top: 18vh;
+    margin-top: 25vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,28 +96,25 @@
     justify-content: center;
     align-items: center;
     width: 150px;
-    padding: 10px;
     border: 1px solid var(--border-color);
     border-radius: 4%;
     background-color: var(--border-color);
     color: white;
 }
 
-.content-text .link-button a {
+.content-text .link-button .button {
     text-decoration: none;
     color: unset;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
 
 .link-button:hover {
     background-color: unset;
     color: unset;
     transition: all 0.2s ease-in-out;
-}
-
-.a-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    vertical-align: center;
 }
