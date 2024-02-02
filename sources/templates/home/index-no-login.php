@@ -6,7 +6,7 @@
         <div class="space"></div>
         <!--Div logo-->
         <div class="logo">
-            <a href="../home/index.php"><img src="../sources/img/logo.png" alt="NintaiSquare"></a>
+            <a href="../home/index.php"><img src="../sources/assets/img/logo.png" alt="NintaiSquare"></a>
         </div>
         <!--Div user-->
         <div class="user">
