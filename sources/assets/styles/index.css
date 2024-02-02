@@ -27,7 +27,7 @@
 
 .header-content {
     width: 90%;
-    height: 8.5vh;
+    height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -52,7 +52,7 @@
 
 .body-container {
     width: 100%;
-    margin-top: 18vh;
+    margin-top: 25vh;
     display: flex;
     justify-content: center;
     align-items: center;
