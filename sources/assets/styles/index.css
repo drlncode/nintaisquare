@@ -26,7 +26,7 @@
 }
 
 .header-content {
-    width: 90%;
+    width: 85%;
     height: 10vh;
     display: flex;
     justify-content: space-between;
@@ -46,8 +46,20 @@
     text-decoration: none;
 }
 
-.header-content .user .login:hover {
-    border-bottom: 1px solid var(--border-color);
+.link {
+    width: 90px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 3.5px;
+}
+
+.header-content .user .link:hover {
+    background-color: var(--border-color);
+    color: var(--background-color);
+    transition: all 0.2s ease-in-out;
 }
 
 .body-container {
@@ -111,6 +123,10 @@
     justify-content: center;
     align-items: center;
     gap: 5px;
+}
+
+.fa-arrow-right-long {
+    margin-top: 4px;
 }
 
 .link-button:hover {
