@@ -1,4 +1,3 @@
-<!---->
 <footer class="footer-container">
     <div class="socials-content">
         <p class="sistema socials-icons">Nuestras redes:</p>
@@ -44,4 +43,3 @@
         </div>
     </div>
 </footer>
-<!---->
