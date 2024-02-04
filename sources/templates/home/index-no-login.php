@@ -6,11 +6,11 @@
                 <p class="text-landing">Crear un negocio desde cero y darle publicidad puede ser algo tedioso, por eso estamos aqui, para ayudarte a hacer crecer tu negocio sin muchas complicaciones de por medio.</p>
             </div>
             <div class="link-button">
-                <a href="../user/signin.php" class="sistema button">Empezar ahora <i class="fa-solid fa-arrow-right-long"></i></a>
+                <a href="user/signin.php" class="sistema button">Empezar ahora <i class="fa-solid fa-arrow-right-long"></i></a>
             </div>
         </div>
         <div class="content-img">
-            <img src="../sources/assets/img/landing-img/landing-home-1.jpg" alt="Landing image">
+            <img src="sources/assets/img/landing-img/landing-home-1.jpg" alt="Landing image">
         </div>
     </div>
 </div>
