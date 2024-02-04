@@ -11,7 +11,7 @@
                     <li class="sistema user-link"><a href=""><i class="fa-solid fa-user"></i> Mi perfil</a></li>
                     <li class="sistema user-link"><a href=""><i class="fa-solid fa-shop"></i> Mis tiendas</a></li>
                     <li class="sistema user-link"><a href=""><i class="fa-solid fa-gear"></i> Ajustes</a></li>
-                    <li class="sistema user-link"><a href=""><i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar sesión</a></li>
+                    <li class="sistema user-link"><a href="../user/logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar sesión</a></li>
                     <?php
                         if (isset($_SESSION["USER_AUTH"]["admin"]) && $_SESSION["USER_AUTH"]["admin"] === true) { ?>
                             <div class="line"></div><li><a href="" class="sistema list"><i class="fa-solid fa-user-gear"></i> Admin</a></li>

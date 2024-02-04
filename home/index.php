@@ -22,9 +22,7 @@
     <div class="container">
     <?php
         if (!isset($_SESSION["USER_AUTH"])) {
-            require_once("../sources/templates/header/header-no-login.php");
-            require_once("../sources/templates/home/index-no-login.php");
-            require_once("../sources/templates/footer/footer.php");
+            header("Location: ../");
         } else {
             require_once("../sources/templates/header/header-login.php");
             require_once("../sources/templates/home/index-login.php");

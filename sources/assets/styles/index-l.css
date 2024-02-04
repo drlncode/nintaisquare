@@ -102,6 +102,7 @@
     border: 1.5px solid rgba(10, 10, 10, 0.2); ;
     border-radius: 3px;
     box-shadow: 2px 2px 4px 0px rgba(20, 20, 20, 0.3);
+    height: 183px;
 }
 
 .user-container .user .user-options li:hover {
