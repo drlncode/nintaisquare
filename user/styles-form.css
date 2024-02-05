@@ -1,0 +1,36 @@
+body{
+    padding: O;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    background-color:aqua
+    honeydew
+}
+
+.formulario{
+    position: obsolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% -50%);
+    width: 400%;
+    background: beige;
+    border-radius: 15%;
+
+}
+
+.formulario  h2{
+    text-align: center;
+    padding: 0%  20%;
+    border-radius:2px solid black;
+
+
+}
+
+.formulario form{
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.h1{
+    background-color: aqua;
+    
+}
