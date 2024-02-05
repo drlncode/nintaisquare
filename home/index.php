@@ -2,10 +2,6 @@
     session_start();
     require_once("../sources/controller/pdo.php");
     require_once("../sources/controller/validations.php");
-    $_SESSION["USER_AUTH"] = [
-        "name" => "Darlin",
-        "admin" => true
-    ];
 ?>
 <!DOCTYPE html>
 <html lang="en">
