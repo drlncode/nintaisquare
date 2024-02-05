@@ -1,4 +1,4 @@
 <?php
     session_start();
-    require_once("../../sources/controller/pdo.php");
+    require_once("../sources/controller/pdo.php");
 ?>
