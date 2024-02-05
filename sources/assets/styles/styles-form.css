@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.form-container-1 {
+    width: 50vw;
+    display: flex;
+    height: 100vh;
+    background-image: url("..//img/landing-img/landing-login-1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(X);
+}
+
+.form-container-1 .form-content-1 {
+    backdrop-filter: blur(10px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container-1 .form-content-1 .content {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: var(--background-color);
+}
+
+.form-container-1 .form-content-1 .content .title {
+    font-family: Merriweather-Titulos;
+    font-size: 2.4em;
+    margin-bottom: 20px;
+}
+
+.form-container-1 .form-content-1 .content .text {
+    font-family: Nunito-Sistema;
+    font-size: 1.1em;
+}
+
+.form-container-2 {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-container-2 .form-header {
+    display: flex;
+    justify-content: center;
+}
+
+.form-container-2 .form-header img {
+    width: 300px;
+    margin-bottom: 30px;
+}
+
+.form-container-2 .form-content {
+    display: flex;
+    flex-direction: column;
+    width: 370px;
+}
+
+.form-container-2 .form-content label {
+    color: var(--border-color);
+    font-family: Nunito-Sistema;
+}
+
+.form-container-2 .form-content input {
+    width: 100%;
+    padding: 7px;
+    font-family: Nunito-Sistema;
+    color: var(--text-color);
+    margin: 5px 0px 15px 0px;
+}
+
+.lost-password {
+    width: 100%;
+    font-size: 0.8em;
+    font-family: Nunito-Sistema;
+    text-align: center;
+    margin-top: -10px;
+}
+
+.lost-password .link {
+    text-decoration: none;
+    color: var(--border-color);
+}
+
+.lost-password .link:hover {
+    text-decoration: underline;
+}
+
+.lost-password .link .fa-circle-question, .fa-right-to-bracket {
+    margin-right: 4px;
+}
+
+.form-footer {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.form-footer .boton {
+    padding: 10px;
+    width: 50%;
+    color: var(--background-color);
+    background-color: var(--border-color);
+    border: unset;
+    font-family: Nunito-Sistema;
+    font-size: 0.9em;
+    border-radius: 2px;
+    border: 1px solid var(--border-color);
+}
+
+.form-footer .boton:hover {
+    cursor: pointer;
+    background-color: unset;
+    color: var(--text-color);
+    transition: 0.3s ease;
+}
+
+.form-footer .boton-link {
+    padding: 10px;
+    width: 50%;
+    text-decoration: none;
+    color: var(--background-color);
+    background-color: var(--border-color);
+    font-family: Nunito-Sistema;
+    font-size: 0.9em;
+    border-radius: 2px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.form-footer .boton-link:hover {
+    background-color: unset;
+    color: var(--text-color);
+    transition: 0.3s ease;
+}
