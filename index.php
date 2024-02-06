@@ -1,7 +1,6 @@
 <?php
     session_start();
-    require_once("sources/controller/pdo.php");
-    require_once("sources/controller/validations.php");
+    require_once("sources/controller/validations.php")
 ?>
 <!DOCTYPE html>
 <html lang="en">
