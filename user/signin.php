@@ -1,3 +1,8 @@
+<?php
+    require_once("../sources/controller/pdo.php");
+    require_once("../sources/controller/validations.php");
+    validate_signin($pdo);
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -23,7 +28,13 @@
             <div class="form-header">
                 <a href="http://localhost/nintaisquare/"><img src="http://localhost/nintaisquare/sources/assets/img/logo.png" alt="NintaiSquare" title="NintaiSquare"></a>
             </div>
-            <form action="../sources/controller/validations.php" method="post" class="form-content">
+            <form method="post" class="form-content">
+                <?php
+                    if (isset($_SESSION["msg"])) {
+                        echo $_SESSION["msg"];
+                        unset($_SESSION["msg"]);
+                    }
+                ?>
                 <label for="email">
                     Correo:<input type="email" name="email" id="email" placeholder="Ingrese su correo">
                 </label>
