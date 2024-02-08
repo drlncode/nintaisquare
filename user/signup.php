@@ -1,8 +1,34 @@
 <?php
+    session_start();
     require_once("../sources/controller/pdo.php");
-    require_once("../sources/controller/validations.php");
-    //Validación de los datos
-    validate_signup($pdo);
+
+    if (isset($_POST["name-r"]) && isset($_POST["email-r"]) && isset($_POST["password-r"])) {
+        if (empty($_POST["name-r"]) || empty($_POST["email-r"]) || empty($_POST["password-r"])) {
+            $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Rellene todos los campos.</span>";
+            header("Location: http://localhost/nintaisquare/user/signup.php");
+            return;
+        } elseif (is_numeric($_POST["name-r"])) {
+            $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese un nombre válido.</span>";
+            header("Location: http://localhost/nintaisquare/user/signup.php");
+            return;
+        } elseif (!filter_var($_POST["email-r"], FILTER_VALIDATE_EMAIL)) {
+            $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese un correo válido.</span>";
+            header("Location: http://localhost/nintaisquare/user/signup.php");
+            return;
+        } else {
+            $sql = "INSERT INTO users(name, email, password, admin) VALUES (:nm, :em, :pw, :ad);";
+            $query = $pdo -> prepare($sql);
+            $query -> execute(array(
+                ':nm' => htmlentities($_POST["name-r"]),
+                ':em' => htmlentities($_POST["email-r"]),
+                ':pw' => hash("MD5", $_POST["password-r"]),
+                ':ad' => 0
+            ));
+            $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>Registro exitoso!</span>";
+            header("Location: http://localhost/nintaisquare/user/signin.php");
+            return;
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -37,13 +63,13 @@
                     }
                 ?>
                 <label for="name">
-                    Nombre completo:<input type="name" name="name" id="name" placeholder="Ingrese su nombre completo">
+                    Nombre completo:<input type="name" name="name-r" id="name" placeholder="Ingrese su nombre completo">
                 </label>
                 <label for="email">
-                    Correo:<input type="email" name="email" id="email" placeholder="Ingrese su correo">
+                    Correo:<input type="email" name="email-r" id="email" placeholder="Ingrese su correo">
                 </label>
                 <label for="password">
-                    Contraseña:<input type="password" name="password" id="password" placeholder="Ingrese su contraseña">
+                    Contraseña:<input type="password" name="password-r" id="password" placeholder="Ingrese su contraseña">
                 </label>
                 <div class="lost-password">
                     <p class="lost-p">Ya tienes una cuenta? <a href="http://localhost/nintaisquare/user/signin.php" class="link"><i class="fa-solid fa-right-to-bracket"></i>Iniciar sesión</a></p>

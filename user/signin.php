@@ -1,7 +1,51 @@
 <?php
+    session_start();
     require_once("../sources/controller/pdo.php");
-    require_once("../sources/controller/validations.php");
-    validate_signin($pdo);
+
+    if (isset($_POST["email-l"]) && isset($_POST["password-l"])) {
+        if (empty($_POST["email-l"]) || empty($_POST["password-l"])) {
+            $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Rellene todos los campos.</span>";
+            header("Location: http://localhost/nintaisquare/user/signin.php");
+            return;
+        } else {
+            $sql = "SELECT COUNT(*) conteo FROM users WHERE email = :em AND password = :pw;";
+            $query = $pdo -> prepare($sql);
+            $query -> execute(array(
+                ':em' => htmlentities($_POST["email-l"]),
+                ':pw' => hash("MD5", $_POST["password-l"])
+            ));
+            $existe = $query -> fetch(PDO::FETCH_ASSOC);
+
+            if ($existe["conteo"] < 1) {
+                $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Correo o contraseña incorrectos.</span>";
+                header("Location: http://localhost/nintaisquare/user/signin.php");
+                return;
+            } else {
+                $sql = "SELECT * FROM users WHERE email = :em AND password = :pw;";
+                $query = $pdo -> prepare($sql);
+                $query -> execute(array(
+                    ':em' => htmlentities($_POST["email-l"]),
+                    ':pw' => hash("MD5", $_POST["password-l"])
+                ));
+                $cuenta = $query -> fetch(PDO::FETCH_ASSOC);
+
+                if ($cuenta["admin"] == 1) {
+                    $cuenta["admin"] = true;
+                } else {
+                    $cuenta["admin"] = false;
+                }
+
+                $_SESSION["USER_AUTH"] = [
+                    "user_id" => $cuenta["user_id"],
+                    "name" => $cuenta["name"],
+                    "email" => $cuenta["email"],
+                    "admin" => $cuenta["admin"]
+                ];
+                header("Location: http://localhost/nintaisquare/home/");
+                return;
+            }
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -36,10 +80,10 @@
                     }
                 ?>
                 <label for="email">
-                    Correo:<input type="email" name="email" id="email" placeholder="Ingrese su correo">
+                    Correo:<input type="email" name="email-l" id="email" placeholder="Ingrese su correo">
                 </label>
                 <label for="password">
-                    Contraseña:<input type="password" name="password" id="password" placeholder="Ingrese su contraseña">
+                    Contraseña:<input type="password" name="password-l" id="password" placeholder="Ingrese su contraseña">
                 </label>
                 <div class="lost-password">
                     <p class="lost-p"><a href="http://localhost/nintaisquare/user/lost-pw.php" class="link"><i class="fa-regular fa-circle-question"></i>Olvidó su contraseña?</a> | No tienes cuenta? <a href="http://localhost/nintaisquare/user/signup.php" class="link"><i class="fa-solid fa-right-to-bracket"></i>Regístrate</a></p>

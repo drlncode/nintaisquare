@@ -83,7 +83,8 @@
     margin: 5px 0px 15px 0px;
 }
 
-.form-container-2 .form-content .mensaje {
+.form-container-2 .form-content .mensaje-error {
+    font-family: Nunito-Sistema;
     display: flex;
     justify-content: center;
     align-items: baseline;
@@ -95,14 +96,37 @@
     right: 20px;
     position: absolute;
     color: rgb(204, 73, 73);
-    border: 1px solid var(--border-color);
+    border: 1px solid rgb(204, 73, 73);
 }
 
-.form-container-2 .form-content .mensaje:hover {
+.form-container-2 .form-content .mensaje-error:hover {
     background-color: rgb(204, 73, 73);
     color: var(--background-color);
     transition: all 0.5s ease;
-    cursor: pointer;
+    cursor: default;
+}
+
+.form-container-2 .form-content .mensaje-success {
+    font-family: Nunito-Sistema;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 5px;
+    background-color: var(--background-color);
+    padding: 10px;
+    border-radius: 5px;
+    top: 20px;
+    right: 20px;
+    position: absolute;
+    color: rgb(77, 235, 71);
+    border: 1px solid rgb(77, 235, 71);
+}
+
+.form-container-2 .form-content .mensaje-success:hover {
+    background-color: rgb(77, 235, 71);
+    color: var(--background-color);
+    transition: all 0.5s ease;
+    cursor: default;
 }
 
 .lost-password {
