@@ -38,6 +38,7 @@
                 $_SESSION["USER_AUTH"] = [
                     "user_id" => $cuenta["user_id"],
                     "name" => $cuenta["name"],
+                    "name-parts" => explode(" ", $cuenta["name"]),
                     "email" => $cuenta["email"],
                     "admin" => $cuenta["admin"]
                 ];
