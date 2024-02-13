@@ -1,5 +1,7 @@
 <?php
-    //Sin sesión.
+    require_once("pdo.php");
+
+    //No login
     function noset() {
         if (!isset($_SESSION["USER_AUTH"])) {
             header("Location:");
@@ -24,6 +26,4 @@
             return "Hola, ";
         }
     }
-
-    //Formularios
 ?>

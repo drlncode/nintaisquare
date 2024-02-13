@@ -13,7 +13,7 @@
     width: 50vw;
     display: flex;
     height: 100vh;
-    background-image: url("..//img/landing-img/landing-login-1.jpg");
+    background-image: url("..//img/landing-img/landing-login-2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     backdrop-filter: blur(X);
@@ -81,6 +81,52 @@
     font-family: Nunito-Sistema;
     color: var(--text-color);
     margin: 5px 0px 15px 0px;
+}
+
+.form-container-2 .form-content .mensaje-error {
+    font-family: Nunito-Sistema;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 5px;
+    background-color: var(--background-color);
+    padding: 10px;
+    border-radius: 5px;
+    top: 20px;
+    right: 20px;
+    position: absolute;
+    color: rgb(204, 73, 73);
+    border: 1px solid rgb(204, 73, 73);
+}
+
+.form-container-2 .form-content .mensaje-error:hover {
+    background-color: rgb(204, 73, 73);
+    color: var(--background-color);
+    transition: all 0.5s ease;
+    cursor: default;
+}
+
+.form-container-2 .form-content .mensaje-success {
+    font-family: Nunito-Sistema;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 5px;
+    background-color: var(--background-color);
+    padding: 10px;
+    border-radius: 5px;
+    top: 20px;
+    right: 20px;
+    position: absolute;
+    color: rgb(77, 235, 71);
+    border: 1px solid rgb(77, 235, 71);
+}
+
+.form-container-2 .form-content .mensaje-success:hover {
+    background-color: rgb(77, 235, 71);
+    color: var(--background-color);
+    transition: all 0.5s ease;
+    cursor: default;
 }
 
 .lost-password {

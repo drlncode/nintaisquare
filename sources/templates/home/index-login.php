@@ -2,7 +2,7 @@
     <div class="content-1">
         <div class="text-container">
             <div class="title-content">
-                <h1 class="title"><?= greats() . $_SESSION["USER_AUTH"]["name"]; ?></h1>
+                <h1 class="title"><?= greats() . $_SESSION["USER_AUTH"]["name-parts"][0] . "."; ?></h1>
             </div>
             <div class="text-content">
                 <p class="text">Que quieres hacer hoy?</p>
