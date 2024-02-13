@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once("../sources/controller/validations.php");
+    require_once("../sources/controller/funciones.php");
     $_SESSION["USER_AUTH"] = [
         "name" => "Luis",
         "admin" => true
