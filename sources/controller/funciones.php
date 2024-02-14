@@ -1,6 +1,5 @@
 <?php
     require_once("pdo.php");
-    session_start();
 
     //No login
     function noset() {
