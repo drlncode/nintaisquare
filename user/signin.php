@@ -71,7 +71,7 @@
         </div>
         <div class="form-container-2">
             <div class="form-header">
-                <a href="http://localhost/nintaisquare/"><img src="http://localhost/nintaisquare/sources/assets/img/logo.png" alt="NintaiSquare" title="NintaiSquare"></a>
+                <a href="http://localhost/nintaisquare/"><img src="../sources/assets/img/logo.png" alt="NintaiSquare" title="NintaiSquare"></a>
             </div>
             <form method="post" class="form-content">
                 <?php
