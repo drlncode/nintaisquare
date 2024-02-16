@@ -14,7 +14,7 @@
                     <li class="sistema user-link"><a href="http://localhost/nintaisquare/user/logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar sesión</a></li>
                     <?php
                         if (isset($_SESSION["USER_AUTH"]["admin"]) && $_SESSION["USER_AUTH"]["admin"] === true) { ?>
-                            <div class="line"></div><li><a href="" class="sistema list"><i class="fa-solid fa-user-gear"></i> Admin</a></li>
+                            <div class="line"></div><li><a href="http://localhost/nintaisquare/sources/controller/admin/" class="sistema list"><i class="fa-solid fa-user-gear"></i> Admin</a></li>
                         <?php }
                     ?>
                 </ul>
