@@ -158,6 +158,16 @@ body {
     background-color: var(--background-color);
 }
 
+body::-webkit-scrollbar {
+    width: 13px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--border-color-clear);
+    border-radius: 10px;
+    border: 3px solid var(--background-color);
+}
+
 .body-container {
     width: 90%;
     height: 75vh;

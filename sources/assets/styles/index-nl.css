@@ -9,6 +9,20 @@
     font-size: 0.9em;
 }
 
+body {
+    background-color: var(--background-color);
+}
+
+body::-webkit-scrollbar {
+    width: 13px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--border-color-clear);
+    border-radius: 10px;
+    border: 3px solid var(--background-color);
+}
+
 .body-container {
     width: 100%;
     margin-top: 25vh;
