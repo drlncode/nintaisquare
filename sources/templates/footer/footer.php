@@ -1,9 +1,9 @@
 <footer class="footer-container">
     <div class="socials-content">
-        <p class="sistema socials-icons">Nuestras redes:</p>
-        <a href="https://github.com/Darlin-code/nintaisquare"><i class="fa-brands fa-github"></i></a>
-        <a href=""><i class="fa-brands fa-instagram"></i></a>
-        <a href=""><i class="fa-brands fa-twitter"></i></a>
+        <p class="sistema socials-icons">Encuéntranos en:</p>
+        <a href="https://github.com/Darlin-code/nintaisquare" title="Github - NintaiSquare"><i class="fa-brands fa-github"></i></a>
+        <a href=""><i class="fa-brands fa-instagram" title="Instagram - NintaiSquare"></i></a>
+        <a href=""><i class="fa-brands fa-twitter" title="Twitter - NintaiSquare"></i></a>
     </div>
     <div class="infos-content">
         <div class="ic content-1">
