@@ -9,6 +9,13 @@
         }
     }
 
+    function set() {
+        if (isset($_SESSION["USER_AUTH"])) {
+            header("Location: home/");
+            return;
+        }
+    }
+
     //Bienvenida
     function greats() {
         date_default_timezone_set("America/Santo_Domingo");

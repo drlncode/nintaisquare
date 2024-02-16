@@ -1,6 +1,7 @@
 <?php
     session_start();
-    require_once("sources/controller/funciones.php")
+    require_once("sources/controller/funciones.php");
+    set();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -21,7 +22,7 @@
             require_once("sources/templates/home/index-no-login.php");
             require_once("sources/templates/footer/footer.php");
         } else {
-            header("Location: home/");
+            //header("Location: home/");
         }
     ?>
     </div>
