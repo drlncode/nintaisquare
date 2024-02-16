@@ -162,7 +162,7 @@ body {
     width: 90%;
     height: 75vh;
     margin: 0 auto;
-    margin-top: 25vh;
+    margin-top: 30vh;
     background-color: var(--background-color);
     display: flex;
     justify-content: space-evenly;
@@ -210,7 +210,7 @@ body {
 }
 
 .fa-arrow-right-long {
-    margin-top: 1.5px;
+    margin-top: 1.1px;
 }
 
 .links-button .link-button .button:hover {
@@ -232,6 +232,8 @@ body {
     font-family: Merriweather-Titulos;
     color: var(--border-color);
     margin: 15px 0px 15px 0px;
+    font-size: 22px;
+    align-items: baseline;
 }
 
 .body-container .content-2 .text-container .text {
