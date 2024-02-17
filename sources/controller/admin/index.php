@@ -24,6 +24,7 @@
 <body>
     <div class="container">
         <?php
+
             if (isset($_SESSION["msg"])) {
                 echo $_SESSION["msg"];
                 unset($_SESSION["msg"]);
@@ -36,13 +37,13 @@
                 </div>
                 <div class="content-nav">
                     <ul class="nav-list-container">
-                        <li class="nav-list content"><a href="../admin/">Inicio</a></li>
-                        <li class="nav-list content"><a href="panel/">Panel</a></li>
-                        <li class="nav-list content"><a href="history/">Historial</a></li>
+                        <li class="nav-list-content"><a href="../admin/">Inicio</a></li>
+                        <li class="nav-list-content"><a href="panel/">Panel</a></li>
+                        <li class="nav-list-content"><a href="history/">Historial</a></li>
                     </ul>
                 </div>
                 <div class="content-out">
-                    <a href="index.php?salir"><i class="fa-solid fa-arrow-right-from-bracket"></i> Salir</a>
+                    <a href="index.php?salir"><i class="fa-solid fa-arrow-right-from-bracket"></i>Salir</a>
                 </div>
             </div>
         </div>
