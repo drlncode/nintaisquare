@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Nunito-Sistema;
+}
+
+.body {
+    background-color: var(--background-color);
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.container .container-img img {
+    width: 300px;
+}
+
+.container .form-container {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.container .form-container label {
+    color: var(--border-color);
+}
+
+.container .form-container .key {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.container .form-container .botones {
+    width: 100%;
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.container .form-container button {
+    width: 50%;
+    padding: 10px;
+    background-color: var(--border-color);
+    border: 1px solid var(--border-color);
+    color: var(--background-color); 
+    border-radius: 3px;
+}
+
+.container .form-container button:hover {
+    background-color: var(--background-color);
+    color: var(--border-color);
+    transition: ease-in-out 0.2s;
+    cursor: pointer;
+}
+
+.container .form-container .link-boton {
+    font-size: 0.8em;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: var(--border-color);
+    color: var(--background-color);
+    height: 100%;
+    border-radius: 3px;
+    border: 1px solid var(--border-color);
+}
+
+.container .form-container .link-boton:hover {
+    background-color: var(--background-color);
+    color: var(--border-color);
+    transition: ease-in-out 0.2s;
+}
+
+.container .form-container .mensaje-error {
+    font-family: Nunito-Sistema;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 5px;
+    background-color: var(--background-color);
+    padding: 10px;
+    border-radius: 5px;
+    top: 20px;
+    right: 20px;
+    position: absolute;
+    color: rgb(204, 73, 73);
+    border: 1px solid rgb(204, 73, 73);
+}
+
+.container .form-container .mensaje-error:hover {
+    background-color: rgb(204, 73, 73);
+    color: var(--background-color);
+    transition: all 0.5s ease;
+    cursor: default;
+}
+
+.container .form-container .mensaje-success {
+    font-family: Nunito-Sistema;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 5px;
+    background-color: var(--background-color);
+    padding: 10px;
+    border-radius: 5px;
+    top: 20px;
+    right: 20px;
+    position: absolute;
+    color: rgb(77, 235, 71);
+    border: 1px solid rgb(77, 235, 71);
+}
+
+.container .form-container .mensaje-success:hover {
+    background-color: rgb(77, 235, 71);
+    color: var(--background-color);
+    transition: all 0.5s ease;
+    cursor: default;
+}
