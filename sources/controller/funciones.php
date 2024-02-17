@@ -16,13 +16,24 @@
         }
     }
 
-    function noadmin() {
-        if ($_SESSION["USER_AUTH"]["admin"] === false) {
-            header("Location: ../../../");
-            return;
-        } else {
+    class admin_validation {
+        public function noadmin() {
+            if ($_SESSION["USER_AUTH"]["admin"] === false) {
+                header("Location: http://localhost/nintaisquare/");
+                return;
+            }
+        }
+
+        public function admin_confirm() {
             if (!isset($_SESSION["USER_AUTH"]["admin_confirm"])) {
                 header("Location: validation.php");
+                return;
+            }
+        }
+
+        public function admin_confirmed() {
+            if (isset($_SESSION["USER_AUTH"]["admin_confirm"])) {
+                header("Location: ../admin/");
                 return;
             }
         }
