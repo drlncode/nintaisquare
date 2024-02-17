@@ -9,6 +9,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: var(--background-color);
 }
 
 .admin-header-container {
@@ -29,6 +30,7 @@
 
 .admin-header-container .admin-header-content .content-img img {
     width: 200px;
+    padding-top: 7px;
 }
 
 .admin-header-container .admin-header-content .content-nav .nav-list-container li{
@@ -115,4 +117,52 @@
     color: var(--background-color);
     transition: all 0.5s ease;
     cursor: default;
+}
+
+.admin-statistics-container {
+    margin: 10vh auto;
+    width: 90%;
+}
+
+.admin-statistics-container .title-statistics {
+    font-family: Merriweather-Titulos;
+    font-size: 1.4em;
+    color: var(--border-color);
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 4px;
+    padding-left: 16.5px;
+}
+
+.admin-statistics-container .title-statistics .fa-chart-column {
+    font-size: 1em;
+}
+
+.admin-statistics-container .statistics-container {
+    font-family: Nunito-Sistema;
+    width: 100%;
+    padding: 40px 17px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.admin-statistics-container .statistics-container .statistics-content > li {
+    list-style: none;
+}
+
+.admin-statistics-container .statistics-container .statistic-title {
+    font-family: Merriweather-Titulos;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 4px;
+    color: var(--border-color);
+    padding-bottom: 10px;
+}
+
+.admin-statistics-container .statistics-container .statistic-value {
+    padding-left: 35px;
 }
