@@ -38,8 +38,9 @@
                 $_SESSION["USER_AUTH"] = [
                     "user_id" => $cuenta["user_id"],
                     "name" => $cuenta["name"],
-                    "name-parts" => explode(" ", $cuenta["name"]),
+                    "name_parts" => explode(" ", $cuenta["name"]),
                     "email" => $cuenta["email"],
+                    "user_pw" => $cuenta["password"],
                     "admin" => $cuenta["admin"]
                 ];
                 header("Location: http://localhost/nintaisquare/home/");

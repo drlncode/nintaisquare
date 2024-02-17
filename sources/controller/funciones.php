@@ -16,6 +16,18 @@
         }
     }
 
+    function noadmin() {
+        if ($_SESSION["USER_AUTH"]["admin"] === false) {
+            header("Location: ../../../");
+            return;
+        } else {
+            if (!isset($_SESSION["USER_AUTH"]["admin_confirm"])) {
+                header("Location: validation.php");
+                return;
+            }
+        }
+    }
+
     //Bienvenida
     function greats() {
         date_default_timezone_set("America/Santo_Domingo");
