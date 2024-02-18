@@ -2,6 +2,7 @@
     session_start();
     require_once("../sources/controller/pdo.php");
     require_once("../sources/controller/funciones.php");
+    noset();
     $user = new user;
 
     if (is_object($user)) {
@@ -46,9 +47,40 @@
 </head>
 <body>
     <?= require_once("../sources/templates/header/header-login.php"); ?>
-    <div class="user-container">
-
+    <div class="profile-user-container">
+        <div class="profile-user-container-title">
+            <h1 class="title"><?= $user -> own_profile() ? "Mi perfil" : "Perfil"?></h1>
+        </div>
+        <div class="profile-user-content">
+            <div class="profile-user-pic">
+                <img src="../sources/assets/img/user-icon.svg" alt="User-icon">
+            </div>
+            <div class="profile-user-data">
+                <h4 class="profile-user-name"><?= $user_data["name"]; ?></h4>
+                <div class="profile-user-details">
+                    <p class="details-text">Tiendas registradas: <!-- En proceso... --></p>
+                </div>
+            </div>
+            <?php
+                if ($user_data["admin"] == 1) { ?>
+                    <div class="user-rol"><p class="admin-text">Administrador</p></div>
+                <?php } else { ?>
+                    <div class="user-rol"><p class="user-text">Usuario</p></div>
+                <?php }
+            ?>
+            <?php
+                if ($user -> own_profile()) { ?>
+                    <div class="profile-user-action">
+                        <div class="link"><a href="settings.php"><i class="fa-solid fa-gear"></i>Ajustes</a></div>
+                    </div>
+                <?php }
+            ?>
+        </div>
+        <div class="user-stores-content">
+            <h3 class="h3-title"><?= $user -> own_profile() ? "Mis tiendas" : "Tiendas"?></h3>
+            <!-- En proceso... -->
+        </div>
     </div>
-    <?= require_once("../sources/templates/footer/footer.php");?>
+    <?php require_once("../sources/templates/footer/footer.php");?>
 </body>
 </html>

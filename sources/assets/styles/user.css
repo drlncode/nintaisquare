@@ -1,0 +1,91 @@
+.profile-user-container {
+    height: auto;
+    min-height: 75vh;
+    margin-top: 25vh;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color);
+}
+
+.profile-user-container-title {
+    font-family: Merriweather-Titulos;
+    margin: 0px 0px 25px 0px;
+    padding: 5px 0px;
+    border-bottom: 1px solid var(--border-color-clear);
+}
+
+.profile-user-content {
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+    border-bottom: 1px solid var(--border-color-clear);
+    padding-bottom: 20px;
+}
+
+.profile-user-content .profile-user-pic img {
+    width: 125px;
+}
+
+.profile-user-content .profile-user-data {
+    min-width: 210px;
+    font-family: Nunito-Sistema;
+    padding: 8px;
+}
+
+.profile-user-content .profile-user-data .profile-user-details {
+    padding: 10px 0px 0px 0px;
+}
+
+.profile-user-content .user-rol {
+    font-family: Nunito-Sistema;
+}
+
+.profile-user-content .user-rol .admin-text {
+    padding: 10px;
+    background: var(--border-color);
+    color: var(--background-color);
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+
+.profile-user-content .user-rol .user-text {
+    padding: 10px;
+    background: var(--background-color);
+    color: var(--border-color);
+    border-radius: 3px;
+    font-size: 0.8em;
+    border: 1px solid var(--border-color);
+}
+
+.profile-user-content .profile-user-action {
+    font-family: Nunito-Sistema;
+    font-size: 0.8em;
+}
+
+.profile-user-content .profile-user-action .link a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: var(--background-color);
+    padding: 9.5px;
+    background-color: var(--border-color);
+    border-radius: 3px;
+    border: 1px solid var(--border-color);
+}
+
+.profile-user-content .profile-user-action .link a:hover {
+    background-color: var(--background-color);
+    color: var(--border-color);
+    transition: ease-in-out 0.2s;
+}
+
+.profile-user-container .user-stores-content {
+    padding: 10px 4px;
+    font-family: Merriweather-Titulos;
+    font-size: 1.1em;
+}

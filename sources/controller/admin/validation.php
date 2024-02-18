@@ -1,6 +1,7 @@
 <?php
     session_start();
     require_once("../funciones.php");
+    noset();
     $admin = new admin_validation; // Linea 19 funciones.php
     $admin -> noadmin();
     $admin -> admin_confirmed();
