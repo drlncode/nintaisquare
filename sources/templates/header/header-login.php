@@ -8,7 +8,7 @@
             <div class="user">
                 <i class="fa-solid fa-circle-user"></i><i class="fa-solid fa-angle-down"></i>
                 <ul class="user-options">
-                    <li class="sistema user-link"><a href="http://localhost/nintaisquare/user/profile.php"><i class="fa-solid fa-user"></i> Mi perfil</a></li>
+                    <li class="sistema user-link"><a href="http://localhost/nintaisquare/user/profile.php?user_id=<?= $_SESSION['USER_AUTH']['user_id'] ?>"><i class="fa-solid fa-user"></i> Mi perfil</a></li>
                     <li class="sistema user-link"><a href="http://localhost/nintaisquare/user/mystores.php"><i class="fa-solid fa-shop"></i> Mis tiendas</a></li>
                     <li class="sistema user-link"><a href="http://localhost/nintaisquare/user/settings.php"><i class="fa-solid fa-gear"></i> Ajustes</a></li>
                     <li class="sistema user-link"><a href="http://localhost/nintaisquare/user/logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar sesión</a></li>

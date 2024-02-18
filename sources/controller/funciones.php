@@ -1,7 +1,7 @@
 <?php
     require_once("pdo.php");
 
-    //No login
+    //No login.
     function noset() {
         if (!isset($_SESSION["USER_AUTH"])) {
             header("Location:");
@@ -9,6 +9,7 @@
         }
     }
 
+    //login.
     function set() {
         if (isset($_SESSION["USER_AUTH"])) {
             header("Location: home/");
@@ -16,6 +17,7 @@
         }
     }
 
+    //Validaciones de administrador.
     class admin_validation {
         public function noadmin() {
             if ($_SESSION["USER_AUTH"]["admin"] === false) {
@@ -39,7 +41,18 @@
         }
     }
 
-    //Bienvenida
+    //Funciones y validaciones para el usuario.
+    class user {
+        public function own_profile() {
+            if ($_GET["user_id"] == $_SESSION["USER_AUTH"]["user_id"]) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    //Función para el saludo del home.
     function greats() {
         date_default_timezone_set("America/Santo_Domingo");
         $fecha = getdate();
