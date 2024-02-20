@@ -5,7 +5,7 @@
     if (isset($_POST["email-l"]) && isset($_POST["password-l"])) {
         if (empty($_POST["email-l"]) || empty($_POST["password-l"])) {
             $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Rellene todos los campos.</span>";
-            header("Location: http://localhost/nintaisquare/user/signin.php");
+            header("Location: https://nintaisquare.com/user/signin.php");
             return;
         } else {
             $sql = "SELECT COUNT(*) conteo FROM users WHERE email = :em AND password = :pw;";
@@ -18,7 +18,7 @@
 
             if ($existe["conteo"] < 1) {
                 $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Correo o contraseña incorrectos.</span>";
-                header("Location: http://localhost/nintaisquare/user/signin.php");
+                header("Location: https://nintaisquare.com/user/signin.php");
                 return;
             } else {
                 $sql = "SELECT * FROM users WHERE email = :em AND password = :pw;";
@@ -43,7 +43,7 @@
                     "user_pw" => $cuenta["password"],
                     "admin" => $cuenta["admin"]
                 ];
-                header("Location: http://localhost/nintaisquare/home/");
+                header("Location: https://nintaisquare.com/home/");
                 return;
             }
         }
@@ -72,7 +72,7 @@
         </div>
         <div class="form-container-2">
             <div class="form-header">
-                <a href="http://localhost/nintaisquare/"><img src="../sources/assets/img/logo.png" alt="NintaiSquare" title="NintaiSquare"></a>
+                <a href="https://nintaisquare.com/"><img src="../sources/assets/img/logo.png" alt="NintaiSquare" title="NintaiSquare"></a>
             </div>
             <form method="post" class="form-content">
                 <?php
@@ -88,11 +88,11 @@
                     Contraseña:<input type="password" name="password-l" id="password" placeholder="Ingrese su contraseña">
                 </label>
                 <div class="lost-password">
-                    <p class="lost-p"><a href="http://localhost/nintaisquare/user/lost-pw.php" class="link"><i class="fa-regular fa-circle-question"></i>Olvidó su contraseña?</a> | No tienes cuenta? <a href="http://localhost/nintaisquare/user/signup.php" class="link"><i class="fa-solid fa-right-to-bracket"></i>Regístrate</a></p>
+                    <p class="lost-p"><a href="https://nintaisquare.com/user/lost-pw.php" class="link"><i class="fa-regular fa-circle-question"></i>Olvidó su contraseña?</a> | No tienes cuenta? <a href="http://localhost/nintaisquare/user/signup.php" class="link"><i class="fa-solid fa-right-to-bracket"></i>Regístrate</a></p>
                 </div>
                 <div class="form-footer">
                     <button type="submit" class="boton">Entrar</button>
-                    <a href="http://localhost/nintaisquare/" class="boton-link">Cancelar</a>
+                    <a href="https://nintaisquare.com/" class="boton-link">Cancelar</a>
                 </div>
             </form>
         </div>

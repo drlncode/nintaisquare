@@ -8,7 +8,7 @@
 
     if (isset($_GET["salir"])) {
         unset($_SESSION["USER_AUTH"]["admin_confirm"]);
-        header("Location: http://localhost/nintaisquare/");
+        header("Location: https://nintaisquare.com/");
         return;
     }
 ?>

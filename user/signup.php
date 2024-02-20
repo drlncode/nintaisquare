@@ -5,15 +5,15 @@
     if (isset($_POST["name-r"]) && isset($_POST["email-r"]) && isset($_POST["password-r"])) {
         if (empty($_POST["name-r"]) || empty($_POST["email-r"]) || empty($_POST["password-r"])) {
             $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Rellene todos los campos.</span>";
-            header("Location: http://localhost/nintaisquare/user/signup.php");
+            header("Location: https://nintaisquare.com/user/signup.php");
             return;
         } elseif (is_numeric($_POST["name-r"])) {
             $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese un nombre válido.</span>";
-            header("Location: http://localhost/nintaisquare/user/signup.php");
+            header("Location: https://nintaisquare.com/user/signup.php");
             return;
         } elseif (!filter_var($_POST["email-r"], FILTER_VALIDATE_EMAIL)) {
             $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese un correo válido.</span>";
-            header("Location: http://localhost/nintaisquare/user/signup.php");
+            header("Location: https://nintaisquare.com/user/signup.php");
             return;
         } else {
             $sql = "INSERT INTO users(name, email, password, admin) VALUES (:nm, :em, :pw, :ad);";
@@ -25,7 +25,7 @@
                 ':ad' => 0
             ));
             $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>Registro exitoso!</span>";
-            header("Location: http://localhost/nintaisquare/user/signin.php");
+            header("Location: https://nintaisquare.com/user/signin.php");
             return;
         }
     }
@@ -53,7 +53,7 @@
         </div>
         <div class="form-container-2">
             <div class="form-header">
-                <a href="http://localhost/nintaisquare/"><img src="http://localhost/nintaisquare/sources/assets/img/logo.png" alt="NintaiSquare" title="NintaiSquare"></a>
+                <a href="https://nintaisquare.com"><img src="../sources/assets/img/logo.png" alt="NintaiSquare" title="NintaiSquare"></a>
             </div>
             <form method="post" class="form-content">
                 <?php
@@ -72,11 +72,11 @@
                     Contraseña:<input type="password" name="password-r" id="password" placeholder="Ingrese su contraseña">
                 </label>
                 <div class="lost-password">
-                    <p class="lost-p">Ya tienes una cuenta? <a href="http://localhost/nintaisquare/user/signin.php" class="link"><i class="fa-solid fa-right-to-bracket"></i>Iniciar sesión</a></p>
+                    <p class="lost-p">Ya tienes una cuenta? <a href="https://nintaisquare.com/user/signin.php" class="link"><i class="fa-solid fa-right-to-bracket"></i>Iniciar sesión</a></p>
                 </div>
                 <div class="form-footer">
                     <button type="submit" class="boton">Entrar</button>
-                    <a href="http://localhost/nintaisquare/" class="boton-link">Cancelar</a>
+                    <a href="https://nintaisquare.com/" class="boton-link">Cancelar</a>
                 </div>
             </form>
         </div>

@@ -10,10 +10,10 @@
         </div>
         <div class="links-button">
             <div class="link-button button-1">
-                <a href="http://localhost/nintaisquare/explore/" class="button">Explorar <i class="fa-solid fa-arrow-right-long"></i></a>
+                <a href="https://nintaisquare.com/explore/" class="button">Explorar <i class="fa-solid fa-arrow-right-long"></i></a>
             </div>
             <div class="link-button button-2">
-                <a href="http://localhost/nintaisquare/create/" class="button">Registrar mi tienda <i class="fa-solid fa-arrow-right-long"></i></a>
+                <a href="https://nintaisquare.com/create/" class="button">Registrar mi tienda <i class="fa-solid fa-arrow-right-long"></i></a>
             </div>
         </div>
     </div>

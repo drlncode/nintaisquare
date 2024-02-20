@@ -24,7 +24,6 @@
             <div class="content-links">
                 <a href="">Como usar</a>
                 <a href="">Funciones especiales</a>
-                <a href=""></a>
             </div>
         </div>
         <div class="ic content-3">

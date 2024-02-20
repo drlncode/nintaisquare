@@ -71,7 +71,7 @@
             <?php
                 if ($user -> own_profile()) { ?>
                     <div class="profile-user-action">
-                        <div class="link"><a href="settings.php"><i class="fa-solid fa-gear"></i>Ajustes</a></div>
+                        <div class="link"><a href="https://nintaisquare.com/user/settings.php"><i class="fa-solid fa-gear"></i>Ajustes</a></div>
                     </div>
                 <?php }
             ?>

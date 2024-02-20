@@ -53,7 +53,7 @@
             </label>
             <div class="botones">
                 <button type="submit">Confirmar</button>
-                <a href="http://localhost/nintaisquare/" class="link-boton">Cancelar</a>
+                <a href="https://nintaisquare.com/" class="link-boton">Cancelar</a>
             </div>
         </form>
     </div>

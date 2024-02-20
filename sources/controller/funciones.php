@@ -4,7 +4,7 @@
     //No login.
     function noset() {
         if (!isset($_SESSION["USER_AUTH"])) {
-            header("Location: http://localhost/nintaisquare/");
+            header("Location: https://nintaisquare.com/");
             return;
         }
     }
@@ -12,7 +12,7 @@
     //login.
     function set() {
         if (isset($_SESSION["USER_AUTH"])) {
-            header("Location: home/");
+            header("Location: https://nintaisquare.com/home/");
             return;
         }
     }
@@ -21,7 +21,7 @@
     class admin_validation {
         public function noadmin() {
             if ($_SESSION["USER_AUTH"]["admin"] === false) {
-                header("Location: http://localhost/nintaisquare/");
+                header("Location: https://nintaisquare.com/");
                 return;
             }
         }
