@@ -154,17 +154,20 @@
     color: var(--text-color);
 }
 
+.container-content {
+    background-color: var(--background-color);
+}
+
 .content {
     display: flex;
     flex-direction: column;
-    padding-top: 25vh;
+    padding-top: 15vh;
     width: 90%;
     margin: 0 auto;
     justify-content: space-evenly;
     align-items: center;
     font-family: Nunito-Sistema;
-    min-height: 75vh;
-    background-color: var(--background-color);
+    min-height: 90vh;
 }
 
 .content .content-h2 {
