@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: var(--background-color);
 }
 
 .container {
@@ -164,11 +163,29 @@
     justify-content: space-evenly;
     align-items: center;
     font-family: Nunito-Sistema;
+    min-height: 75vh;
+    background-color: var(--background-color);
 }
 
 .content .content-h2 {
     font-family: Merriweather-Titulos;
     padding: 10px;
+}
+
+.content .container-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.content .container-options .option-content {
+    width: 35%;
+}
+
+.content .container-options .option-content .option {
+    text-decoration: none;
+    width: 100%;
 }
 
 .footer-container {
