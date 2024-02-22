@@ -1,7 +1,7 @@
 <?php
     session_start();
-    //require_once("../sources/controller/funciones.php");
-    //require_once("../sources/controller/pdo.php");
+    require_once("../sources/controller/funciones.php");
+    require_once("../sources/controller/pdo.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
