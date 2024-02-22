@@ -158,6 +158,7 @@
     display: flex;
     flex-direction: column;
     padding-top: 25vh;
+    background-color: var(--background-color);
 }
 
 .footer-container {

@@ -22,17 +22,19 @@
             if (!isset($_GET["action"])) { ?>
                 <div class="content">
                     <div class="content-title">
-                        <h2>Que quieres crear?</h2>
+                        <h2>Que quieres hacer?</h2>
                     </div>
                     <div class="container-options">
-                        <div class="content-option-store">
+                        <div class="option-content option-store">
                             <a href="index.php?action=store" class="option">
-
+                                <h3 class="option-title"><i class="fa-solid fa-pen-to-square"></i>Registrar tienda.</h3>
+                                <p class="option-caption">Aqui podrás registrar tu tienda, agregarle una descripción y los datos que le servirán a los usuarios para localizar tu tienda y sus productos.</p>
                             </a>
                         </div>
-                        <div class="content-option-product">
+                        <div class="option-content option-product">
                             <a href="index.php?action=product" class="option">
-
+                                <h3 class="option-title"><i class="fa-solid fa-pen-to-square"></i>Registrar producto.</h3>
+                                <p class="option-caption">Aqui podrás registrarle productos a tus tiendas registradas, agregarle una descripción y los datos que le servirán a los usuarios para localizar tu tienda y adquirirlos.</p>
                             </a>
                         </div>
                     </div>
