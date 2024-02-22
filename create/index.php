@@ -1,7 +1,7 @@
 <?php
     session_start();
-    require_once("../sources/controller/funciones.php");
-    require_once("../sources/controller/pdo.php");
+    //require_once("../sources/controller/funciones.php");
+    //require_once("../sources/controller/pdo.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -23,7 +23,7 @@
                 <div class="container-content">
                     <div class="content">
                         <div class="content-h2">
-                            <h2>Que quieres hacer?</h2>
+                            <h2>Qué quieres hacer?</h2>
                         </div>
                         <div class="container-options">
                             <div class="option-content option-store">

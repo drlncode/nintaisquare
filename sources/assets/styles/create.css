@@ -162,10 +162,9 @@
 .content {
     display: flex;
     flex-direction: column;
-    padding-top: 10vh;
+    padding-top: 25vh;
     width: 90%;
     margin: 0 auto;
-    justify-content: space-evenly;
     font-family: Nunito-Sistema;
     height: auto;
     min-height: 100vh;
@@ -174,21 +173,50 @@
 .content .content-h2 {
     font-family: Merriweather-Titulos;
     padding: 10px;
+    color: var(--text-color);
+    margin: 10px auto 65px auto;
 }
 
 .content .container-options {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 35px;
 }
 
 .content .container-options .option-content {
-    width: 35%;
+    width: 30%;
+    height: 23vh;
+    border-radius: 5px;
+    box-shadow: 2px 1px 3px 2px rgba(20, 20, 20, 0.17);
+}
+
+.content .container-options .option-content:hover {
+    box-shadow: 2px 1px 3px 3px rgba(20, 20, 20, 0.27);
+    transition: ease-in-out 0.4s;
 }
 
 .content .container-options .option-content .option {
     text-decoration: none;
+    padding: 5px;
     width: 100%;
+    height: 100%;
+    color: var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content .container-options .option-content .option .option-title {
+    font-size: 1.3em;
+    padding: 10px 0px 10px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.content .container-options .option-content .option .option-caption {
+    text-align: center;
 }
 
 .footer-container {
