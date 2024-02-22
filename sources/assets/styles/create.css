@@ -154,8 +154,9 @@
     color: var(--text-color);
 }
 
-.container-content {
+.container-content:has(.content){
     background-color: var(--background-color);
+    width: 100%;
 }
 
 .content {
@@ -165,7 +166,6 @@
     width: 90%;
     margin: 0 auto;
     justify-content: space-evenly;
-    align-items: center;
     font-family: Nunito-Sistema;
     height: auto;
     min-height: 100vh;
@@ -179,7 +179,6 @@
 .content .container-options {
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: 10px;
 }
 
