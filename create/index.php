@@ -24,15 +24,17 @@
                     <div class="content-title">
                         <h2>Que quieres crear?</h2>
                     </div>
-                    <div class="content-option-store">
-                        <a href="index.php?action=store" class="option">
+                    <div class="container-options">
+                        <div class="content-option-store">
+                            <a href="index.php?action=store" class="option">
 
-                        </a>
-                    </div>
-                    <div class="content-option-product">
-                        <a href="index.php?action=product" class="option">
+                            </a>
+                        </div>
+                        <div class="content-option-product">
+                            <a href="index.php?action=product" class="option">
 
-                        </a>
+                            </a>
+                        </div>
                     </div>
                 </div>
             <?php } elseif (isset($_GET["action"]) && $_GET["action"] == "store") {

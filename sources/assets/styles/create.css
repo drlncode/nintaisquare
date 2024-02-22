@@ -154,7 +154,11 @@
     color: var(--text-color);
 }
 
-
+.content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 25vh;
+}
 
 .footer-container {
     display: flex;
