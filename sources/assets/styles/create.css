@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-container {
+    width: 100%;
+    background-color: var(--background-color);
+    border-bottom: 0.5px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
+
+.header-content-1 {
+    width: 85%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content-1 .space {
+    width: 42px;
+}
+
+.header-content-1 .logo img {
+    width: 200px;
+}
+
+.user-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: var(--border-color);
+}
+
+.user-container:hover {
+    cursor: pointer;
+}
+
+.user-container .user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.user-container .user .fa-circle-user {
+    font-size: 1.5em;
+    position: relative;
+}
+
+.user-container .user .fa-angle-down {
+    font-size: 0.9em;
+    margin-top: 4px;
+}
+
+.user-container .user .user-options {
+    list-style: none;
+    display: none;
+    position: absolute;
+}
+
+.user-container .user .user-options a {
+    color: var(--border-color);
+    text-decoration: none;
+    font-family: Nunito-Sistema;
+}
+
+.user-container .user .user-options .fa-solid {
+    font-size: unset;
+}
+
+.user-container .user .user-options .line {
+    width: 100%;
+    height: 1px;
+    background-color: var(--text-color);
+}
+
+.user-container:hover .user .user-options {
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    width: 150px;
+    padding: 10px 15px;
+    gap: 10px;
+    margin-top: 210px;
+    margin-right: 105px;
+    border: 1.5px solid rgba(10, 10, 10, 0.2); ;
+    border-radius: 3px;
+    box-shadow: 2px 2px 4px 0px rgba(20, 20, 20, 0.3);
+    height: 183px;
+}
+
+.user-container .user .user-options li:hover {
+    text-decoration: underline;
+}
+
+.header-content-2 {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--text-color);
+}
+
+.header-content-2 .sistema {
+    font-family: Nunito-Sistema;
+}
+
+.header-content-2 .sistema a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.header-content-2 .links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-content-2 .links .nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 10px;
+}
+
+.nav-container li {
+    padding: 13px;
+}
+
+.nav-container li:hover a {
+    text-decoration: underline;
+    transition: ease 2s;
+}
+
+.search a {
+    padding: 13px;
+    color: var(--text-color);
+}
+
+
+
+.footer-container {
+    display: flex;
+    width: 100%;
+    height: 50vh;
+    flex-direction: column;
+    background-color: var(--text-color);
+    color: var(--background-color);
+    font-size: 1.1em;
+    font-family: Nunito-Sistema;
+}
+
+.footer-container .socials-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+}
+
+.footer-container .socials-content .fa-brands {
+    margin-top: 4px;
+    color: var(--background-color);
+}
+
+.footer-container .infos-content {
+    display: flex;
+    padding-left: 100px;
+}
+
+.footer-container .infos-content .ic {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-container .infos-content .content-title {
+    margin: 10px 0;
+}
+
+.footer-container .infos-content .ic a {
+    display: block;
+    text-decoration: none;
+    color: var(--border-color);
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.footer-container .infos-content .ic a:hover {
+    color: var(--border-color-clear);
+    transition: all 0.2s ease-in-out;
+}
+
+.copy-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    color: var(--border-color);
+}
+
+.copy-content .content-1 {
+    font-size: 0.7em;
+}
+
+.copy-content .content-1 .fa-regular {
+    font-size: 0.8em;
+}
