@@ -21,7 +21,7 @@
 
             if (!isset($_GET["action"])) { ?>
                 <div class="content">
-                    <div class="content-title">
+                    <div class="content-h2">
                         <h2>Que quieres hacer?</h2>
                     </div>
                     <div class="container-options">
