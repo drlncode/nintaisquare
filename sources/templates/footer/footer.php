@@ -2,8 +2,8 @@
     <div class="socials-content">
         <p class="sistema socials-icons">Encuéntranos en:</p>
         <a href="https://github.com/Darlin-code/nintaisquare" title="Github - NintaiSquare"><i class="fa-brands fa-github"></i></a>
-        <a href=""><i class="fa-brands fa-instagram" title="Instagram - NintaiSquare"></i></a>
-        <a href=""><i class="fa-brands fa-twitter" title="Twitter - NintaiSquare"></i></a>
+        <a href="https://www.instagram.com/nintaisquare/"><i class="fa-brands fa-instagram" title="Instagram - NintaiSquare"></i></a>
+        <a href="https://twitter.com/NintaiSquare"><i class="fa-brands fa-twitter" title="Twitter - NintaiSquare"></i></a>
     </div>
     <div class="infos-content">
         <div class="ic content-1">
