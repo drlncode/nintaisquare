@@ -28,13 +28,13 @@
                         <div class="container-options">
                             <div class="option-content option-store">
                                 <a href="index.php?action=stores" class="option">
-                                    <h3 class="option-title"><i class="fa-solid fa-globe"></i></i>Ver tiendas.</h3>
+                                    <h3 class="option-title"><i class="fa-solid fa-eye"></i></i></i>Ver tiendas.</h3>
                                     <p class="option-caption">Aqui podrás descubrir las diferentes tiendas ordenadas por orden de creación o categoría junto a sus productos.</p>
                                 </a>
                             </div>
                             <div class="option-content option-product">
                                 <a href="index.php?action=products" class="option">
-                                    <h3 class="option-title"><i class="fa-solid fa-globe"></i></i>Ver productos.</h3>
+                                    <h3 class="option-title"><i class="fa-solid fa-eye"></i></i></i>Ver productos.</h3>
                                     <p class="option-caption">Aqui podrás descubrir los productos que te ofrecen las diferentes tiendas ordenados por categoría.</p>
                                 </a>
                             </div>
