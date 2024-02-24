@@ -23,7 +23,7 @@
     </div>
     <div class="header-content-2">
         <div class="links">
-            <ul class="nav-container">
+            <ul class="nav-container"> <!-- Encabezado modificado; D: Tiendas, Productos. A: Inicio. -->
                 <li class="sistema nav-link"><a href="https://nintaisquare.com/home/">Inicio</a></li>
                 <li class="sistema nav-link"><a href="https://nintaisquare.com/explore/">Explorar</a></li>
                 <li class="sistema nav-link"><a href="https://nintaisquare.com/create/">Crear</a></li>
