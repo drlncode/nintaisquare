@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear | NintaiSquare</title>
+    <title>Explorar | NintaiSquare</title>
     <link rel="stylesheet" href="../sources/assets/styles/explore.css">
     <link rel="stylesheet" href="../sources/assets/styles/root.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
@@ -28,13 +28,13 @@
                         <div class="container-options">
                             <div class="option-content option-store">
                                 <a href="index.php?action=stores" class="option">
-                                    <h3 class="option-title"><i class="fa-solid fa-pen-to-square"></i>Ver tiendas.</h3>
+                                    <h3 class="option-title"><i class="fa-solid fa-globe"></i></i>Ver tiendas.</h3>
                                     <p class="option-caption">Aqui podrás descubrir las diferentes tiendas ordenadas por orden de creación o categoría junto a sus productos.</p>
                                 </a>
                             </div>
                             <div class="option-content option-product">
                                 <a href="index.php?action=products" class="option">
-                                    <h3 class="option-title"><i class="fa-solid fa-pen-to-square"></i>Ver productos.</h3>
+                                    <h3 class="option-title"><i class="fa-solid fa-globe"></i></i>Ver productos.</h3>
                                     <p class="option-caption">Aqui podrás descubrir los productos que te ofrecen las diferentes tiendas ordenados por categoría.</p>
                                 </a>
                             </div>
