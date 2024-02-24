@@ -222,6 +222,7 @@
 .footer-container {
     display: flex;
     width: 100%;
+    height: auto;
     height: 50vh;
     flex-direction: column;
     background-color: var(--text-color);
