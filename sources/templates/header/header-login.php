@@ -24,10 +24,9 @@
     <div class="header-content-2">
         <div class="links">
             <ul class="nav-container">
+                <li class="sistema nav-link"><a href="https://nintaisquare.com/home/">Inicio</a></li>
                 <li class="sistema nav-link"><a href="https://nintaisquare.com/explore/">Explorar</a></li>
                 <li class="sistema nav-link"><a href="https://nintaisquare.com/create/">Crear</a></li>
-                <li class="sistema nav-link"><a href="https://nintaisquare.com/store/">Tiendas</a></li>
-                <li class="sistema nav-link"><a href="https://nintaisquare.com/products/">Productos</a></li>
             </ul>
         </div>
         <div class="search">
