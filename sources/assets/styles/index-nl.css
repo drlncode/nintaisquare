@@ -155,7 +155,7 @@ body::-webkit-scrollbar-thumb {
     flex-direction: column;
 }
 
-.footer-container {
+.footer-container { /*Bug arreglado: espacio en blanco en pantallas de 1366x768 o menos.*/
     display: flex;
     width: 100%;
     height: auto;
