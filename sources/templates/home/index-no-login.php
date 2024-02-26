@@ -2,7 +2,8 @@
     <div class="landing-content div-content-1">
         <div class="content-text">
             <div class="text-content">
-                <h1 class="title-landing">Te ayudamos a impulsar tu negocio de forma rápida, sencilla y <span class="text-black">gratis</span>.</h1>
+                <h1 class="main-title title-landing">NintaiSquare</h1>
+                <h2 class="title-landing">Te ayudamos a impulsar tu negocio de forma rápida, sencilla y <span class="text-black">gratis</span>.</h2>
                 <p class="text-landing">Crear un negocio desde cero y darle publicidad puede ser algo tedioso, por eso estamos aqui, para ayudarte a hacer crecer tu negocio sin muchas complicaciones de por medio.</p>
             </div>
             <div class="link-button">
