@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="../../../assets/styles/create.css">
+<link rel="stylesheet" href="../../../assets/styles/root.css">
 <div class="body-container">
     <div class="body-content">
         <h2 class="body-title">Registrar tienda.</h2>
@@ -6,6 +8,7 @@
             <label for="store-name">
                 Nombre de la tienda o negocio<input type="text" name="store-name" id="store-name">
             </label>
+            <label for="categoria">Categoria de la tienda</label>
             <select name="categoria" id="categoria">
                 <option value="">Opciones</option>
                 <hr>
@@ -32,13 +35,15 @@
                 Email de la tienda<input type="email" name="s-email" id="s-email">
             </label>
             <div>
-                <label for="">Redes Sociales de la tienda:</label>
-                <i class="fa-brands fa-instagram"></i><input type="text" name="instagram">
-                <i class="fa-brands fa-twitter"></i><input type="text" name="twitter">
-                <i class="fa-brands fa-facebook"></i><input type="text" name="facebook">
+                <label for="">Redes Sociales de la tienda (@):</label>
+                <i class="fa-brands fa-instagram"></i><input type="text" name="instagram" placeholder="@">
+                <i class="fa-brands fa-twitter"></i><input type="text" name="twitter" placeholder="@">
+                <i class="fa-brands fa-facebook"></i><input type="text" name="facebook" placeholder="URL">
             </div>
-            <button type="submit">Registrar</button>
-            <a href="">Cancelar</a>
+            <div class="actions">
+                <button type="submit">Registrar</button>
+                <a href="https://nintaisquare.com/create/">Cancelar</a>
+            </div>
         </form>
     </div>
 </div>
