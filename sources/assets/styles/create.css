@@ -219,6 +219,40 @@
     text-align: center;
 }
 
+.body-container {
+    background-color: var(--background-color);
+    width: 100%;
+    height: auto;
+    min-height: 75vh;
+}
+
+.body-container .body-content {
+    margin-top: 25vh auto;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.body-container .body-content .body-title {
+    font-family: Merriweather-Titulos;
+    text-align: center;
+}
+
+
+.body-container .body-content .form-container {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    font-family: Nunito-Sistema;
+    margin: 0 auto;
+}
+
+.body-container .body-content .form-container input {
+    width: 100%;
+    padding: 7px;
+
+}
+
 .footer-container {
     display: flex;
     width: 100%;
