@@ -29,16 +29,22 @@
                 Dirección de la tienda<input type="text" name="direcc" id="direcc">
             </label>
             <label for="tel">
-                Telefono de la tienda<input type="number" name="tel" id="tel">
+                Telefono de la tienda<input type="number" name="tel" id="tel" max="12">
             </label>
             <label for="s-email">
                 Email de la tienda<input type="email" name="s-email" id="s-email">
             </label>
-            <div>
-                <label for="">Redes Sociales de la tienda (@):</label>
-                <i class="fa-brands fa-instagram"></i><input type="text" name="instagram" placeholder="@">
-                <i class="fa-brands fa-twitter"></i><input type="text" name="twitter" placeholder="@">
-                <i class="fa-brands fa-facebook"></i><input type="text" name="facebook" placeholder="URL">
+            <div class="input-icon-container">
+                <label for="">Redes Sociales de la tienda (Opcional):</label>
+                <div class="input-icon">
+                    <input type="url" name="instagram" placeholder="URL Instagram"><i class="fa-brands fa-instagram"></i>
+                </div>
+                <div class="input-icon">
+                    <input type="url" name="twitter" placeholder="URL Twitter"><i class="fa-brands fa-twitter"></i>
+                </div>
+                <div class="input-icon">
+                    <input type="url" name="facebook" placeholder="URL Facebook"><i class="fa-brands fa-facebook"></i>
+                </div>
             </div>
             <div class="actions">
                 <button type="submit">Registrar</button>
