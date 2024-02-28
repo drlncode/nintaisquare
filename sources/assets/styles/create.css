@@ -219,25 +219,46 @@
     text-align: center;
 }
 
+body {
+    background-color: var(--background-color);
+}
+
+body::-webkit-scrollbar {
+    width: 13px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--border-color-clear);
+    border-radius: 10px;
+    border: 3px solid var(--background-color);
+}
+
 .body-container {
     background-color: var(--background-color);
     width: 100%;
-    height: auto;
-    min-height: 75vh;
 }
 
 .body-container .body-content {
-    margin-top: 25vh auto;
+    padding-top: 27vh;
+    min-height: 75vh;
     display: flex;
     flex-direction: column;
     width: 90%;
+    margin: 0 auto;
 }
 
 .body-container .body-content .body-title {
     font-family: Merriweather-Titulos;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 35px;
 }
 
+.body-container .body-content .body-title i {
+    padding-bottom: 3.5px;
+}
 
 .body-container .body-content .form-container {
     width: 40%;
@@ -249,8 +270,43 @@
 
 .body-container .body-content .form-container input {
     width: 100%;
-    padding: 7px;
+    padding: 8px;
+    margin: 5px 0px 20px 0px;
+    border: 0px;
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+}
 
+.body-container .body-content .form-container select {
+    padding: 8px;
+    margin: 5px 0px 20px 0px;
+    color: var(--border-color);
+    border-radius: 3px;
+}
+
+.body-container .body-content .form-container input[type="file"] {
+    padding: 0;
+    border: unset;
+}
+
+.body-container .body-content .form-container input[type="file"]::-webkit-file-upload-button {
+    color: var(--border-color);
+    padding: 7.5px;
+    background-color: #fff;
+    border: 0px;
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+}
+
+.body-container .body-content .form-container input[type="file"]::-webkit-file-upload-button:hover {
+    color: var(--background-color);
+    background-color: var(--border-color);
+    transition: ease-in-out 0.2s all;
+    cursor: pointer;
+}
+
+.body-container .body-content .form-container input[type="url"] {
+    margin: unset;
 }
 
 .footer-container {

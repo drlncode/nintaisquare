@@ -3,47 +3,46 @@
 <link rel="stylesheet" href="../../../assets/styles/root.css">
 <div class="body-container">
     <div class="body-content">
-        <h2 class="body-title">Registrar tienda.</h2>
+        <h2 class="body-title"><i class="fa-solid fa-pen-to-square"></i>Regístrar tienda.</h2>
         <form action="" method="post" class="form-container">
             <label for="store-name">
-                Nombre de la tienda o negocio<input type="text" name="store-name" id="store-name">
+                Nombre de la tienda o negocio<input type="text" name="store-name" id="store-name" placeholder="Nombre de la tienda...">
             </label>
             <label for="categoria">Categoria de la tienda</label>
             <select name="categoria" id="categoria">
-                <option value="">Opciones</option>
+                <option value="">Seleccione</option>
                 <hr>
-                <option value="electronica">Electrónica</option>
+                <option value="electronica">Tecnología</option>
                 <option value="salud">Salud</option>
                 <option value="entretenimiento">Entretenimiento</option>
-                <option value="comidas">Comidas</option>
-                <option value="ropas">Ropas</option>
-                <option value="Otros">Otros</option>
+                <option value="comidas">Comida</option>
+                <option value="ropas">Vestimenta</option>
             </select>
             <label for="desc">
-                Descripción de la tienda<input type="text" name="desc" id="desc">
+                Descripción de la tienda<input type="text" name="desc" id="desc" placeholder="Descripción breve de la tienda...">
             </label>
             <label for="logo">
-                Logo de la tienda<input type="file" name="logo" id="logo">
+                Logo de la tienda (Menos de 2MB)<input type="file" name="logo" id="logo">
             </label>
             <label for="direcc">
-                Dirección de la tienda<input type="text" name="direcc" id="direcc">
+                Dirección de la tienda<input type="text" name="direcc" id="direcc" placeholder="Dirección actual de la tienda...">
             </label>
             <label for="tel">
-                Telefono de la tienda<input type="number" name="tel" id="tel" max="12">
+                Telefono de la tienda<input type="number" name="tel" id="tel" max="12" placeholder="Teléfono de la tienda...">
             </label>
             <label for="s-email">
-                Email de la tienda<input type="email" name="s-email" id="s-email">
+                Email de la tienda (Opcional)<input type="email" name="s-email" id="s-email" placeholder="Correo de la tienda...">
             </label>
             <div class="input-icon-container">
-                <label for="">Redes Sociales de la tienda (Opcional):</label>
+                <label for="">Redes Sociales de la tienda (Opcional)</label>
                 <div class="input-icon">
-                    <input type="url" name="instagram" placeholder="URL Instagram"><i class="fa-brands fa-instagram"></i>
+                    <input class="ig urls-inputs" type="url" name="instagram" placeholder="URL Instagram"><i class="fa-brands fa-instagram"></i>
                 </div>
                 <div class="input-icon">
-                    <input type="url" name="twitter" placeholder="URL Twitter"><i class="fa-brands fa-twitter"></i>
+                    <input class="tw urls-inputs" type="url" name="twitter" placeholder="URL Twitter"><i class="fa-brands fa-twitter"></i>
                 </div>
                 <div class="input-icon">
-                    <input type="url" name="facebook" placeholder="URL Facebook"><i class="fa-brands fa-facebook"></i>
+                    <input class="fc urls-inputs" type="url" name="facebook" placeholder="URL Facebook"><i class="fa-brands fa-facebook"></i>
                 </div>
             </div>
             <div class="actions">
