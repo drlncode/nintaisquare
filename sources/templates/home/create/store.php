@@ -6,7 +6,8 @@
                 Nombre de la tienda o negocio<input type="text" name="store-name" id="store-name">
             </label>
             <select name="categoria" id="categoria">
-                <option value="">-- Elija una opción --</option>
+                <option value="">Opciones</option>
+                <hr>
                 <option value="elec">Electrónica</option>
                 <option value="sal">Salud</option>
                 <option value="entret"></option>
