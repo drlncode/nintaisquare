@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <div class="body-container">
     <div class="body-content">
         <h2 class="body-title">Registrar tienda.</h2>
@@ -15,26 +16,26 @@
                 <option value="ropas">Ropas</option>
                 <option value="Otros">Otros</option>
             </select>
-            <label for="">
-                Descripción de la tienda<input type="text" name="Desc" id="Desc">
+            <label for="desc">
+                Descripción de la tienda<input type="text" name="desc" id="desc">
             </label>
-            <label for="">
+            <label for="logo">
                 Logo de la tienda<input type="file" name="logo" id="logo">
             </label>
-            <label for="">
+            <label for="direcc">
                 Dirección de la tienda<input type="text" name="direcc" id="direcc">
             </label>
-            <label for="">
+            <label for="tel">
                 Telefono de la tienda<input type="number" name="tel" id="tel">
             </label>
-            <label for="">
+            <label for="s-email">
                 Email de la tienda<input type="email" name="s-email" id="s-email">
             </label>
             <div>
                 <label for="">Redes Sociales de la tienda:</label>
-                <input type="text" name="instagram">
-                <input type="text" name="twitter">
-                <input type="text" name="facebook">
+                <i class="fa-brands fa-instagram"></i><input type="text" name="instagram">
+                <i class="fa-brands fa-twitter"></i><input type="text" name="twitter">
+                <i class="fa-brands fa-facebook"></i><input type="text" name="facebook">
             </div>
             <button type="submit">Registrar</button>
             <a href="">Cancelar</a>
