@@ -2,11 +2,11 @@
     <div class="body-content">
         <h2 class="body-title"><i class="fa-solid fa-pen-to-square"></i>Regístrar tienda.</h2>
         <form action="" method="post" class="form-container">
-            <label for="store-name">
-                Nombre de la tienda<input type="text" name="store-name" id="store-name" placeholder="Nombre de la tienda...">
+            <label for="t-name">
+                Nombre de la tienda<input type="text" name="t-name" id="t-name" placeholder="Nombre de la tienda...">
             </label>
-            <label for="categoria">Categoria de la tienda</label>
-            <select name="categoria" id="categoria">
+            <label for="t-categoria">Categoria de la tienda</label>
+            <select name="t-categoria" id="t-categoria">
                 <option value="">Seleccione</option>
                 <hr>
                 <option value="electronica">Tecnología</option>
@@ -15,31 +15,31 @@
                 <option value="comidas">Comida</option>
                 <option value="ropas">Vestimenta</option>
             </select>
-            <label for="desc">
-                Descripción de la tienda<input type="text" name="desc" id="desc" placeholder="Descripción breve de la tienda...">
+            <label for="t-desc">
+                Descripción de la tienda<input type="text" name="t-desc" id="t-desc" placeholder="Descripción breve de la tienda...">
             </label>
-            <label for="logo">
-                Logo de la tienda (Menos de 2MB)<input type="file" name="logo" id="logo">
+            <label for="t-logo">
+                Logo de la tienda (Menos de 2MB)<input type="file" name="t-logo" id="t-logo">
             </label>
-            <label for="direcc">
-                Dirección de la tienda<input type="text" name="direcc" id="direcc" placeholder="Dirección actual de la tienda...">
+            <label for="t-direcc">
+                Dirección de la tienda<input type="text" name="t-direcc" id="t-direcc" placeholder="Dirección actual de la tienda...">
             </label>
-            <label for="tel">
-                Telefono de la tienda<input type="number" name="tel" id="tel" max="12" placeholder="Teléfono de la tienda...">
+            <label for="t-tel">
+                Telefono de la tienda<input type="number" name="t-tel" id="t-tel" max="12" placeholder="Teléfono de la tienda...">
             </label>
-            <label for="s-email">
-                Correo de la tienda (Opcional)<input type="email" name="s-email" id="s-email" placeholder="Correo de la tienda...">
+            <label for="t-email">
+                Correo de la tienda (Opcional)<input type="email" name="t-email" id="t-email" placeholder="Correo de la tienda...">
             </label>
             <div class="input-icon-container">
-                <label for="">Redes Sociales de la tienda (Opcional)</label>
+                <label for="t-instagram">Redes Sociales de la tienda (Opcional)</label>
                 <div class="input-icon">
-                    <input class="ig urls-inputs" type="url" name="instagram" placeholder="URL Instagram"><i class="fa-brands fa-instagram"></i>
+                    <input class="ig urls-inputs" type="url" name="t-instagram" id="t-instagram" placeholder="URL Instagram"><i class="fa-brands fa-instagram"></i>
                 </div>
                 <div class="input-icon">
-                    <input class="tw urls-inputs" type="url" name="twitter" placeholder="URL Twitter"><i class="fa-brands fa-x-twitter"></i>
+                    <input class="tw urls-inputs" type="url" name="t-twitter" placeholder="URL Twitter"><i class="fa-brands fa-x-twitter"></i>
                 </div>
                 <div class="input-icon">
-                    <input class="fc urls-inputs" type="url" name="facebook" placeholder="URL Facebook"><i class="fa-brands fa-facebook"></i>
+                    <input class="fc urls-inputs" type="url" name="t-facebook" placeholder="URL Facebook"><i class="fa-brands fa-facebook"></i>
                 </div>
             </div>
             <div class="actions">
