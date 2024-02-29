@@ -18,6 +18,7 @@
     justify-content: center;
     align-items: center;
     position: fixed;
+    z-index: 2;
 }
 
 .header-content-1 {
@@ -296,6 +297,7 @@ body::-webkit-scrollbar-thumb {
     border: 0px;
     border: 1px solid var(--border-color);
     border-radius: 2px;
+    width: 70%;
 }
 
 .body-container .body-content .form-container input[type="file"]::-webkit-file-upload-button:hover {
@@ -307,6 +309,77 @@ body::-webkit-scrollbar-thumb {
 
 .body-container .body-content .form-container input[type="url"] {
     margin: unset;
+    color: var(--border-color);
+}
+
+.body-container .body-content .form-container .input-icon {
+    position: relative;
+    margin-top: 10px;
+}
+
+.body-container .body-content .form-container .input-icon .urls-inputs {
+    padding-left: 30px;
+}
+
+.body-container .body-content .form-container .input-icon i {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 32px;
+    color: var(--border-color);
+}
+
+.actions {
+    margin-top: 40px;
+    margin-bottom: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.actions button {
+    font-family: Nunito-Sistema;
+    width: 100%;
+    padding: 10px;
+    border: unset;
+    background-color: var(--border-color);
+    color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 2.5px;
+    font-size: 0.9em;
+}
+
+.actions button:hover {
+    background-color: var(--background-color);
+    color: var(--border-color);
+    transition: ease-in-out 0.2s all;
+    cursor: pointer;
+}
+
+.actions a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 0.9em;
+    background-color: var(--border-color);
+    border: 1px solid var(--border-color);
+    color: var(--background-color);
+    border-radius: 2.5px;
+}
+
+.actions a:hover {
+    background-color: var(--background-color);
+    color: var(--border-color);
+    transition: ease-in-out 0.2s all;
 }
 
 .footer-container {
