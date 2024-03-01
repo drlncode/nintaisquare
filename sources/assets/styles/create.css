@@ -9,6 +9,52 @@
     flex-direction: column;
 }
 
+.container .mensaje-error {
+    font-family: Nunito-Sistema;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 5px;
+    background-color: var(--background-color);
+    padding: 10px;
+    border-radius: 5px;
+    top: 150px;
+    right: 20px;
+    position: absolute;
+    color: rgb(204, 73, 73);
+    border: 1px solid rgb(204, 73, 73);
+}
+
+.container .mensaje-error:hover {
+    background-color: rgb(204, 73, 73);
+    color: var(--background-color);
+    transition: all 0.5s ease;
+    cursor: default;
+}
+
+.container .mensaje-success {
+    font-family: Nunito-Sistema;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 5px;
+    background-color: var(--background-color);
+    padding: 10px;
+    border-radius: 5px;
+    top: 150px;
+    right: 20px;
+    position: absolute;
+    color: rgb(77, 235, 71);
+    border: 1px solid rgb(77, 235, 71);
+}
+
+.container .mensaje-success:hover {
+    background-color: rgb(77, 235, 71);
+    color: var(--background-color);
+    transition: all 0.5s ease;
+    cursor: default;
+}
+
 .header-container {
     width: 100%;
     background-color: var(--background-color);
@@ -282,6 +328,17 @@ body::-webkit-scrollbar-thumb {
     padding: 8px;
     margin: 5px 0px 20px 0px;
     color: var(--border-color);
+    border-radius: 3px;
+}
+
+.body-container .body-content .form-container textarea {
+    width: 100%;
+    resize: none;
+    font-family: Nunito-Sistema;
+    padding: 5px;
+    margin-top: 4px;
+    border: none;
+    border: 1px solid var(--border-color);
     border-radius: 3px;
 }
 

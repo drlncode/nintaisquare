@@ -1,7 +1,7 @@
 <div class="body-container">
     <div class="body-content">
         <h2 class="body-title"><i class="fa-solid fa-pen-to-square"></i>Regístrar tienda.</h2>
-        <form action="" method="post" class="form-container">
+        <form action="" method="post" class="form-container" enctype="multipart/form-data">
             <label for="t-name">
                 Nombre de la tienda<input type="text" name="t-name" id="t-name" placeholder="Nombre de la tienda...">
             </label>
@@ -16,16 +16,16 @@
                 <option value="ropas">Vestimenta</option>
             </select>
             <label for="t-desc">
-                Descripción de la tienda<input type="text" name="t-desc" id="t-desc" placeholder="Descripción breve de la tienda...">
+                Descripción de la tienda<textarea name="t-desc" id="t-desc" rows="5"></textarea>
             </label>
             <label for="t-logo">
-                Logo de la tienda (Menos de 2MB)<input type="file" name="t-logo" id="t-logo">
+                Logo de la tienda (Menos de 2MB)<input type="file" name="t-logo" id="t-logo" accept="image/*">
             </label>
             <label for="t-direcc">
                 Dirección de la tienda<input type="text" name="t-direcc" id="t-direcc" placeholder="Dirección actual de la tienda...">
             </label>
             <label for="t-tel">
-                Telefono de la tienda<input type="number" name="t-tel" id="t-tel" max="12" placeholder="Teléfono de la tienda...">
+                Telefono de la tienda<input type="number" name="t-tel" id="t-tel" min="10" placeholder="Teléfono de la tienda...">
             </label>
             <label for="t-email">
                 Correo de la tienda (Opcional)<input type="email" name="t-email" id="t-email" placeholder="Correo de la tienda...">

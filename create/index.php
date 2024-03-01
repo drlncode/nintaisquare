@@ -2,6 +2,18 @@
     session_start();
     require_once("../sources/controller/funciones.php");
     require_once("../sources/controller/pdo.php");
+
+    //$_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>Registro enviado!, en espera de aprobación.</span>";
+
+    if (isset($_POST["t-name"]) && isset($_POST["t-categoria"]) && isset($_POST["t-desc"]) && isset($_POST["t-direcc"]) && isset($_POST["t-tel"])) {
+        if (empty($_POST["t-name"]) || empty($_POST["t-categoria"]) || empty($_POST["t-desc"]) || empty($_POST["t-direcc"]) || empty($_POST["t-tel"])) {
+            $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Rellene los campos no opcionales.</span>";
+            header("Location: index.php?action=store");
+            return;
+        } elseif (0) {
+
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -17,6 +29,11 @@
 <body>
     <div class="container">
         <?php
+            if (isset($_SESSION["msg"])) {
+                echo($_SESSION["msg"]);
+                unset($_SESSION["msg"]);
+            }
+
             require_once("../sources/templates/header/header-login.php");
 
             if (!isset($_GET["action"])) { ?>
