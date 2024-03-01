@@ -9,11 +9,14 @@
             <select name="t-categoria" id="t-categoria">
                 <option value="">Seleccione</option>
                 <hr>
-                <option value="electronica">Tecnología</option>
-                <option value="salud">Salud</option>
                 <option value="entretenimiento">Entretenimiento</option>
                 <option value="comidas">Comida</option>
-                <option value="ropas">Vestimenta</option>
+                <option value="salud">Salud</option>
+                <option value="ropas">Ropas</option>
+                <option value="electronica">Tecnología</option>
+                <option value="c-basica">Canasta básica</option>
+                <option value="mecanica">Mecánica</option>
+                <option value="s-generales">Ventas generales</option>
             </select>
             <label for="t-desc">
                 Descripción de la tienda<textarea name="t-desc" id="t-desc" rows="5"></textarea>
