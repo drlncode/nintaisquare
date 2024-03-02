@@ -19,10 +19,10 @@
                 <option value="s-generales">Ventas generales</option>
             </select>
             <label for="t-desc">
-                Descripción de la tienda<textarea name="t-desc" id="t-desc" rows="5"></textarea>
+                Descripción de la tienda (Max: 256 carácteres.)<textarea name="t-desc" id="t-desc" rows="5" placeholder="Descripción llamativa de la tienda..."></textarea>
             </label>
             <label for="t-logo">
-                Logo de la tienda (Menos de 2MB)<input type="file" name="t-logo" id="t-logo" accept="image/*">
+                Logo de la tienda (Max: 2MB / Formato: .png, .jpg, .jpeg)<input type="file" name="t-logo" id="t-logo" accept=".png, .jpg, .jpeg">
             </label>
             <label for="t-direcc">
                 Dirección de la tienda<input type="text" name="t-direcc" id="t-direcc" placeholder="Dirección actual de la tienda...">

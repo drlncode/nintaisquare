@@ -17,7 +17,7 @@
                 Imagen del producto (Menos de 2MB)<input type="file" name="p-logo" id="p-logo">
             </label>
             <label for="p-desc">
-                Descripción del producto<textarea name="p-desc" id="p-desc" rows="5"></textarea>
+                Descripción del producto<textarea name="p-desc" id="p-desc" rows="5" placeholder="Descripción llamativa del producto..."></textarea>
             </label>
             <div class="actions">
                 <button type="submit">Registrar</button>

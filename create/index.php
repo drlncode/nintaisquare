@@ -3,15 +3,39 @@
     require_once("../sources/controller/funciones.php");
     require_once("../sources/controller/pdo.php");
 
-    //$_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>Registro enviado!, en espera de aprobación.</span>";
-
     if (isset($_POST["t-name"]) && isset($_POST["t-categoria"]) && isset($_POST["t-desc"]) && isset($_POST["t-direcc"]) && isset($_POST["t-tel"])) {
         if (empty($_POST["t-name"]) || empty($_POST["t-categoria"]) || empty($_POST["t-desc"]) || empty($_POST["t-direcc"]) || empty($_POST["t-tel"])) {
             $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Rellene los campos no opcionales.</span>";
             header("Location: index.php?action=store");
             return;
-        } elseif (0) {
-
+        } elseif (strlen($_POST["t-desc"]) > 256) {
+            $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Descripción muy larga, Max: 256 carácteres.</span>";
+            header("Location: index.php?action=store");
+            return;
+        } elseif (!is_numeric($_POST["t-tel"])) {
+            $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Formato del número de teléfono incorrecto.</span>";
+            header("Location: index.php?action=store");
+            return;
+        } elseif ($_FILES["t-logo"]["size"] == 0) {
+            $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese una imagen.</span>";
+            header("Location: index.php?action=store");
+            return;
+        } else {
+            if ($_FILES["t-logo"]["size"] / 1024 > 2000) {
+                $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>La imagen sobrepasa el limite de 2MB.</span>";
+                header("Location: index.php?action=store");
+                return;
+            } elseif ($_FILES["t-logo"]["type"] !== "image/png" && "image/jpg" && "image/jpeg") {
+                $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>El formato de la imagen no es el esperado.</span>";
+                header("Location: index.php?action=store");
+                return;
+            } else {
+                $query = "INSERT INTO pen_stores () VALUES ()";
+                    
+                $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>¡Registro enviado! En espera de aprobación.</span>";
+                header("Location: index.php?action=store");
+                return;
+            }
         }
     }
 ?>
