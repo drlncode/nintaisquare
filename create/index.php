@@ -55,10 +55,91 @@
     }
 
     if (isset($_POST["p-name"])) {
+        if (empty($_POST["p-name"]) || empty($_POST["p-tienda"]) || empty($_POST["p-desc"])) {
+            $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Rellene todos los campos.</span>";
+            header("Location: index.php?action=product");
+            return;
+        } elseif ($_FILES["p-logo"]["size"] == 0) {
+            $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese una imagen.</span>";
+            header("Location: index.php?action=product");
+            return;
+        } elseif ($_FILES["p-logo"]["size"] / 1024 > 2048) {
+            $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>La imagen sobrepasa el limite de 2MB.</span>";
+            header("Location: index.php?action=product");
+            return;
+        } elseif ($_FILES["p-logo"]["type"] !== "image/png" && $_FILES["p-logo"]["type"] !== "image/jpg" && $_FILES["p-logo"]["type"] !== "image/jpeg") {
+            $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>El formato de la imagen no es el esperado.</span>";
+            header("Location: index.php?action=product");
+            return;
+        } elseif (strlen($_POST["p-desc"]) > 256) {
+            $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Descripción muy larga, Max: 256 carácteres.</span>";
+            header("Location: index.php?action=product");
+            return;
+        } elseif (!empty($_POST["p-price"]) && !is_numeric($_POST["p-price"])) {
+            $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Formato del precio incorrecto.</span>";
+            header("Location: index.php?action=product");
+            return;
+        } else {
+            if (isset($_POST["p-free"])) {
+                if (!empty($_POST["p-price"]) && $_POST["p-free"] == "on") {
+                    $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>El producto no puede tener precio y ser gratis.</span>";
+                    header("Location: index.php?action=product");
+                    return;
+                } else {
+                    //Obteniendo categoria de la tienda para el producto.
+                    $store_id = $_POST["p-tienda"];
+                    $query = "SELECT store_category FROM val_stores WHERE store_id = :sid";
+                    $s_category = $pdo -> prepare($query);
+                    $s_category -> execute(array(
+                        ':sid' => $store_id
+                    ));
+                    $category_get = $s_category -> fetch(PDO::FETCH_ASSOC);
 
+                    //Introduciendo los datos del producto.
+                    $query = "INSERT INTO pen_products (store_id, product_name, product_category, product_price, product_img, product_desc) VALUES (:sid, :pn, :pc, :pp, :pi, :pd)";
+                    $insert = $pdo -> prepare($query);
+                    $insert -> execute(array(
+                        ':sid' => $store_id,
+                        ':pn' => htmlentities($_POST["p-name"]),
+                        ':pc' => $category_get["store_category"],
+                        ':pp' => "free",
+                        ':pi' => base64_encode(file_get_contents($_FILES["p-logo"]["tmp_name"])),
+                        ':pd' => htmlentities($_POST["p-desc"])
+                    ));
+                    $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>¡Registro enviado! En espera de aprobación.</span>";
+                    header("Location: https://nintaisquare.com/create/");
+                    return;
+                }
+            } else {
+                //Obteniendo categoria de la tienda para el producto.
+                $store_id = $_POST["p-tienda"];
+                $query = "SELECT store_category FROM val_stores WHERE store_id = :sid";
+                $s_category = $pdo -> prepare($query);
+                $s_category -> execute(array(
+                    ':sid' => $store_id
+                ));
+                $category_get = $s_category -> fetch(PDO::FETCH_ASSOC);
+
+                //Introduciendo los datos del producto.
+                $query = "INSERT INTO pen_products (store_id, product_name, product_category, product_price, product_img, product_desc) VALUES (:sid, :pn, :pc, :pp, :pi, :pd)";
+                $insert = $pdo -> prepare($query);
+                $insert -> execute(array(
+                    ':sid' => $store_id,
+                    ':pn' => htmlentities($_POST["p-name"]),
+                    ':pc' => $category_get["store_category"],
+                    ':pp' => htmlentities($_POST["p-price"]),
+                    ':pi' => base64_encode(file_get_contents($_FILES["p-logo"]["tmp_name"])),
+                    ':pd' => htmlentities($_POST["p-desc"])
+                ));
+                $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>¡Registro enviado! En espera de aprobación.</span>";
+                header("Location: https://nintaisquare.com/create/");
+                return;
+            }
+        }
     }
 
-    $query = "SELECT count(*) t_cantidad FROM pen_stores WHERE user_id = :id;";
+    //Obteniendo la cantidad de tiendas del usuario.
+    $query = "SELECT count(*) t_cantidad FROM val_stores WHERE user_id = :id;";
     $extract = $pdo -> prepare($query);
     $extract -> execute(array(
         ':id' => $_SESSION["USER_AUTH"]["user_id"]
@@ -71,8 +152,9 @@
         $nTiendas = false;
     }
 
+    //Si tiene tiendas, se obtienen los datos.
     if ($nTiendas) {
-        $query = "SELECT store_id, store_name FROM pen_stores WHERE user_id = :id";
+        $query = "SELECT store_id, store_name FROM val_stores WHERE user_id = :id";
         $extract = $pdo -> prepare($query);
         $extract -> execute(array(
             ':id' => $_SESSION["USER_AUTH"]["user_id"]
@@ -128,7 +210,7 @@
                 <div class="body-container">
                     <div class="body-content">
                         <h2 class="body-title"><i class="fa-solid fa-pen-to-square"></i>Regístrar producto.</h2>
-                        <form action="" method="post" class="form-container">
+                        <form action="" method="post" class="form-container" enctype="multipart/form-data">
                             <label for="p-name">
                                 Nombre del producto<input type="text" name="p-name" id="p-name" placeholder="Nombre del producto...">
                             </label>
@@ -153,7 +235,7 @@
                                 </div>
                             </div>
                             <label for="p-logo">
-                                Imagen del producto (Max: 2MB / Formato: .png, .jpg)<input type="file" name="p-logo" id="p-logo">
+                                Imagen del producto (Max: 2MB / Formato: .png, .jpg)<input type="file" name="p-logo" id="p-logo" accept=".png, .jpg, .jpeg">
                             </label>
                             <label for="p-desc">
                                 Descripción del producto (Max: 256 carácteres.)<textarea name="p-desc" id="p-desc" rows="5" placeholder="Descripción llamativa del producto..."></textarea>
