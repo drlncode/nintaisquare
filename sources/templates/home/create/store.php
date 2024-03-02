@@ -13,7 +13,7 @@
                 <option value="comidas">Comida</option>
                 <option value="salud">Salud</option>
                 <option value="ropas">Ropas</option>
-                <option value="electronica">Tecnología</option>
+                <option value="tecnologia">Tecnología</option>
                 <option value="c-basica">Canasta básica</option>
                 <option value="mecanica">Mecánica</option>
                 <option value="s-generales">Ventas generales</option>

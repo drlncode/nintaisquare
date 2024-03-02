@@ -395,6 +395,61 @@ body::-webkit-scrollbar-thumb {
     color: var(--border-color);
 }
 
+.price-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    margin-top: -5px;
+}
+
+.price-container .label {
+    padding: 5px 0px;
+}
+
+.price-container .price-content {
+    display: flex;
+    justify-content: start;
+    gap: 15px;
+}
+
+.price-container .price-content .p-price {
+    width: auto;
+    min-width: 30%;
+}
+
+.price-container .price-content .p-price input[type="number"] {
+    margin: unset;
+    width: 100%;
+}
+
+.price-container .price-content .divisor {
+    border-left: 1px solid var(--border-color); 
+    height: 30px; width: 1px;
+    margin: auto 0;
+}
+
+.price-container .price-content .p-free {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.price-container .price-content .p-free label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.price-container .price-content .p-free input[type="checkbox"] {
+    padding: unset;
+    margin: unset;
+}
+
+.price-container .price-content .p-free input[type="checkbox"]:checked {
+    outline: 1px solid var(--border-color);
+}
+
 .actions {
     margin-top: 40px;
     margin-bottom: 60px;
