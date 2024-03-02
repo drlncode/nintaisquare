@@ -26,7 +26,7 @@
                 $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>La imagen sobrepasa el limite de 2MB.</span>";
                 header("Location: index.php?action=store");
                 return;
-            } elseif ($_FILES["t-logo"]["type"] !== "image/png" && "image/jpg" && "image/jpeg") {
+            } elseif ($_FILES["t-logo"]["type"] !== "image/png" && $_FILES["t-logo"]["type"] !== "image/jpg" && $_FILES["t-logo"]["type"] !== "image/jpeg") {
                 $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>El formato de la imagen no es el esperado.</span>";
                 header("Location: index.php?action=store");
                 return;
