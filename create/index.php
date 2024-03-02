@@ -2,8 +2,9 @@
     session_start();
     require_once("../sources/controller/funciones.php");
     require_once("../sources/controller/pdo.php");
+    noset();
 
-    if (isset($_POST["t-name"]) && isset($_POST["t-categoria"]) && isset($_POST["t-desc"]) && isset($_POST["t-direcc"]) && isset($_POST["t-tel"])) {
+    if (isset($_POST["t-name"])) {
         if (empty($_POST["t-name"]) || empty($_POST["t-categoria"]) || empty($_POST["t-desc"]) || empty($_POST["t-direcc"]) || empty($_POST["t-tel"])) {
             $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Rellene los campos no opcionales.</span>";
             header("Location: index.php?action=store");
@@ -21,7 +22,7 @@
             header("Location: index.php?action=store");
             return;
         } else {
-            if ($_FILES["t-logo"]["size"] / 1024 > 2000) {
+            if ($_FILES["t-logo"]["size"] / 1024 > 2048) {
                 $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>La imagen sobrepasa el limite de 2MB.</span>";
                 header("Location: index.php?action=store");
                 return;
@@ -30,10 +31,24 @@
                 header("Location: index.php?action=store");
                 return;
             } else {
-                $query = "INSERT INTO pen_stores () VALUES ()";
+                $query = "INSERT INTO pen_stores (user_id, store_name, store_category, store_desc, store_img, store_address, store_tel, store_email, store_social_ig, store_social_tw, store_social_fc) VALUES (:uid, :sn, :sc, :sd, :si, :sa, :st, :se, :ssi, :sst, :ssf)";
+                $insert = $pdo -> prepare($query);
+                $insert -> execute(array(
+                    ':uid' => $_SESSION["USER_AUTH"]["user_id"],
+                    ':sn' => htmlentities($_POST["t-name"]),
+                    ':sc' => $_POST["t-categoria"],
+                    ':sd' => htmlentities($_POST["t-desc"]),
+                    ':si' => base64_encode(file_get_contents($_FILES["t-logo"]["tmp_name"])),
+                    ':sa' => htmlentities($_POST["t-direcc"]),
+                    ':st' => htmlentities($_POST["t-tel"]),
+                    ':se' => htmlentities($_POST["t-email"]),
+                    ':ssi' => htmlentities($_POST["t-instagram"]),
+                    ':sst' => htmlentities($_POST["t-twitter"]),
+                    ':ssf' => htmlentities($_POST["t-facebook"])
+                ));
                     
                 $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>¡Registro enviado! En espera de aprobación.</span>";
-                header("Location: index.php?action=store");
+                header("Location: https://nintaisquare.com/create/");
                 return;
             }
         }
