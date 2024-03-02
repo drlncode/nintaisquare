@@ -53,6 +53,31 @@
             }
         }
     }
+
+    if (isset($_POST["p-name"])) {
+
+    }
+
+    $query = "SELECT count(*) t_cantidad FROM pen_stores WHERE user_id = :id;";
+    $extract = $pdo -> prepare($query);
+    $extract -> execute(array(
+        ':id' => $_SESSION["USER_AUTH"]["user_id"]
+    ));
+    $tiendas = $extract -> fetch(PDO::FETCH_ASSOC);
+
+    if ($tiendas["t_cantidad"] >= 1) {
+        $nTiendas = true;
+    } else {
+        $nTiendas = false;
+    }
+
+    if ($nTiendas) {
+        $query = "SELECT store_id, store_name FROM pen_stores WHERE user_id = :id";
+        $extract = $pdo -> prepare($query);
+        $extract -> execute(array(
+            ':id' => $_SESSION["USER_AUTH"]["user_id"]
+        ));
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -99,9 +124,48 @@
                 </div>
             <?php } elseif (isset($_GET["action"]) && $_GET["action"] == "store") {
                 require_once("../sources/templates/home/create/store.php");
-            } elseif (isset($_GET["action"]) && $_GET["action"] == "product") {
-                require_once("../sources/templates/home/create/product.php");
-            } else {
+            } elseif (isset($_GET["action"]) && $_GET["action"] == "product") { ?>
+                <div class="body-container">
+                    <div class="body-content">
+                        <h2 class="body-title"><i class="fa-solid fa-pen-to-square"></i>Regístrar producto.</h2>
+                        <form action="" method="post" class="form-container">
+                            <label for="p-name">
+                                Nombre del producto<input type="text" name="p-name" id="p-name" placeholder="Nombre del producto...">
+                            </label>
+                            <label for="p-tienda">Seleccinar la tienda</label>
+                            <select name="p-tienda" id="p-tienda">
+                                <option value="">Seleccione</option>
+                                <hr>
+                                <?php
+                                    if (isset($extract)) {
+                                        while ($tiendas = $extract -> fetch(PDO::FETCH_ASSOC)) { ?>
+                                            <option value="<?= $tiendas['store_id'] ?>"><?= $tiendas["store_name"] ?></option>
+                                        <?php }
+                                    }
+                                ?>
+                            </select>
+                            <div class="price-container">
+                                <div class="label"><label for="">Precio del producto</label></div>
+                                <div class="price-content">
+                                    <div class="p-price"><input type="number" name="p-price" id="p-price" placeholder="Especificar precio..."></div>
+                                    <div class="divisor"></div>
+                                    <div class="p-free"><label for="p-free"><input type="checkbox" name="p-free" id="p-free">Gratis</label></div>
+                                </div>
+                            </div>
+                            <label for="p-logo">
+                                Imagen del producto (Max: 2MB / Formato: .png, .jpg)<input type="file" name="p-logo" id="p-logo">
+                            </label>
+                            <label for="p-desc">
+                                Descripción del producto (Max: 256 carácteres.)<textarea name="p-desc" id="p-desc" rows="5" placeholder="Descripción llamativa del producto..."></textarea>
+                            </label>
+                            <div class="actions">
+                                <button type="submit">Registrar</button>
+                                <a href="https://nintaisquare.com/create/">Cancelar</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            <?php } else {
                 header("Location: https://nintaisquare.com/");
                 return; 
             }
