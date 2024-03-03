@@ -17,6 +17,9 @@
     justify-content: center;
     height: 10vh;
     font-family: Nunito-Sistema;
+    position: fixed;
+    background-color: var(--background-color);
+    z-index: 2;
 }
 
 .admin-header-container .admin-header-content {
@@ -48,7 +51,7 @@
 }
 
 .admin-header-container .admin-header-content .content-out {
-    margin: 0px 10px 0px 75px;
+    margin: 0px 10px 0px 120px;
 }
 
 .admin-header-container .admin-header-content .content-out a {
@@ -116,4 +119,122 @@
     color: var(--background-color);
     transition: all 0.5s ease;
     cursor: default;
+}
+
+.container .panel-container {
+    width: 90%;
+    height: auto;
+    min-height: 80vh;
+    background-color: var(--background-color);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    margin-top: 15vh;
+}
+
+.container .panel-container .title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.container .panel-container .title-container .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-family: Merriweather-Titulos;
+    color: var(--border-color);
+}
+
+.container .panel-container .title-container .title svg {
+    fill: var(--border-color);
+    padding-bottom: 1.9px;
+    width: 25px;
+}
+
+.container .panel-container .general-option {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.container .panel-container .general-option .option-title .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-family: Merriweather-Titulos;
+    border-top: 1px solid var(--border-color);
+    padding: 20px;
+}
+
+.container .panel-container .general-option .option-title .title i {
+    padding-bottom: 2px;
+}
+
+.container .panel-container .general-option .container-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.container .panel-container .general-option .container-options  a {
+    text-decoration: none;
+    color: var(--border-color);
+    position: relative;
+}
+
+.container .panel-container .general-option .container-options .option {
+    min-width: 250px;
+    min-height: 200px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 2px 1px 3px 2px rgba(20, 20, 20, 0.17);
+    font-family: Nunito-Sistema;
+}
+
+.container .panel-container .general-option .container-options .option:hover {
+    box-shadow: 2px 1px 3px 3px rgba(20, 20, 20, 0.27);
+    transition: ease-in-out 0.4s;
+}
+
+.container .panel-container .general-option .container-options .option .info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.container .panel-container .general-option .container-options .option .info i {
+    padding-bottom: 2px;
+}
+
+.container .panel-container .general-option .container-options .option-notify {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 22px;
+    min-height: 22px;
+    background-color: rgb(204, 73, 73);
+    border-radius: 50%;
+    box-shadow: 2px 1px 3px 2px rgba(20, 20, 20, 0.17);
+    border: 0.5px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--background-color);
+    font-family: Nunito-Sistema;
+    font-size: 0.9em;
+}
+
+.div-2-options {
+    padding-bottom: 15vh;
 }
