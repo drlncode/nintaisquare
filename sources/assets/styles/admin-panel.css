@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: column;
     background-color: var(--background-color);
+    margin-top: -18;
 }
 
 .admin-header-container {
@@ -237,4 +238,162 @@
 
 .div-2-options {
     padding-bottom: 15vh;
+}
+
+.container-stores {
+    width: 90%;
+    margin: 0 auto;
+    background-color: var(--background-color);
+    margin-top: 17vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 83vh;
+}
+
+.container-stores .title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 4.5%;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.container-stores .title-container .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-family: Merriweather-Titulos;
+    color: var(--border-color);
+
+}
+
+.container-stores .stores {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container-stores .stores .stores-captions {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-family: Nunito-Sistema;
+    border-bottom: 1px solid var(--border-color);
+    padding: 18px;
+}
+
+.container-stores .stores .stores-captions .user-caption {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+    border-right: 1px solid var(--border-color);
+}
+
+.container-stores .stores .stores-captions .store-caption {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+    border-right: 1px solid var(--border-color);
+}
+
+.container-stores .stores .stores-captions .store-actions {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+}
+
+.container-stores .store {
+    font-family: Nunito-Sistema;
+    display: flex;
+    padding: 15px;
+    box-shadow: 2px 1px 3px 2px rgba(20, 20, 20, 0.17);
+    margin: 10px 0px;
+    border-radius: 3px;
+}
+
+.container-stores .store:hover {
+    box-shadow: 2px 1px 3px 3px rgba(20, 20, 20, 0.27);
+    transition: ease-in-out 0.4s;
+}
+
+.container-stores .store .user-info {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 5vh;
+    border-right: 1px solid var(--border-color);
+}
+
+.container-stores .store .store-name {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 5vh;
+    border-right: 1px solid var(--border-color);
+}
+
+.container-stores .store .actions {
+    display: flex;
+    min-height: 5vh;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.container-stores .store .actions a {
+    text-decoration: none;
+    color: var(--background-color);
+}
+
+.container-stores .store .actions .option {
+    padding: 8px;
+    width: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+}
+
+.container-stores .store .actions .details {
+    background-color: rgb(126, 179, 209);
+    border: 1px solid rgb(126, 179, 209);
+}
+
+.container-stores .store .actions .details:hover {
+    background-color: var(--background-color);
+    color: rgb(126, 179, 209);
+    transition: ease-in-out 0.3s all;
+}
+
+.container-stores .store .actions .accept {
+    background-color: rgb(119, 230, 117);
+    border: 1px solid rgb(119, 230, 117);
+}
+
+.container-stores .store .actions .accept:hover {
+    background-color: var(--background-color);
+    color: rgb(119, 230, 117);
+    transition: ease-in-out 0.3s all;
+}
+
+.container-stores .store .actions .deny {
+    background-color: rgb(218, 100, 100);
+    border: 1px solid rgb(218, 100, 100);
+}
+
+.container-stores .store .actions .deny:hover {
+    background-color: var(--background-color);
+    color: rgb(218, 100, 100);
+    transition: ease-in-out 0.3s all;
 }

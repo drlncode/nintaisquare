@@ -1,4 +1,4 @@
-<?php
+.<?php
     session_start();
     require_once("../../funciones.php");
     noset();
@@ -10,6 +10,8 @@
         unset($_SESSION["USER_AUTH"]["admin_confirm"]);
         header("Location: https://nintaisquare.com/");
         return;
+    } elseif (isset($_GET["accept-store"])) {
+    } elseif (isset($_GET["deny-store"])) {
     }
 
     //Solicitando datos para las notificaciones (Tiendas pendientes).
@@ -70,9 +72,53 @@
         </div>
         <?php
             if (isset($_GET["on-hold-stores"])) {
-
+                if (isset($_GET["store_id"])) { ?>
+                    <div class="container-store-details"></div>
+                <?php } else { ?>
+                    <div class="container-stores">
+                        <div class="title-container">
+                            <h2 class="title"><i class="fa-solid fa-hourglass-half"></i>Tiendas en espera.</h2>
+                        </div>
+                        <div class="stores">
+                            <div class="stores-captions">
+                                <div class="user-caption">
+                                    <p>ID Usuario</p>
+                                </div>
+                                <div class="store-caption">
+                                    <p>Nombre de la tienda</p>
+                                </div>
+                                <div class="store-actions">
+                                    <p>Acciones</p>
+                                </div>
+                            </div>
+                            <!--<div class="store">
+                                <div class="user-info">
+                                    <p>1</p>
+                                </div>
+                                <div class="store-name">
+                                    <p>NintaiSquare</p>
+                                </div>
+                                <div class="actions">
+                                    <a href="index.php?on-hold-stores&store_id=">
+                                        <div class="option details"><p>Detalles</p></div>
+                                    </a>
+                                    <a href="index.php?on-hold-stores&accept-store=">
+                                        <div class="option accept"><p>Aceptar</p></div>
+                                    </a>
+                                    <a href="index.php?on-hold-stores&deny-store=">
+                                        <div class="option deny"><p>Rechazar</p></div>
+                                    </a>
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                <?php }
             } elseif (isset($_GET["on-hold-products"])) {
-
+                if (isset($_GET["product_id"])) { ?>
+                    <div class="container-product-details"></div>
+                <?php } else { ?>
+                    <div class="conatainer-products"></div>
+                <?php }
             } elseif (isset($_GET["users-list"])) {
                 
             } elseif (isset($_GET["stores-list"])) {
