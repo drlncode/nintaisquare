@@ -11,6 +11,26 @@
         header("Location: https://nintaisquare.com/");
         return;
     }
+
+    //Solicitando datos para las notificaciones (Tiendas pendientes).
+    $query = $pdo -> query("SELECT COUNT(*) hold FROM pen_stores;");
+    $pen_stores = $query -> fetch(PDO::FETCH_ASSOC);
+
+    //Solicitando datos para las notificaciones (Productos pendientes).
+    $query = $pdo -> query("SELECT COUNT(*) hold FROM pen_products;");
+    $pen_products = $query -> fetch(PDO::FETCH_ASSOC);
+
+    //Solicitando datos para las notificaciones (Lista de usuarios).
+    $query = $pdo -> query("SELECT COUNT(*) users FROM users;");
+    $users = $query -> fetch(PDO::FETCH_ASSOC);
+
+    //Solicitando datos para las notificaciones (Lista de tiendas).
+    $query = $pdo -> query("SELECT COUNT(*) val FROM val_stores;");
+    $val_stores = $query -> fetch(PDO::FETCH_ASSOC);
+
+    //Solicitando datos para las notificaciones (Lista de productos).
+    $query = $pdo -> query("SELECT COUNT(*) val FROM val_products;");
+    $val_products = $query -> fetch(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,11 +88,11 @@
                         <div class="option-title"><h3 class="title"><i class="fa-solid fa-hourglass-half"></i>Solicitides de incorporación.</h3></div>
                         <div class="container-options">
                             <a href="index.php?on-hold-stores">
-                                <div class="option-notify"><p>0</p></div>
+                                <div class="option-notify"><p><?= $pen_stores["hold"] ?></p></div>
                                 <div class="option"><p class="info"><i class="fa-solid fa-hourglass-half"></i>Tiendas en espera</p></div>
                             </a>
                             <a href="index.php?on-hold-products">
-                                <div class="option-notify"><p>0</p></div>
+                                <div class="option-notify"><p><?= $pen_products["hold"] ?></p></div>
                                 <div class="option"><p class="info"><i class="fa-solid fa-hourglass-half"></i>Productos en espera</p></div>
                             </a>
                         </div>
@@ -81,15 +101,15 @@
                         <div class="option-title"><h3 class="title"><i class="fa-solid fa-list"></i>Registro.</h3></div>
                         <div class="container-options">
                             <a href="index.php?users-list">
-                                <div class="option-notify"><p>0</p></div>
+                                <div class="option-notify"><p><?= $users["users"] ?></p></div>
                                 <div class="option"><p class="info"><i class="fa-solid fa-users"></i>Lista de usuarios</p></div>
                             </a>
                             <a href="index.php?stores-list">
-                                <div class="option-notify"><p>0</p></div>
+                                <div class="option-notify"><p><?= $val_stores["val"] ?></p></div>
                                 <div class="option"><p class="info"><i class="fa-solid fa-shop"></i>Lista de tiendas</p></div>
                             </a>
                             <a href="index.php?products-list">
-                                <div class="option-notify"><p>0</p></div>
+                                <div class="option-notify"><p><?= $val_products["val"] ?></p></div>
                                 <div class="option"><p class="info"><i class="fa-solid fa-cart-shopping"></i>Lista de productos</p></div>
                             </a>
                         </div>
