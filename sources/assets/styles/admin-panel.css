@@ -346,6 +346,11 @@ body::-webkit-scrollbar-thumb {
     border-right: 1px solid var(--border-color);
 }
 
+.container-stores .store .user-info a {
+    text-decoration: none;
+    color: rgb(126, 179, 209);
+}
+
 .container-stores .store .store-name {
     width: 25%;
     display: flex;
