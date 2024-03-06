@@ -4,6 +4,20 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: var(--background-color);
+}
+
+body::-webkit-scrollbar {
+    width: 13px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--border-color-clear);
+    border-radius: 10px;
+    border: 3px solid var(--background-color);
+}
+
 .container {
     width: 100%;
     display: flex;

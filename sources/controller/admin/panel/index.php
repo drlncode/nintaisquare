@@ -1,6 +1,7 @@
-.<?php
+<?php
     session_start();
     require_once("../../funciones.php");
+    require_once("../../pdo.php");
     noset();
     $admin = new admin_validation; //Linea 19 funciones.php
     $admin -> noadmin();
@@ -91,25 +92,30 @@
                                     <p>Acciones</p>
                                 </div>
                             </div>
-                            <!--<div class="store">
-                                <div class="user-info">
-                                    <p>1</p>
-                                </div>
-                                <div class="store-name">
-                                    <p>NintaiSquare</p>
-                                </div>
-                                <div class="actions">
-                                    <a href="index.php?on-hold-stores&store_id=">
-                                        <div class="option details"><p>Detalles</p></div>
-                                    </a>
-                                    <a href="index.php?on-hold-stores&accept-store=">
-                                        <div class="option accept"><p>Aceptar</p></div>
-                                    </a>
-                                    <a href="index.php?on-hold-stores&deny-store=">
-                                        <div class="option deny"><p>Rechazar</p></div>
-                                    </a>
-                                </div>
-                            </div>-->
+                            <?php
+                                $query = $pdo -> query("SELECT store_id, user_id, store_name FROM pen_stores;");
+                                while ($hold_store = $query -> fetch(PDO::FETCH_ASSOC)) { ?>
+                                    <div class="store">
+                                        <div class="user-info">
+                                            <p><a href="https://nintaisquare.com/user/profile.php?user_id=<?= $hold_store['user_id'] ?>" target="_blank"><?= $hold_store["user_id"] ?></a></p>
+                                        </div>
+                                        <div class="store-name">
+                                            <p><?= $hold_store["store_name"] ?></p>
+                                        </div>
+                                        <div class="actions">
+                                            <a href="index.php?on-hold-stores&store_id=<?= $hold_store['store_id'] ?>">
+                                                <div class="option details"><p>Detalles</p></div>
+                                            </a>
+                                            <a href="index.php?on-hold-stores&accept-store=<?= $hold_store['store_id'] ?>">
+                                                <div class="option accept"><p>Aceptar</p></div>
+                                            </a>
+                                            <a href="index.php?on-hold-stores&deny-store=<?= $hold_store['store_id'] ?>">
+                                                <div class="option deny"><p>Rechazar</p></div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php }
+                            ?>
                         </div>
                     </div>
                 <?php }

@@ -28,14 +28,14 @@
 
         public function admin_confirm() {
             if (!isset($_SESSION["USER_AUTH"]["admin_confirm"])) {
-                header("Location: validation.php");
+                header("Location: https://nintaisquare.com/sources/controller/admin/validation.php");
                 return;
             }
         }
 
         public function admin_confirmed() {
             if (isset($_SESSION["USER_AUTH"]["admin_confirm"])) {
-                header("Location: ../admin/");
+                header("Location: https://nintaisquare.com/sources/controller/admin/");
                 return;
             }
         }
