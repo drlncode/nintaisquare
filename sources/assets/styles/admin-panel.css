@@ -416,3 +416,103 @@ body::-webkit-scrollbar-thumb {
     color: rgb(218, 100, 100);
     transition: ease-in-out 0.3s all;
 }
+
+.container-store-details {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15vh;
+    font-family: Nunito-Sistema;
+}
+
+.container-store-details .title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.container-store-details .title-container .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-family: Merriweather-Titulos;
+}
+
+.container-store-details .title-container .title i {
+    padding-bottom: 1.5px;
+}
+
+.container-store-details .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.container-store-details .header-content .back .back-button {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding: 9px;
+    background: var(--border-color);
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    color: var(--background-color);
+}
+
+.container-store-details .header-content .back .back-button:hover {
+    background-color: var(--background-color);
+    color: var(--border-color);
+    transition: ease-in-out 0.2s all;
+}
+
+.container-store-details .header-content .back .back-button i {
+    padding-top: 3px;
+}
+
+.container-store-details .header-content .user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    gap: 4px;
+}
+
+.container-store-details .header-content .user .user-idname-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.container-store-details .header-content .user .user-idname {
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.container-store-details .header-content .user .go-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    color: unset;
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.container-store-details .header-content .user .go-profile:hover {
+    color: rgb(126, 179, 209);
+}
+
+.container-store-details .header-content .user .go-profile i {
+    padding-bottom: 1.2px;
+}

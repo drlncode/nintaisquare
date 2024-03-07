@@ -74,7 +74,76 @@
         <?php
             if (isset($_GET["on-hold-stores"])) {
                 if (isset($_GET["store_id"])) { ?>
-                    <div class="container-store-details"></div>
+                    <?php
+                        $query = "SELECT * FROM pen_stores WHERE store_id = :id";
+                        $pre = $pdo -> prepare($query);
+                        $pre -> execute(Array(
+                            ':id' => $_GET["store_id"]
+                        ));
+                        $store = $pre -> fetch(PDO::FETCH_ASSOC);
+                        
+                        if (!empty($store)) {
+                            $query = $pdo -> prepare("SELECT user_id, name FROM users WHERE user_id = :id");
+                            $query -> execute(array(
+                                ':id' => $store["user_id"]
+                            ));
+                            $user = $query -> fetch(PDO::FETCH_ASSOC);
+                        } else {
+                            header("Location: index.php?on-hold-stores");
+                            return;
+                        }
+                    ?>
+                    <div class="container-store-details">
+                        <div class="title-container">
+                            <h2 class="title"><i class="fa-regular fa-file-lines"></i>Detalles de la tienda.</h2>
+                        </div>
+                        <div class="header-content">
+                            <div class="back">
+                                <a href="index.php?on-hold-stores" class="back-button"><i class="fa-solid fa-arrow-left"></i>Volver</a>
+                            </div>
+                            <div class="user">
+                                <h3 class="user-idname-title"><i class="fa-solid fa-user"></i>Usuario</h3>
+                                <p class="user-idname">ID: <i><?= $user["user_id"] ?></i> | Nombre: <i><?= $user["name"] ?></i></p>
+                                <div class="profile">
+                                    <a href="https://nintaisquare.com/user/profile.php?user_id=<?= $user["user_id"] ?>" target="_blank" class="go-profile">Ver perfil<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="divirsors">
+                            <div class="divisor-1">
+                                <div class="data">
+                                    <p class="data-title">Nombre de la tienda:</p>
+                                    <p class="data-info"></p>
+                                </div>
+                                <div class="data">
+                                    <p class="data-title">Categoria de la tienda:</p>
+                                    <p class="data-info"></p>
+                                </div>
+                                <div class="data">
+                                    <p class="data-title">Descripción de la tienda:</p>
+                                    <p class="data-info"></p>
+                                </div>
+                                <div class="data">
+                                    <p class="data-title">Teléfono de la tienda:</p>
+                                    <p class="data-info"></p>
+                                </div>
+                                <div class="data">
+                                    <p class="data-title">Correo de la tienda:</p>
+                                    <p class="data-info"></p>
+                                </div>
+                            </div>
+                            <div class="divisor-2">
+                                <div class="data-image">
+                                    <p class="data-title">Imagen de la tienda:</p>
+                                    <img src="" alt="" class="store-img"/>
+                                </div>
+                                <div class="data">
+                                    <p class="data-title">Redes de la tienda:</p>
+                                    <p class="data-info"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 <?php } else { ?>
                     <div class="container-stores">
                         <div class="title-container">
