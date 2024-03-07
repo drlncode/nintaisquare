@@ -109,33 +109,33 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="divirsors">
+                        <div class="divisors">
                             <div class="divisor-1">
                                 <div class="data">
                                     <p class="data-title">Nombre de la tienda:</p>
-                                    <p class="data-info"></p>
+                                    <i class="data-info"><?= $store["store_name"] ?></i>
                                 </div>
                                 <div class="data">
                                     <p class="data-title">Categoria de la tienda:</p>
-                                    <p class="data-info"></p>
+                                    <i class="data-info"><?= $store["store_category"] ?></i>
                                 </div>
                                 <div class="data">
                                     <p class="data-title">Descripción de la tienda:</p>
-                                    <p class="data-info"></p>
+                                    <i class="data-info"><?= $store["store_desc"] ?></i>
                                 </div>
                                 <div class="data">
                                     <p class="data-title">Teléfono de la tienda:</p>
-                                    <p class="data-info"></p>
+                                    <i class="data-info"><?= $store["store_tel"] ?></i>
                                 </div>
                                 <div class="data">
                                     <p class="data-title">Correo de la tienda:</p>
-                                    <p class="data-info"></p>
+                                    <i class="data-info"><?= $store["store_email"] ?></i>
                                 </div>
                             </div>
                             <div class="divisor-2">
                                 <div class="data-image">
                                     <p class="data-title">Imagen de la tienda:</p>
-                                    <img src="" alt="" class="store-img"/>
+                                    <img src="data:image/png;base64,<?= $store["store_img"] ?>" alt="Imagen de <?= $store["store_name"] ?>" class="store-img" title="Imagen de <?= $store["store_name"] ?>" />
                                 </div>
                                 <div class="data">
                                     <p class="data-title">Redes de la tienda:</p>

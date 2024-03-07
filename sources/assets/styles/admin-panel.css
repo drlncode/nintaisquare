@@ -424,6 +424,7 @@ body::-webkit-scrollbar-thumb {
     flex-direction: column;
     margin-top: 15vh;
     font-family: Nunito-Sistema;
+    background-color: var(--background-color);
 }
 
 .container-store-details .title-container {
@@ -511,8 +512,31 @@ body::-webkit-scrollbar-thumb {
 
 .container-store-details .header-content .user .go-profile:hover {
     color: rgb(126, 179, 209);
+    transition: ease-in-out 0.3s all;
 }
 
 .container-store-details .header-content .user .go-profile i {
     padding-bottom: 1.2px;
+}
+
+.container-store-details .divisors {
+    display: flex;
+    justify-content: center;
+}
+
+.container-store-details .divisors .divisor-1 {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container-store-details .divisors .divisor-2 {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-store-details .divisors .divisor-2 img {
+    width: 250px;
 }
