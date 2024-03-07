@@ -551,5 +551,5 @@ body::-webkit-scrollbar-thumb {
     width: 280px;
     height: 250px;
     border-radius: 10px;
-    object-fit: contain;
+    object-fit: cover;
 }
