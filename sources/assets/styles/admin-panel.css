@@ -532,7 +532,7 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 20px;
+    padding: 25px 20px 20px 20px;
 }
 
 .container-store-details .divisors .data-title {
@@ -552,4 +552,5 @@ body::-webkit-scrollbar-thumb {
     height: 250px;
     border-radius: 10px;
     object-fit: cover;
+    border: 1px solid var(--border-color);
 }

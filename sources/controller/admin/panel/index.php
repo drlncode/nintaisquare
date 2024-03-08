@@ -139,7 +139,13 @@
                                 </div>
                                 <div class="data">
                                     <p class="data-title">Redes de la tienda:</p>
-                                    <p class="data-info"></p>
+                                    <div class="data-info">
+                                        <?php
+                                            if ($store["store_social_ig"]) {
+                                                
+                                            }
+                                        ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
