@@ -220,7 +220,68 @@
                 <?php }
             } elseif (isset($_GET["on-hold-products"])) {
                 if (isset($_GET["product_id"])) { ?>
-                    <div class="container-product-details"></div>
+                    <?php
+                        $query = "SELECT * FROM pen_products WHERE product_id = :id";
+                        $pre = $pdo -> prepare($query);
+                        $pre -> execute(Array(
+                            ':id' => $_GET["product_id"]
+                        ));
+                        $product = $pre -> fetch(PDO::FETCH_ASSOC);
+                        
+                        if (!empty($product)) {
+                            $query = $pdo -> prepare("SELECT store_id, store_name, store_category FROM val_stores WHERE store_id = :id");
+                            $query -> execute(array(
+                                ':id' => $product["store_id"]
+                            ));
+                            $store = $query -> fetch(PDO::FETCH_ASSOC);
+                        } else {
+                            header("Location: index.php?on-hold-stores");
+                            return;
+                        }
+                    ?>
+                    <div class="container-product-details">
+                        <div class="title-container">
+                            <h2 class="title"><i class="fa-regular fa-file-lines"></i>Detalles del producto.</h2>
+                        </div>
+                        <div class="header-content">
+                            <div class="back">
+                                <a href="index.php?on-hold-products" class="back-button"><i class="fa-solid fa-arrow-left"></i>Volver</a>
+                            </div>
+                            <div class="product-assoc">
+                                <h3 class="store-idname-title"><i class="fa-solid fa-shop"></i>Tienda</h3>
+                                <p class="store-idname">ID: <i><?= $store["store_id"] ?></i> | Nombre: <i><?= $store["store_name"] ?></i></p>
+                                <div class="store">
+                                    <a href="<?= $store["store_id"] ?>" target="_blank" class="go-store">Ver tienda<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="divisors">
+                            <div class="divisor-1">
+                                <div class="data">
+                                    <p class="data-title">Nombre del product:</p>
+                                    <i class="data-info"><?= $product["product_name"] ?></i>
+                                </div>
+                                <div class="data">
+                                    <p class="data-title">Categoria del producto:</p>
+                                    <i class="data-info"><?= $store["store_category"] ?></i>
+                                </div>
+                                <div class="data">
+                                    <p class="data-title">Precio del producto:</p>
+                                    <i class="data-info"><?= $product["product_price"] ?></i>
+                                </div>
+                                <div class="data">
+                                    <p class="data-title">Descripción del producto:</p>
+                                    <i class="data-info"><?= $product["product_desc"] ?></i>
+                                </div>
+                            </div>
+                            <div class="divisor-2">
+                                <div class="data-image">
+                                    <p class="data-title">Imagen del producto:</p>
+                                    <img src="data:image/png;base64,<?= $product["product_img"] ?>" alt="Imagen de <?= $store["store_name"] ?>" class="store-img" title="Imagen de <?= $store["store_name"] ?>" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 <?php } else { ?>
                     <div class="container-products">
                         <div class="title-container">
