@@ -15,6 +15,12 @@
     } elseif (isset($_GET["deny-store"])) {
     }
 
+    if (isset($_GET["accept-store"]) && !empty($_GET["accept-store"])) {
+
+    } elseif (isset($_GET["deny-store"]) && !empty($_GET["deny-store"])) {
+
+    }
+
     //Solicitando datos para las notificaciones (Tiendas pendientes).
     $query = $pdo -> query("SELECT COUNT(*) hold FROM pen_stores;");
     $pen_stores = $query -> fetch(PDO::FETCH_ASSOC);
@@ -139,10 +145,28 @@
                                 </div>
                                 <div class="data">
                                     <p class="data-title">Redes de la tienda:</p>
-                                    <div class="data-info">
+                                    <div class="data-info-container">
                                         <?php
-                                            if ($store["store_social_ig"]) {
-                                                
+                                            if (!empty($store["store_social_ig"])) {
+                                                if (parse_url($store["store_social_ig"], PHP_URL_HOST) !== "www.instagram.com" || parse_url($store["store_social_ig"], PHP_URL_PATH) == NULL) { ?>
+                                                    <p class="data-info wrong"><i class="fa-brands fa-instagram"></i> <?= $store["store_social_ig"] ?></p>
+                                                <?php } else { ?>
+                                                    <p class="data-info"><i class="fa-brands fa-instagram"></i> <?= $store["store_social_ig"] ?></p>
+                                                <?php }
+                                            }
+                                            if (!empty($store["store_social_tw"])) {
+                                                if (parse_url($store["store_social_tw"], PHP_URL_HOST) !== "twitter.com" || parse_url($store["store_social_tw"], PHP_URL_PATH) == NULL) { ?>
+                                                    <p class="data-info wrong"><i class="fa-brands fa-x-twitter"></i><?= $store["store_social_tw"] ?></p>
+                                                <?php } else { ?>
+                                                    <p class="data-info"><i class="fa-brands fa-x-twitter"></i><?= $store["store_social_tw"] ?></p>
+                                                <?php }
+                                            }
+                                            if (!empty($store["store_social_fc"])) {
+                                                if (parse_url($store["store_social_fc"], PHP_URL_HOST) !== "web.facebook.com" || parse_url($store["store_social_fc"], PHP_URL_PATH) == NULL) { ?>
+                                                    <p class="data-info wrong"><i class="fa-brands fa-facebook"></i><?= $store["store_social_fc"] ?></p>
+                                                <?php } else { ?>
+                                                    <p class="data-info"><i class="fa-brands fa-facebook"></i><?= $store["store_social_fc"] ?></p>
+                                                <?php }
                                             }
                                         ?>
                                     </div>

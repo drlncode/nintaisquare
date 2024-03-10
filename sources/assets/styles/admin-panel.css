@@ -554,3 +554,16 @@ body::-webkit-scrollbar-thumb {
     object-fit: cover;
     border: 1px solid var(--border-color);
 }
+
+.container-store-details .divisors .divisor-2 .data-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.container-store-details .divisors .divisor-2 .wrong {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: line-through rgb(204, 73, 73);
+}
