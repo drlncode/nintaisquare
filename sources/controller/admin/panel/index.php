@@ -222,7 +222,48 @@
                 if (isset($_GET["product_id"])) { ?>
                     <div class="container-product-details"></div>
                 <?php } else { ?>
-                    <div class="conatainer-products"></div>
+                    <div class="container-products">
+                        <div class="title-container">
+                            <h2 class="title"><i class="fa-solid fa-hourglass-half"></i>Productos en espera.</h2>
+                        </div>
+                        <div class="products">
+                            <div class="products-captions">
+                                <div class="storeid-caption">
+                                    <p>ID Tienda</p>
+                                </div>
+                                <div class="productnm-caption">
+                                    <p>Nombre del producto</p>
+                                </div>
+                                <div class="product-actions">
+                                    <p>Acciones</p>
+                                </div>
+                            </div>
+                            <?php
+                                $query = $pdo -> query("SELECT product_id, store_id, product_name FROM pen_products;");
+                                while ($hold_product = $query -> fetch(PDO::FETCH_ASSOC)) { ?>
+                                    <div class="product">
+                                        <div class="store-info">
+                                            <p><?= $hold_product['store_id'] ?></p>
+                                        </div>
+                                        <div class="product-name">
+                                            <p><?= $hold_product["product_name"] ?></p>
+                                        </div>
+                                        <div class="actions">
+                                            <a href="index.php?on-hold-products&product_id=<?= $hold_product['product_id'] ?>">
+                                                <div class="option details"><p>Detalles</p></div>
+                                            </a>
+                                            <a href="index.php?on-hold-products&accept-product=<?= $hold_product['product_id'] ?>">
+                                                <div class="option accept"><p>Aceptar</p></div>
+                                            </a>
+                                            <a href="index.php?on-hold-products&deny-product=<?= $hold_product['product_id'] ?>">
+                                                <div class="option deny"><p>Rechazar</p></div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php }
+                            ?>
+                        </div>
+                    </div>
                 <?php }
             } elseif (isset($_GET["users-list"])) {
                 

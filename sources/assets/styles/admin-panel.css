@@ -254,6 +254,8 @@ body::-webkit-scrollbar-thumb {
     padding-bottom: 15vh;
 }
 
+/*Apartado de tiendas en espera y detalles de la tienda*/
+
 .container-stores {
     width: 90%;
     margin: 0 auto;
@@ -412,6 +414,321 @@ body::-webkit-scrollbar-thumb {
 }
 
 .container-stores .store .actions .deny:hover {
+    background-color: var(--background-color);
+    color: rgb(218, 100, 100);
+    transition: ease-in-out 0.3s all;
+}
+
+.container-store-details {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 15vh;
+    font-family: Nunito-Sistema;
+    background-color: var(--background-color);
+}
+
+.container-store-details .title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.container-store-details .title-container .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-family: Merriweather-Titulos;
+}
+
+.container-store-details .title-container .title i {
+    padding-bottom: 1.5px;
+}
+
+.container-store-details .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.container-store-details .header-content .back .back-button {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    padding: 9px;
+    background: var(--border-color);
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    color: var(--background-color);
+}
+
+.container-store-details .header-content .back .back-button:hover {
+    background-color: var(--background-color);
+    color: var(--border-color);
+    transition: ease-in-out 0.2s all;
+}
+
+.container-store-details .header-content .back .back-button i {
+    padding-top: 3px;
+}
+
+.container-store-details .header-content .user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    gap: 4px;
+}
+
+.container-store-details .header-content .user .user-idname-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.container-store-details .header-content .user .user-idname {
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.container-store-details .header-content .user .go-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    color: unset;
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.container-store-details .header-content .user .go-profile:hover {
+    color: rgb(126, 179, 209);
+    transition: ease-in-out 0.3s all;
+}
+
+.container-store-details .header-content .user .go-profile i {
+    padding-bottom: 1.2px;
+}
+
+.container-store-details .divisors {
+    display: flex;
+    justify-content: center;
+    min-height: 70vh;
+    margin-top: 20px;
+    gap: 10vw;
+}
+
+.container-store-details .divisors .divisor-1 {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 25px 20px 20px 20px;
+}
+
+.container-store-details .divisors .data-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.container-store-details .divisors .divisor-2 {
+    min-width: 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.container-store-details .divisors .divisor-2 img {
+    width: 280px;
+    height: 250px;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+}
+
+.container-store-details .divisors .divisor-2 .data-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.container-store-details .divisors .divisor-2 .wrong {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: line-through rgb(204, 73, 73);
+}
+
+/*Apartado de productos en espera y detalles del producto*/
+
+.container-products {
+    width: 90%;
+    margin: 0 auto;
+    background-color: var(--background-color);
+    margin-top: 17vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 83vh;
+}
+
+.container-products .title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 4.5%;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.container-products .title-container .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-family: Merriweather-Titulos;
+    color: var(--border-color);
+}
+
+.container-products .products {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container-products .products .products-captions {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-family: Nunito-Sistema;
+    border-bottom: 1px solid var(--border-color);
+    padding: 18px;
+}
+
+.container-products .products .products-captions .storeid-caption {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+    border-right: 1px solid var(--border-color);
+}
+
+.container-products .products .products-captions .productnm-caption {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+    border-right: 1px solid var(--border-color);
+}
+
+.container-products .products .products-captions .product-actions {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+}
+
+.container-products .product {
+    font-family: Nunito-Sistema;
+    display: flex;
+    padding: 15px;
+    box-shadow: 2px 1px 3px 2px rgba(20, 20, 20, 0.17);
+    margin: 10px 0px;
+    border-radius: 3px;
+}
+
+.container-products .product:hover {
+    box-shadow: 2px 1px 3px 3px rgba(20, 20, 20, 0.27);
+    transition: ease-in-out 0.4s;
+}
+
+.container-products .product .store-info {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 5vh;
+    border-right: 1px solid var(--border-color);
+}
+
+.container-products .product .store-info p {
+    text-decoration: none;
+    color: rgb(126, 179, 209);
+}
+
+.container-products .product .product-name {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 5vh;
+    border-right: 1px solid var(--border-color);
+}
+
+.container-products .product .actions {
+    display: flex;
+    min-height: 5vh;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.container-products .product .actions a {
+    text-decoration: none;
+    color: var(--background-color);
+}
+
+.container-products .product .actions .option {
+    padding: 8px;
+    width: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+}
+
+.container-products .product .actions .details {
+    background-color: rgb(126, 179, 209);
+    border: 1px solid rgb(126, 179, 209);
+}
+
+.container-products .product .actions .details:hover {
+    background-color: var(--background-color);
+    color: rgb(126, 179, 209);
+    transition: ease-in-out 0.3s all;
+}
+
+.container-products .product .actions .accept {
+    background-color: rgb(119, 230, 117);
+    border: 1px solid rgb(119, 230, 117);
+}
+
+.container-products .product .actions .accept:hover {
+    background-color: var(--background-color);
+    color: rgb(119, 230, 117);
+    transition: ease-in-out 0.3s all;
+}
+
+.container-products .product .actions .deny {
+    background-color: rgb(218, 100, 100);
+    border: 1px solid rgb(218, 100, 100);
+}
+
+.container-products .product .actions .deny:hover {
     background-color: var(--background-color);
     color: rgb(218, 100, 100);
     transition: ease-in-out 0.3s all;
