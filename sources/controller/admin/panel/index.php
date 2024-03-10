@@ -148,21 +148,21 @@
                                     <div class="data-info-container">
                                         <?php
                                             if (!empty($store["store_social_ig"])) {
-                                                if (parse_url($store["store_social_ig"], PHP_URL_HOST) !== "www.instagram.com" || parse_url($store["store_social_ig"], PHP_URL_PATH) == NULL) { ?>
+                                                if (parse_url($store["store_social_ig"], PHP_URL_HOST) !== "www.instagram.com" || parse_url($store["store_social_ig"], PHP_URL_PATH) == NULL || parse_url($store["store_social_ig"], PHP_URL_PATH) == "/") { ?>
                                                     <p class="data-info wrong"><i class="fa-brands fa-instagram"></i> <?= $store["store_social_ig"] ?></p>
                                                 <?php } else { ?>
                                                     <p class="data-info"><i class="fa-brands fa-instagram"></i> <?= $store["store_social_ig"] ?></p>
                                                 <?php }
                                             }
                                             if (!empty($store["store_social_tw"])) {
-                                                if (parse_url($store["store_social_tw"], PHP_URL_HOST) !== "twitter.com" || parse_url($store["store_social_tw"], PHP_URL_PATH) == NULL) { ?>
+                                                if (parse_url($store["store_social_tw"], PHP_URL_HOST) !== "twitter.com" || parse_url($store["store_social_tw"], PHP_URL_PATH) == NULL || parse_url($store["store_social_tw"], PHP_URL_PATH) == "/") { ?>
                                                     <p class="data-info wrong"><i class="fa-brands fa-x-twitter"></i><?= $store["store_social_tw"] ?></p>
                                                 <?php } else { ?>
                                                     <p class="data-info"><i class="fa-brands fa-x-twitter"></i><?= $store["store_social_tw"] ?></p>
                                                 <?php }
                                             }
                                             if (!empty($store["store_social_fc"])) {
-                                                if (parse_url($store["store_social_fc"], PHP_URL_HOST) !== "web.facebook.com" || parse_url($store["store_social_fc"], PHP_URL_PATH) == NULL) { ?>
+                                                if (parse_url($store["store_social_fc"], PHP_URL_HOST) !== "web.facebook.com" || parse_url($store["store_social_fc"], PHP_URL_PATH) == NULL || parse_url($store["store_social_fc"], PHP_URL_PATH) == "/") { ?>
                                                     <p class="data-info wrong"><i class="fa-brands fa-facebook"></i><?= $store["store_social_fc"] ?></p>
                                                 <?php } else { ?>
                                                     <p class="data-info"><i class="fa-brands fa-facebook"></i><?= $store["store_social_fc"] ?></p>
