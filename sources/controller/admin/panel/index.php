@@ -11,14 +11,132 @@
         unset($_SESSION["USER_AUTH"]["admin_confirm"]);
         header("Location: https://nintaisquare.com/");
         return;
-    } elseif (isset($_GET["accept-store"])) {
-    } elseif (isset($_GET["deny-store"])) {
     }
 
     if (isset($_GET["accept-store"]) && !empty($_GET["accept-store"])) {
+        $query = $pdo -> prepare("SELECT * FROM pen_stores WHERE store_id = :id");
+        $query -> execute(array(
+            ':id' => $_GET["accept-store"]
+        ));
+        $data = $query -> fetch(PDO::FETCH_ASSOC);
 
+        if (!empty($data)) {
+            $query = "INSERT INTO val_stores (user_id, store_name, store_category, store_desc, store_img, store_address, store_tel, store_email, store_social_ig, store_social_tw, store_social_fc) VALUES (:uid, :sn, :sc, :sd, :si, :sa, :st, :se, :ssi, :sst, :ssf)";
+            $insert = $pdo -> prepare($query);
+            $insert -> execute(array(
+                ':uid' => $data["user_id"],
+                ':sn' => $data["store_name"],
+                ':sc' => $data["store_category"],
+                ':sd' => $data["store_desc"],
+                ':si' => $data["store_img"],
+                ':sa' => $data["store_address"],
+                ':st' => $data["store_tel"],
+                ':se' => $data["store_email"],
+                ':ssi' => $data["store_social_ig"],
+                ':sst' => $data["store_social_tw"],
+                ':ssf' => $data["store_social_fc"]
+            ));
+
+            $query = $pdo -> prepare("DELETE FROM pen_stores WHERE store_id = :id;");
+            $query -> execute(array(
+                ':id' => $data["store_id"]
+            ));
+
+            $query = $pdo -> prepare("INSERT INTO history (`status`, `by`, `category`, `of`) VALUES (:st, :by, :cy, :of)");
+            $query -> execute(array(
+                ':st' => "accepted",
+                ':by' => $_SESSION["USER_AUTH"]["user_id"],
+                ':cy' => "store",
+                ':of' => $data["user_id"]
+            ));
+
+            $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>¡Tienda aprobada con éxito!</span>";
+            header("Location: index.php?on-hold-stores");
+            return;
+        }
     } elseif (isset($_GET["deny-store"]) && !empty($_GET["deny-store"])) {
+        $query = $pdo -> prepare("SELECT user_id, store_id FROM pen_stores WHERE store_id = :id");
+        $query -> execute(array(
+            ':id' => $_GET["deny-store"]
+        ));
+        $data = $query -> fetch(PDO::FETCH_ASSOC);
 
+        $query = $pdo -> prepare("DELETE FROM pen_stores WHERE store_id = :id;");
+        $query -> execute(array(
+            ':id' => $data["store_id"]
+        ));
+
+        $query = $pdo -> prepare("INSERT INTO history (`status`, `by`, `category`, `of`) VALUES (:st, :by, :cy, :of)");
+        $query -> execute(array(
+            ':st' => "denied",
+            ':by' => $_SESSION["USER_AUTH"]["user_id"],
+            ':cy' => "store",
+            ':of' => $data["user_id"]
+        ));
+
+        $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Tienda rechazada con éxito.</span>";
+        header("Location: index.php?on-hold-stores");
+        return;
+    } elseif (isset($_GET["accept-product"]) && !empty($_GET["accept-product"])) {
+        $query = $pdo -> prepare("SELECT * FROM pen_products WHERE product_id = :id");
+        $query -> execute(array(
+            ':id' => $_GET["accept-product"]
+        ));
+        $data = $query -> fetch(PDO::FETCH_ASSOC);
+
+        if (!empty($data)) {
+            $query = "INSERT INTO val_products (store_id, product_name, product_category, product_price, product_img, product_desc) VALUES (:sid, :pn, :pc, :pp, :pi, :pd)";
+            $insert = $pdo -> prepare($query);
+            $insert -> execute(array(
+                ':sid' => $data["store_id"],
+                ':pn' => $data["product_name"],
+                ':pc' => $data["product_category"],
+                ':pp' => $data["product_price"],
+                ':pi' => $data["product_img"],
+                ':pd' => $data["product_desc"]
+            ));
+
+            $query = $pdo -> prepare("DELETE FROM pen_products WHERE product_id = :id;");
+            $query -> execute(array(
+                ':id' => $data["product_id"]
+            ));
+
+            $query = $pdo -> prepare("INSERT INTO history (`status`, `by`, `category`, `of`) VALUES (:st, :by, :cy, :of)");
+            $query -> execute(array(
+                ':st' => "accepted",
+                ':by' => $_SESSION["USER_AUTH"]["user_id"],
+                ':cy' => "product",
+                ':of' => $data["store_id"]
+            ));
+
+            $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>¡Producto aprobado con éxito!</span>";
+            header("Location: index.php?on-hold-products");
+            return;
+        }
+        $data = $query -> fetch(PDO::FETCH_ASSOC);
+    } elseif (isset($_GET["deny-product"]) && !empty($_GET["deny-product"])) {
+        $query = $pdo -> prepare("SELECT product_id, store_id FROM pen_products WHERE product_id = :id");
+        $query -> execute(array(
+            ':id' => $_GET["deny-product"]
+        ));
+        $data = $query -> fetch(PDO::FETCH_ASSOC);
+
+        $query = $pdo -> prepare("DELETE FROM pen_products WHERE product_id = :id;");
+        $query -> execute(array(
+            ':id' => $data["product_id"]
+        ));
+
+        $query = $pdo -> prepare("INSERT INTO history (`status`, `by`, `category`, `of`) VALUES (:st, :by, :cy, :of)");
+        $query -> execute(array(
+            ':st' => "denied",
+            ':by' => $_SESSION["USER_AUTH"]["user_id"],
+            ':cy' => "product",
+            ':of' => $data["store_id"]
+        ));
+
+        $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Producto rechazado con éxito.</span>";
+        header("Location: index.php?on-hold-products");
+        return;
     }
 
     //Solicitando datos para las notificaciones (Tiendas pendientes).
@@ -258,7 +376,7 @@
                         <div class="divisors">
                             <div class="divisor-1">
                                 <div class="data">
-                                    <p class="data-title">Nombre del product:</p>
+                                    <p class="data-title">Nombre del producto:</p>
                                     <i class="data-info"><?= $product["product_name"] ?></i>
                                 </div>
                                 <div class="data">
