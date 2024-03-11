@@ -6,6 +6,8 @@
     $admin = new admin_validation; //Linea 19 funciones.php
     $admin -> noadmin();
     $admin -> admin_confirm();
+    date_default_timezone_set("America/Santo_Domingo");
+    $date = getdate();
 
     if (isset($_GET["salir"])) {
         unset($_SESSION["USER_AUTH"]["admin_confirm"]);
@@ -42,12 +44,13 @@
                 ':id' => $data["store_id"]
             ));
 
-            $query = $pdo -> prepare("INSERT INTO history (`status`, `by`, `category`, `of`) VALUES (:st, :by, :cy, :of)");
+            $query = $pdo -> prepare("INSERT INTO history (`status`, `by`, `category`, `of`, `date`) VALUES (:st, :by, :cy, :of, :dt)");
             $query -> execute(array(
                 ':st' => "accepted",
                 ':by' => $_SESSION["USER_AUTH"]["user_id"],
                 ':cy' => "store",
-                ':of' => $data["user_id"]
+                ':of' => $data["user_id"],
+                ':dt' => $date["year"] . "-" . $date["mon"] . "-" . $date["mday"] . " " . $date["hours"] . ":" . $date["minutes"] . ":" . $date["seconds"]
             ));
 
             $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>¡Tienda aprobada con éxito!</span>";
@@ -66,12 +69,13 @@
             ':id' => $data["store_id"]
         ));
 
-        $query = $pdo -> prepare("INSERT INTO history (`status`, `by`, `category`, `of`) VALUES (:st, :by, :cy, :of)");
+        $query = $pdo -> prepare("INSERT INTO history (`status`, `by`, `category`, `of`, `date`) VALUES (:st, :by, :cy, :of, :dt)");
         $query -> execute(array(
             ':st' => "denied",
             ':by' => $_SESSION["USER_AUTH"]["user_id"],
             ':cy' => "store",
-            ':of' => $data["user_id"]
+            ':of' => $data["user_id"],
+            ':dt' => $date["year"] . "-" . $date["mon"] . "-" . $date["mday"] . " " . $date["hours"] . ":" . $date["minutes"] . ":" . $date["seconds"]
         ));
 
         $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Tienda rechazada con éxito.</span>";
@@ -101,12 +105,13 @@
                 ':id' => $data["product_id"]
             ));
 
-            $query = $pdo -> prepare("INSERT INTO history (`status`, `by`, `category`, `of`) VALUES (:st, :by, :cy, :of)");
+            $query = $pdo -> prepare("INSERT INTO history (`status`, `by`, `category`, `of`, `date`) VALUES (:st, :by, :cy, :of, :dt)");
             $query -> execute(array(
                 ':st' => "accepted",
                 ':by' => $_SESSION["USER_AUTH"]["user_id"],
                 ':cy' => "product",
-                ':of' => $data["store_id"]
+                ':of' => $data["store_id"],
+                ':dt' => $date["year"] . "-" . $date["mon"] . "-" . $date["mday"] . " " . $date["hours"] . ":" . $date["minutes"] . ":" . $date["seconds"]
             ));
 
             $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>¡Producto aprobado con éxito!</span>";
@@ -126,12 +131,13 @@
             ':id' => $data["product_id"]
         ));
 
-        $query = $pdo -> prepare("INSERT INTO history (`status`, `by`, `category`, `of`) VALUES (:st, :by, :cy, :of)");
+        $query = $pdo -> prepare("INSERT INTO history (`status`, `by`, `category`, `of`, `date`) VALUES (:st, :by, :cy, :of, :dt)");
         $query -> execute(array(
             ':st' => "denied",
             ':by' => $_SESSION["USER_AUTH"]["user_id"],
             ':cy' => "product",
-            ':of' => $data["store_id"]
+            ':of' => $data["store_id"],
+            ':dt' => $date["year"] . "-" . $date["mon"] . "-" . $date["mday"] . " " . $date["hours"] . ":" . $date["minutes"] . ":" . $date["seconds"]
         ));
 
         $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Producto rechazado con éxito.</span>";
