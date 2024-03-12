@@ -450,9 +450,13 @@
                         </div>
                     </div>
                 <?php }
-            } elseif (isset($_GET["users-list"])) {
-                
-            } elseif (isset($_GET["stores-list"])) {
+            } elseif (isset($_GET["users-list"])) { ?>
+                <div class="header"></div>
+                <div class="caption-titles"></div>
+                <div class="users">
+                    <div class="user"></div>
+                </div>
+            <?php } elseif (isset($_GET["stores-list"])) {
 
             } elseif (isset($_GET["products-list"])) {
 
