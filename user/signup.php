@@ -16,17 +16,29 @@
             header("Location: https://nintaisquare.com/user/signup.php");
             return;
         } else {
-            $sql = "INSERT INTO users(name, email, password, admin) VALUES (:nm, :em, :pw, :ad);";
-            $query = $pdo -> prepare($sql);
+            $query = $pdo -> prepare("SELECT count(email) email FROM users WHERE email = :em");
             $query -> execute(array(
-                ':nm' => htmlentities($_POST["name-r"]),
-                ':em' => htmlentities($_POST["email-r"]),
-                ':pw' => hash("MD5", $_POST["password-r"]),
-                ':ad' => 0
+                ':em' => htmlentities($_POST["email-r"])
             ));
-            $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>Registro exitoso!</span>";
-            header("Location: https://nintaisquare.com/user/signin.php");
-            return;
+            $email = $query -> fetch(PDO::FETCH_ASSOC);
+
+            if ($email["email"] == 1) {
+                $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Este correo ya está registrado.</span>";
+                header("Location: https://nintaisquare.com/user/signup.php");
+                return;
+            } else {
+                $sql = "INSERT INTO users(name, email, password, admin) VALUES (:nm, :em, :pw, :ad);";
+                $query = $pdo -> prepare($sql);
+                $query -> execute(array(
+                    ':nm' => htmlentities($_POST["name-r"]),
+                    ':em' => htmlentities($_POST["email-r"]),
+                    ':pw' => hash("MD5", $_POST["password-r"]),
+                    ':ad' => 0
+                ));
+                $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>Registro exitoso!</span>";
+                header("Location: https://nintaisquare.com/user/signin.php");
+                return;
+            }
         }
     }
 ?>
