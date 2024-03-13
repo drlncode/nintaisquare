@@ -487,7 +487,7 @@
                                             </div>
                                         </div>
                                         <div class="actions">
-                                            <a href="https://nintaisquare.com/user/profile.php?user_id=<?= $user["user_id"] ?>">
+                                            <a href="https://nintaisquare.com/user/profile.php?user_id=<?= $user["user_id"] ?>" target="_blank">
                                                 <div class="details-user">
                                                     <p>Ver perfil</p>
                                                 </div>
