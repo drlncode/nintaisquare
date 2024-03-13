@@ -450,13 +450,61 @@
                         </div>
                     </div>
                 <?php }
-            } elseif (isset($_GET["users-list"])) { ?>
-                <div class="header"></div>
-                <div class="caption-titles"></div>
-                <div class="users">
-                    <div class="user"></div>
-                </div>
-            <?php } elseif (isset($_GET["stores-list"])) {
+            } elseif (isset($_GET["users-list"])) {
+                $query = $pdo -> query("SELECT user_id, name, email FROM users;");
+
+                if (isset($_GET["delete-user"])) {
+
+                } else { ?>
+                    <div class="container-users-list">
+                        <div class="header-title">
+                            <div class="title-content"><h2 class="title"><i class="fa-solid fa-users"></i>Lista de usuarios</h2></div>
+                        </div>
+                        <div class="caption-titles">
+                            <div class="caption id-caption">
+                                <p>User ID</p>
+                            </div>
+                            <div class="caption cn-caption">
+                                <p>Nombre/Correo</p>
+                            </div>
+                            <div class="caption acc-caption">
+                                <p>Acciones</p>
+                            </div>
+                        </div>
+                        <div class="users">
+                            <?php
+                                while ($user = $query -> fetch(PDO::FETCH_ASSOC)) { ?>
+                                    <div class="user">
+                                        <div class="user-id">
+                                            <p><?= $user["user_id"] ?></p>
+                                        </div>
+                                        <div class="user-email-name">
+                                            <div class="name">
+                                                <p><?= $user["name"] ?></p>
+                                            </div>
+                                            <div class="email">
+                                                <p><?= $user["email"] ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="actions">
+                                            <a href="https://nintaisquare.com/user/profile.php?user_id=<?= $user["user_id"] ?>">
+                                                <div class="details-user">
+                                                    <p>Ver perfil</p>
+                                                </div>
+                                            </a>
+                                            <a href="index.php?users-list&delete-user=<?= $user["user_id"] ?>">
+                                                <div class="delete-user">
+                                                    <p>Eliminar</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php }
+                            ?>
+                        </div>
+                    </div>
+                <?php }
+            } elseif (isset($_GET["stores-list"])) {
 
             } elseif (isset($_GET["products-list"])) {
 
