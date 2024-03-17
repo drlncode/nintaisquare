@@ -12,7 +12,7 @@
                     <legend class="fieldset-title">Seleccione una categoria</legend>
                     <div class="filter-options">
                         <label for="entretenimiento">
-                            <input type="radio" name="store-category" value="entretenimiento" id="entretenimiento">Entretenimiento
+                            <input type="radio" name="store-category" value="entretenimiento" id="entretenimiento" checked>Entretenimiento
                         </label>
                         <label for="comida">
                             <input type="radio" name="store-category" value="comida" id="comida">Comida
@@ -27,13 +27,13 @@
                             <input type="radio" name="store-category" value="tecnologia" id="tecnologia">Tecnología
                         </label>
                         <label for="canasta-basica">
-                            <input type="radio" name="store-category" value="canasta-basica" id="canasta-basica">Canasta básica
+                            <input type="radio" name="store-category" value="c-basica" id="canasta-basica">Canasta básica
                         </label>
                         <label for="mecanica">
                             <input type="radio" name="store-category" value="mecanica" id="mecanica">Mecánica
                         </label>
                         <label for="ventas-generales">
-                            <input type="radio" name="store-category" value="ventas-generales" id="ventas-generales">Ventas generales
+                            <input type="radio" name="store-category" value="v-generales" id="ventas-generales">Ventas generales
                         </label>
                     </div>
                 </fieldset>
@@ -44,10 +44,10 @@
                     <legend class="fieldset-title">Seleccione una opcion</legend>
                     <div class="filter-options">
                         <label for="newest">
-                            <input type="radio" name="order-by" value="ASC" id="newest">Más nuevo
+                            <input type="radio" name="order-by" value="DESC" id="newest" checked>Más nuevo
                         </label>
                         <label for="older">
-                            <input type="radio" name="order-by" value="DESC" id="older">Más antiguo
+                            <input type="radio" name="order-by" value="ASC" id="older">Más antiguo
                         </label>
                     </div>
                 </fieldset>
@@ -62,35 +62,38 @@
         <?php
             filter_result_pretty();
             if (isset($_GET["store-category"]) && isset($_GET["order-by"])) { ?>
-                <div class="filter-result"><span>Tiendas filtradas por <b>"<?= $_GET["store-category"] ?>"</b> & <b>"<?= $_GET["order-by"] ?>"</b>.</span></div>
+                <div class="filter-result">
+                    <span>Tiendas filtradas por <b>"<?= $_GET["store-category"] ?>"</b> & <b>"<?= $_GET["order-by"] ?>"</b>.</span>
+                    <a href="<?= $_SERVER['REQUEST_URI'] ?>&refresh-stores" class="refresh">Restablecer<i class="fa-solid fa-delete-left"></i></a>
+                </div>
             <?php }
         ?>
         <div class="results-stores">
             <?php
-                do { ?>
+                while ($stores = $query -> fetch(PDO::FETCH_ASSOC)) { ?>
                     <a href="">
                         <div class="result">
                             <div class="result-content-1">
                                 <div class="img-result">
-                                    <img src="../sources/assets/img/logo-socials.jpg" alt=""/>
+                                    <img src="data:image/png;base64,<?= $stores["store_img"] ?>" alt=""/>
                                 </div>
                                 <div class="title-category-result">
                                     <div class="title-result">
-                                        <span class="title"><b>NintaiSquare</b></span>
+                                        <span class="title"><b><?= $stores["store_name"] ?></b></span>
                                     </div>
                                     <div class="category-result">
-                                        <span class="category">Categoria: <b>Tecnología</b></span>
+                                        <span class="category">Categoria: <b><?= $stores["store_category"] ?></b></span>
                                     </div>
                                 </div>
                             </div>
                             <div class="result-content-2">
                                 <div class="desc-result">
-                                    <span class="desc">Te ayudamos a impulsar tu negocio de forma rápida, sencilla y gratis. Dar a conocer tu negocio nunca fue tan fácil.</span>
+                                    <span class="desc"><?= $stores["store_desc"] ?></span>
                                 </div>
                             </div>
                         </div>
                     </a>
-                <?php } while (2>3)
+                <?php } 
             ?>
         </div>
     </div>

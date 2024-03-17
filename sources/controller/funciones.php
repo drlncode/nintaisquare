@@ -88,22 +88,22 @@
                 case "tecnologia":
                     $_GET["store-category"] = "Tecnología";
                     break;
-                case "canasta-basica":
+                case "c-basica":
                     $_GET["store-category"] = "Canasta básica";
                     break;
                 case "mecanica":
                     $_GET["store-category"] = "Mecánica";
                     break;
-                case "ventas-generales":
+                case "v-generales":
                     $_GET["store-category"] = "Ventas generales";
                     break;
             }
 
             switch ($_GET["order-by"]) {
-                case "ASC":
+                case "DESC":
                     $_GET["order-by"] = "Más nuevo";
                 break;
-                case "DESC":
+                case "ASC":
                     $_GET["order-by"] = "Más antiguo";
                 break;
             }

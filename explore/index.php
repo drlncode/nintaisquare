@@ -13,6 +13,30 @@
             return "Explorar | NintaiSquare";
         }
     }
+
+    if (isset($_GET["refresh-stores"])) {
+        header("Location: ../explore/?action=stores");
+        exit;
+    }
+
+    if (isset($_GET["store-category"]) && isset($_GET["order-by"])) {
+        if ($_GET["order-by"] == "ASC") {
+            $query = $pdo -> prepare("SELECT * FROM val_stores WHERE store_category = :c ORDER BY store_id ASC;");
+            $query -> execute(array(
+                ':c' => htmlentities($_GET["store-category"])
+            ));
+        } elseif ($_GET["order-by"] == "DESC") {
+            $query = $pdo -> prepare("SELECT * FROM val_stores WHERE store_category = :c ORDER BY store_id DESC;");
+            $query -> execute(array(
+                ':c' => htmlentities($_GET["store-category"])
+            ));
+        } else {
+            header("Location: ../explore/?action=stores");
+            exit;
+        }
+    } else {
+        $query = $pdo -> query("SELECT * FROM val_stores ORDER BY Rand();");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">

@@ -16,7 +16,7 @@
                 <option value="tecnologia">Tecnología</option>
                 <option value="c-basica">Canasta básica</option>
                 <option value="mecanica">Mecánica</option>
-                <option value="s-generales">Ventas generales</option>
+                <option value="v-generales">Ventas generales</option>
             </select>
             <label for="t-desc">
                 Descripción de la tienda (Max: 256 carácteres.)<textarea name="t-desc" id="t-desc" rows="5" placeholder="Descripción llamativa de la tienda..."></textarea>
