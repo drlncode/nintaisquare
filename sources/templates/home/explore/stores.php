@@ -62,7 +62,7 @@
         <?php
             filter_result_pretty();
             if (isset($_GET["store-category"]) && isset($_GET["order-by"])) { ?>
-                <div class="filter-result"><span>Filtrado por <b>"<?= $_GET["store-category"] ?>"</b> & <b>"<?= $_GET["order-by"] ?>"</b>.</span></div>
+                <div class="filter-result"><span>Tiendas filtradas por <b>"<?= $_GET["store-category"] ?>"</b> & <b>"<?= $_GET["order-by"] ?>"</b>.</span></div>
             <?php }
         ?>
         <div class="results-stores">

@@ -3,13 +3,23 @@
     require_once("../sources/controller/funciones.php");
     require_once("../sources/controller/pdo.php");
     noset();
+
+    function title_explore() {
+        if (isset($_GET["action"]) && $_GET["action"] == "stores") {
+            return "Explorar - Tiendas | NintaiSquare";
+        } elseif (isset($_GET["action"]) && $_GET["action"] == "products") {
+            return "Explorar - Productos | NintaiSquare";
+        } else {
+            return "Explorar | NintaiSquare";
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explorar | NintaiSquare</title>
+    <title><?= title_explore(); ?></title>
     <link rel="stylesheet" href="../sources/assets/styles/explore.css">
     <link rel="stylesheet" href="../sources/assets/styles/root.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
