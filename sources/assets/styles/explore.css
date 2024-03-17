@@ -113,7 +113,7 @@ body::-webkit-scrollbar-thumb {
     gap: 10px;
     margin-top: 210px;
     margin-right: 105px;
-    border: 1.5px solid rgba(10, 10, 10, 0.2); ;
+    border: 1.5px solid rgba(10, 10, 10, 0.2);
     border-radius: 3px;
     box-shadow: 2px 2px 4px 0px rgba(20, 20, 20, 0.3);
     height: 183px;
@@ -168,7 +168,7 @@ body::-webkit-scrollbar-thumb {
     color: var(--text-color);
 }
 
-.container-content:has(.content){
+.container-content:has(.content) {
     background-color: var(--background-color);
     width: 100%;
 }
@@ -240,17 +240,20 @@ body::-webkit-scrollbar-thumb {
 }
 
 .container .content-stores {
+    display: flex;
     padding-top: 23vh;
+    padding-bottom: 5vh;
     min-height: 100vh;
     width: 90%;
     margin: 0 auto;
     font-family: Nunito-Sistema;
+    gap: 10px;
 }
 
 .container .content-stores .filter-container-stores {
     display: flex;
     flex-direction: column;
-    width: 20%;
+    min-width: 20%;
     gap: 10px;
     padding: 10px;
 }
@@ -284,6 +287,7 @@ body::-webkit-scrollbar-thumb {
     padding: 3px 5px 3px 3px;
     border: 1px solid var(--border-color);
     border-radius: 3px;
+    margin-bottom: 20px;
 }
 
 .container .content-stores .filter-container-stores .filter-options-container form .fieldset-container .fieldset-title {
@@ -302,6 +306,11 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     gap: 5px;
     justify-content: baseline;
+    cursor: pointer;
+}
+
+.container .content-stores .filter-container-stores .filter-options-container form .fieldset-container .filter-options input {
+    cursor: pointer;
 }
 
 .container .content-stores .filter-container-stores .filter-options-container form .filter-button {
@@ -323,6 +332,7 @@ body::-webkit-scrollbar-thumb {
     border-radius: 3px;
     margin: 10px 0px 5px 0px;
     font-family: Nunito-Sistema;
+    margin-top: -5px;
 }
 
 .container .content-stores .filter-container-stores .filter-options-container form .filter-button .sort:hover {
@@ -330,6 +340,93 @@ body::-webkit-scrollbar-thumb {
     color: var(--border-color);
     transition: ease-in-out 0.3s all;
     cursor: pointer;
+}
+
+.container .content-stores .results-stores-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.container .content-stores .results-stores {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-content: center;
+    padding: 10px 10px 10px 30px;
+    gap: 20px;
+    border-left: 1px solid var(--border-color);
+}
+
+.container .content-stores .results-stores > a {
+    text-decoration: none;
+    color: unset;
+}
+
+.container .content-stores .results-stores .result {
+    width: 280px;
+    height: 250px;
+    padding: 10px;
+    box-shadow: 2px 1px 10px 2px rgba(20, 20, 20, 0.27);
+    border-radius: 5px;
+    overflow: auto;
+}
+
+.container .content-stores .results-stores .result:hover {
+    box-shadow: 2px 1px 10px 2px rgba(20, 20, 20, 0.45);
+    transition: ease-in-out 0.3s all;
+}
+
+.container .content-stores .results-stores .result::-webkit-scrollbar {
+    width: 13px;
+}
+
+.container .content-stores .results-stores .result::-webkit-scrollbar-thumb {
+    background-color: var(--border-color-clear);
+    border-radius: 10px;
+    border: 3px solid var(--background-color);
+}
+
+.container .content-stores .results-stores .result .result-content-1 {
+    display: flex;
+    gap: 10px;
+    border-bottom: 1px solid var(--border-color);
+    padding: 5px;
+}
+
+.container .content-stores .results-stores .result .result-content-1 .img-result img {
+    width: 85px;
+    border-radius: 4px;
+    border: 1px solid #c5c5c5;
+}
+
+.container .content-stores .results-stores .result .result-content-1 .title-category-result {
+    display: flex;
+    flex-direction: column;
+}
+
+.container .content-stores .results-stores .result .result-content-1 .title-category-result .category-result .category {
+    font-style: italic;
+    font-size: 0.87em;
+}
+
+.container .content-stores .results-stores .result .result-content-2 .desc-result {
+    padding: 5px;
+    margin: 0 auto;
+    margin-top: 3px;
+    height: 110px;
+    overflow: auto;
+    background-color: var(--background-color);
+}
+
+.container .content-stores .results-stores .result .result-content-2 .desc-result::-webkit-scrollbar {
+    width: 13px;
+}
+
+.container .content-stores .results-stores .result .result-content-2 .desc-result::-webkit-scrollbar-thumb {
+    background-color: var(--border-color-clear);
+    border-radius: 10px;
+    border: 3px solid var(--background-color);
 }
 
 .footer-container {
