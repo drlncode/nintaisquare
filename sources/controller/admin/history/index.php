@@ -6,6 +6,12 @@
     $admin = new admin_validation; //Linea 19 funciones.php
     $admin -> noadmin();
     $admin -> admin_confirm();
+
+    if (isset($_GET["salir"])) {
+        unset($_SESSION["USER_AUTH"]["admin_confirm"]);
+        header("Location: https://nintaisquare.com/");
+        return;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
