@@ -239,6 +239,19 @@ body::-webkit-scrollbar-thumb {
     text-align: center;
 }
 
+.results-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10px 10px 30px;
+    border-left: 1px solid var(--border-color);
+    gap: 20px;
+}
+
+.results-container .filter-result span {
+    border-bottom: 1px solid var(--border-color);
+    padding: 3px 0px;
+}
+
 .container .content-stores {
     display: flex;
     padding-top: 23vh;
@@ -353,9 +366,7 @@ body::-webkit-scrollbar-thumb {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     justify-content: center;
-    padding: 10px 10px 10px 30px;
     gap: 20px;
-    border-left: 1px solid var(--border-color);
 }
 
 .container .content-stores .results-stores > a {

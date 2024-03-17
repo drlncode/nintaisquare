@@ -69,4 +69,46 @@
             return "Hola, ";
         }
     }
+
+    function filter_result_pretty() {
+        if (isset($_GET["store-category"]) && isset($_GET["order-by"])) {
+            switch ($_GET["store-category"]) {
+                case "entretenimiento":
+                    $_GET["store-category"] = "Entretenimiento";
+                    break;
+                case "comida":
+                    $_GET["store-category"] = "Comida";
+                    break;
+                case "salud":
+                    $_GET["store-category"] = "Salud";
+                    break;
+                case "ropas":
+                    $_GET["store-category"] = "Ropas";
+                    break;
+                case "tecnologia":
+                    $_GET["store-category"] = "Tecnología";
+                    break;
+                case "canasta-basica":
+                    $_GET["store-category"] = "Canasta básica";
+                    break;
+                case "mecanica":
+                    $_GET["store-category"] = "Mecánica";
+                    break;
+                case "ventas-generales":
+                    $_GET["store-category"] = "Ventas generales";
+                    break;
+            }
+
+            switch ($_GET["order-by"]) {
+                case "ASC":
+                    $_GET["order-by"] = "Más nuevo";
+                break;
+                case "DESC":
+                    $_GET["order-by"] = "Más antiguo";
+                break;
+            }
+
+            return $_GET["store-category"] && $_GET["order-by"];
+        }
+    }
 ?>
