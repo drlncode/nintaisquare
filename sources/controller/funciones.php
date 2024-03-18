@@ -109,6 +109,44 @@
             }
 
             return $_GET["store-category"] && $_GET["order-by"];
+        } elseif (isset($_GET["product-category"]) && isset($_GET["order-by"])) {
+            switch ($_GET["product-category"]) {
+                case "entretenimiento":
+                    $_GET["product-category"] = "Entretenimiento";
+                    break;
+                case "comida":
+                    $_GET["product-category"] = "Comida";
+                    break;
+                case "salud":
+                    $_GET["product-category"] = "Salud";
+                    break;
+                case "ropas":
+                    $_GET["product-category"] = "Ropas";
+                    break;
+                case "tecnologia":
+                    $_GET["product-category"] = "Tecnología";
+                    break;
+                case "c-basica":
+                    $_GET["product-category"] = "Canasta básica";
+                    break;
+                case "mecanica":
+                    $_GET["product-category"] = "Mecánica";
+                    break;
+                case "v-generales":
+                    $_GET["product-category"] = "Ventas generales";
+                    break;
+            }
+
+            switch ($_GET["order-by"]) {
+                case "DESC":
+                    $_GET["order-by"] = "Más nuevo";
+                break;
+                case "ASC":
+                    $_GET["order-by"] = "Más antiguo";
+                break;
+            }
+
+            return $_GET["product-category"] && $_GET["order-by"];
         }
     }
 ?>

@@ -17,6 +17,9 @@
     if (isset($_GET["refresh-stores"])) {
         header("Location: ../explore/?action=stores");
         exit;
+    } elseif (isset($_GET["refresh-products"])) {
+        header("Location: ../explore/?action=products");
+        exit;
     }
 
     if (isset($_GET["store-category"]) && isset($_GET["order-by"])) {
@@ -35,7 +38,30 @@
             exit;
         }
     } else {
-        $query = $pdo -> query("SELECT * FROM val_stores ORDER BY Rand();");
+        if (isset($_GET["action"]) && $_GET["action"] == "stores") {
+            $query = $pdo -> query("SELECT * FROM val_stores ORDER BY Rand();");
+        }
+    } 
+    
+    if (isset($_GET["product-category"]) && isset($_GET["order-by"])) {
+        if ($_GET["order-by"] == "ASC") {
+            $query = $pdo -> prepare("SELECT * FROM val_products WHERE product_category = :c ORDER BY product_id ASC;");
+            $query -> execute(array(
+                ':c' => htmlentities($_GET["product-category"])
+            ));
+        } elseif ($_GET["order-by"] == "DESC") {
+            $query = $pdo -> prepare("SELECT * FROM val_products WHERE product_category = :c ORDER BY product_id DESC;");
+            $query -> execute(array(
+                ':c' => htmlentities($_GET["product-category"])
+            ));
+        } else {
+            header("Location: ../explore/?action=products");
+            exit;
+        }
+    } else {
+        if (isset($_GET["action"]) && $_GET["action"] == "products") {
+            $query = $pdo -> query("SELECT * FROM val_products ORDER BY Rand();");
+        }
     }
 ?>
 <!DOCTYPE html>

@@ -1,5 +1,5 @@
-<div class="content-stores">
-    <div class="filter-container-stores">
+<div class="content-sp">
+    <div class="filter-container">
         <div class="title-filter">
             <h2 class="title"><i class="fa-solid fa-filter"></i>Filtrar por:</h2>
         </div>
@@ -68,7 +68,7 @@
                 </div>
             <?php }
         ?>
-        <div class="results-stores">
+        <div class="results">
             <?php
                 while ($stores = $query -> fetch(PDO::FETCH_ASSOC)) { ?>
                     <a href="">

@@ -28,7 +28,7 @@
         </div>
         <div class="text-container">
             <div class="title-content">
-                <h3 class="sub-title"><i class="fa-solid fa-shop"></i>Registrar tienda</h3>
+                <h3 class="sub-title"><i class="fa-solid fa-shop"></i>Registrar</h3>
             </div>
             <div class="text">
                 <p>Registra tu tienda de forma gratuita para que las personas puedan ver su lista de productos. Tambien asegurate de seguir las normas establecidas para poder registrarla correctamente y dar a conocer tu tienda de la mejor forma posible.</p>
