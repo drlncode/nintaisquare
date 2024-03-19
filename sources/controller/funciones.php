@@ -69,4 +69,84 @@
             return "Hola, ";
         }
     }
+
+    function filter_result_pretty() {
+        if (isset($_GET["store-category"]) && isset($_GET["order-by"])) {
+            switch ($_GET["store-category"]) {
+                case "entretenimiento":
+                    $_GET["store-category"] = "Entretenimiento";
+                    break;
+                case "comida":
+                    $_GET["store-category"] = "Comida";
+                    break;
+                case "salud":
+                    $_GET["store-category"] = "Salud";
+                    break;
+                case "ropas":
+                    $_GET["store-category"] = "Ropas";
+                    break;
+                case "tecnologia":
+                    $_GET["store-category"] = "Tecnología";
+                    break;
+                case "c-basica":
+                    $_GET["store-category"] = "Canasta básica";
+                    break;
+                case "mecanica":
+                    $_GET["store-category"] = "Mecánica";
+                    break;
+                case "v-generales":
+                    $_GET["store-category"] = "Ventas generales";
+                    break;
+            }
+
+            switch ($_GET["order-by"]) {
+                case "DESC":
+                    $_GET["order-by"] = "Más nuevo";
+                break;
+                case "ASC":
+                    $_GET["order-by"] = "Más antiguo";
+                break;
+            }
+
+            return $_GET["store-category"] && $_GET["order-by"];
+        } elseif (isset($_GET["product-category"]) && isset($_GET["order-by"])) {
+            switch ($_GET["product-category"]) {
+                case "entretenimiento":
+                    $_GET["product-category"] = "Entretenimiento";
+                    break;
+                case "comida":
+                    $_GET["product-category"] = "Comida";
+                    break;
+                case "salud":
+                    $_GET["product-category"] = "Salud";
+                    break;
+                case "ropas":
+                    $_GET["product-category"] = "Ropas";
+                    break;
+                case "tecnologia":
+                    $_GET["product-category"] = "Tecnología";
+                    break;
+                case "c-basica":
+                    $_GET["product-category"] = "Canasta básica";
+                    break;
+                case "mecanica":
+                    $_GET["product-category"] = "Mecánica";
+                    break;
+                case "v-generales":
+                    $_GET["product-category"] = "Ventas generales";
+                    break;
+            }
+
+            switch ($_GET["order-by"]) {
+                case "DESC":
+                    $_GET["order-by"] = "Más nuevo";
+                break;
+                case "ASC":
+                    $_GET["order-by"] = "Más antiguo";
+                break;
+            }
+
+            return $_GET["product-category"] && $_GET["order-by"];
+        }
+    }
 ?>

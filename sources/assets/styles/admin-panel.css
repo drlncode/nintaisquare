@@ -884,3 +884,155 @@ body::-webkit-scrollbar-thumb {
     gap: 5px;
     text-decoration: line-through rgb(204, 73, 73);
 }
+
+.container-users-list {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 15vh auto;
+}
+
+.container-users-list .header-title {
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.container-users-list .header-title .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-family: Merriweather-Titulos;
+}
+
+.container-users-list .caption-titles {
+    width: 100%;
+    display: flex;
+    padding: 15px 0px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.container-users-list .caption-titles .caption {
+    padding: 15px;
+    font-family: Nunito-Sistema;
+}
+
+.container-users-list .caption-titles .id-caption {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-users-list .caption-titles .cn-caption {
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid var(--border-color);
+}
+
+.container-users-list .caption-titles .acc-caption {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid var(--border-color);
+}
+
+.container-users-list .users {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+    font-family: Nunito-Sistema;
+}
+
+.container-users-list .users .user {
+    display: flex;
+    width: 100%;
+    padding: 15px 0px;
+    box-shadow: 2px 1px 3px 2px rgba(20, 20, 20, 0.17);
+    margin: 10px 0px;
+    border-radius: 3px;
+}
+
+.container-users-list .users .user:hover {
+    box-shadow: 2px 1px 3px 3px rgba(20, 20, 20, 0.27);
+    transition: ease-in-out 0.4s;
+}
+
+.container-users-list .users .user .user-id {
+    display: flex;
+    width: 15%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.container-users-list .users .user .user-email-name {
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-left: 1px solid var(--border-color);
+}
+
+.container-users-list .users .user .user-email-name .name {
+    font-weight: bold;
+}
+
+.container-users-list .users .user .user-email-name .email {
+    font-style: italic;
+    font-size: 0.85em;
+}
+
+.container-users-list .users .user .actions {
+    display: flex;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-left: 1px solid var(--border-color);
+}
+
+.container-users-list .users .user .actions > a {
+    text-decoration: none;
+    color: var(--background-color);
+}
+
+.container-users-list .users .user .actions .details-user {
+    padding: 9px;
+    background-color: rgb(126, 179, 209);
+    border: 1px solid rgb(126, 179, 209);
+    border-radius: 3px;
+    min-width: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-users-list .users .user .actions .details-user:hover {
+    background-color: var(--background-color);
+    color: rgb(126, 179, 209);
+    transition: ease-in-out 0.3s all;
+}
+
+.container-users-list .users .user .actions .delete-user {
+    padding: 9px;
+    background-color: rgb(218, 100, 100);
+    border: 1px solid rgb(218, 100, 100);
+    border-radius: 3px;
+    min-width: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-users-list .users .user .actions .delete-user:hover {
+    background-color: var(--background-color);
+    color: rgb(218, 100, 100);
+    transition: ease-in-out 0.3s all;
+}
