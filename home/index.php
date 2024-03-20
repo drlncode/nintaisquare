@@ -15,6 +15,9 @@
     <link rel="icon" type="image/x-icon" href="../sources/assets/img/favicon.png">
 </head>
 <body>
+    <?php
+        require_once("../sources/templates/no-resposive/index.php");
+    ?>
     <div class="container">
     <?php
         if (!isset($_SESSION["USER_AUTH"])) {
