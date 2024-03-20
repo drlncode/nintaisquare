@@ -1,91 +1,396 @@
-.profile-user-container {
-    height: auto;
-    min-height: 75vh;
-    margin-top: 25vh;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-    display: flex;
-    flex-direction: column;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     background-color: var(--background-color);
 }
 
-.profile-user-container-title {
-    font-family: Merriweather-Titulos;
-    margin: 0px 0px 25px 0px;
-    padding: 5px 0px;
-    border-bottom: 1px solid var(--border-color-clear);
+body::-webkit-scrollbar {
+    width: 13px;
 }
 
-.profile-user-content {
+body::-webkit-scrollbar-thumb {
+    background-color: var(--border-color-clear);
+    border-radius: 10px;
+    border: 3px solid var(--background-color);
+}
+
+.container {
     display: flex;
-    justify-content: start;
-    gap: 10px;
-    border-bottom: 1px solid var(--border-color-clear);
-    padding-bottom: 20px;
+    flex-direction: column;
 }
 
-.profile-user-content .profile-user-pic img {
-    width: 125px;
+.header-container {
+    width: 100%;
+    background-color: var(--background-color);
+    border-bottom: 0.5px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
 }
 
-.profile-user-content .profile-user-data {
-    min-width: 210px;
-    font-family: Nunito-Sistema;
-    padding: 8px;
+.header-content-1 {
+    width: 85%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.profile-user-content .profile-user-data .profile-user-details {
-    padding: 10px 0px 0px 0px;
+.header-content-1 .space {
+    width: 42px;
 }
 
-.profile-user-content .user-rol {
-    font-family: Nunito-Sistema;
+.header-content-1 .logo img {
+    width: 200px;
 }
 
-.profile-user-content .user-rol .admin-text {
-    padding: 10px;
-    background: var(--border-color);
-    color: var(--background-color);
-    border-radius: 3px;
-    font-size: 0.8em;
-}
-
-.profile-user-content .user-rol .user-text {
-    padding: 10px;
-    background: var(--background-color);
-    color: var(--border-color);
-    border-radius: 3px;
-    font-size: 0.8em;
-    border: 1px solid var(--border-color);
-}
-
-.profile-user-content .profile-user-action {
-    font-family: Nunito-Sistema;
-    font-size: 0.8em;
-}
-
-.profile-user-content .profile-user-action .link a {
+.user-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
-    text-decoration: none;
-    color: var(--background-color);
-    padding: 9.5px;
-    background-color: var(--border-color);
-    border-radius: 3px;
-    border: 1px solid var(--border-color);
+    position: relative;
+    color: var(--border-color);
 }
 
-.profile-user-content .profile-user-action .link a:hover {
+.user-container:hover {
+    cursor: pointer;
+}
+
+.user-container .user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.user-container .user .fa-circle-user {
+    font-size: 1.5em;
+    position: relative;
+}
+
+.user-container .user .fa-angle-down {
+    font-size: 0.9em;
+    margin-top: 4px;
+}
+
+.user-container .user .user-options {
+    list-style: none;
+    display: none;
+    position: absolute;
+}
+
+.user-container .user .user-options a {
+    color: var(--border-color);
+    text-decoration: none;
+    font-family: Nunito-Sistema;
+}
+
+.user-container .user .user-options .fa-solid {
+    font-size: unset;
+}
+
+.user-container .user .user-options .line {
+    width: 100%;
+    height: 1px;
+    background-color: var(--text-color);
+}
+
+.user-container:hover .user .user-options {
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+    width: 150px;
+    padding: 10px 15px;
+    gap: 10px;
+    margin-top: 210px;
+    margin-right: 105px;
+    border: 1.5px solid rgba(10, 10, 10, 0.2); ;
+    border-radius: 3px;
+    box-shadow: 2px 2px 4px 0px rgba(20, 20, 20, 0.3);
+    height: 183px;
+}
+
+.user-container .user .user-options li:hover {
+    text-decoration: underline;
+}
+
+.header-content-2 {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--text-color);
+}
+
+.header-content-2 .sistema {
+    font-family: Nunito-Sistema;
+}
+
+.header-content-2 .sistema a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.header-content-2 .links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-content-2 .links .nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 10px;
+}
+
+.nav-container li {
+    padding: 13px;
+}
+
+.nav-container li:hover a {
+    text-decoration: underline;
+    transition: ease 2s;
+}
+
+.search a {
+    padding: 13px;
+    color: var(--text-color);
+}
+
+/*Container*/
+
+.user-content {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 22vh;
+    min-height: 78vh;
+}
+
+.user-content .user-name {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 25px;
+}
+
+.user-content .user-name .name {
+    display: flex;
+    font-family: Merriweather-Titulos;
+}
+
+.user-content .user-data-content {
+    display: flex;
+    padding: 20px 0px;
+    border-bottom: 1px solid var(--border-color);
+    font-family: Nunito-Sistema;
+    gap: 15px;
+}
+
+.user-content .user-data-content .pic {
+    width: 120px;
+}
+
+.user-content .user-data-content .profile-user-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding-top: 14px;
+}
+
+.user-content .user-data-content .actions {
+    display: flex;
+    gap: 6.8px;
+    padding-top: 5px;
+    font-size: 0.8em;
+}
+
+.user-content .user-data-content .actions .user-rol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 10px;
+    height: 40px;
+    border-radius: 3px;
+}
+
+.user-content .user-data-content .actions .user-rol:has(.admin-text) {
+    background-color: var(--border-color);
+    color: var(--background-color);
+}
+
+.user-content .user-data-content .actions .user-rol:has(.user-text) {
     background-color: var(--background-color);
     color: var(--border-color);
-    transition: ease-in-out 0.2s;
+    border: 1px solid var(--border-color);
+    font-weight: bold;
 }
 
-.profile-user-container .user-stores-content {
-    padding: 10px 4px;
+.user-content .user-data-content .actions .profile-user-action .link a {
+    text-decoration: none;
+    display: flex;
+    gap: 4px;
+    justify-content: baseline;
+    align-items: center;
+    padding: 0px 10px;
+    height: 40px;
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    background-color: var(--border-color);
+    color: var(--background-color);
+}
+
+.user-content .user-data-content .actions .profile-user-action .link a:hover {
+    background-color: var(--background-color);
+    color: var(--border-color);
+    transition: ease-in-out 0.3s;
+}
+
+.user-content .user-stores-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-content .user-stores-content .h2-title {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 15px 0px;
     font-family: Merriweather-Titulos;
+    font-size: 1.3em;
+}
+
+.user-content .user-stores-content .user-stores {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 10px 0px;
+}
+
+.user-content .user-stores-content .user-stores a {
+    text-decoration: none;
+}
+
+.user-content .user-stores-content .user-stores a:hover .store {
+    box-shadow: 2px 1px 3px 2px rgba(20, 20, 20, 0.45);
+    transition: ease-in-out 0.3s;
+}
+
+.user-content .user-stores-content .user-stores .store {
+    width: 190px;
+    font-family: Nunito-Sistema;
+    box-shadow: 2px 1px 3px 2px rgba(20, 20, 20, 0.30);
+    border-radius: 4px;
+}
+
+.user-content .user-stores-content .user-stores .store .divisor {
+    border: 1px solid var(--border-color);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding: 2px 3px;
+    font-style: italic;
+    background-color: var(--border-color);
+    color: var(--background-color);
+    font-weight: bolder;
+    font-size: 0.8em;
+}
+
+.user-content .user-stores-content .user-stores .store .data {
+    display: flex;
+    gap: 5px;
+    padding: 10px;
+    color: var(--text-color);
+}
+
+.user-content .user-stores-content .user-stores .store img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.user-content .user-stores-content .user-stores .store .store-name {
+    font-weight: bolder;
+}
+
+/*Footer*/
+
+.footer-container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    min-height: 50vh;
+    flex-direction: column;
+    background-color: var(--text-color);
+    color: var(--background-color);
     font-size: 1.1em;
+    font-family: Nunito-Sistema;
+}
+
+.footer-container .socials-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+}
+
+.footer-container .socials-content .fa-brands {
+    margin-top: 4px;
+    color: var(--background-color);
+}
+
+.footer-container .infos-content {
+    display: flex;
+    padding-left: 100px;
+}
+
+.footer-container .infos-content .ic {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-container .infos-content .content-title {
+    margin: 10px 0;
+}
+
+.footer-container .infos-content .ic a {
+    display: block;
+    text-decoration: none;
+    color: var(--border-color);
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.footer-container .infos-content .ic a:hover {
+    color: var(--border-color-clear);
+    transition: all 0.2s ease-in-out;
+}
+
+.copy-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    color: var(--border-color);
+}
+
+.copy-content .content-1 {
+    font-size: 0.7em;
+}
+
+.copy-content .content-1 .fa-regular {
+    font-size: 0.8em;
 }
