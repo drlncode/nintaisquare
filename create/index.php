@@ -4,6 +4,7 @@
     require_once("../sources/controller/pdo.php");
     noset();
 
+    //* Validaciones para la creación de las tiendas.
     if (isset($_POST["t-name"])) {
         if (empty($_POST["t-name"]) || empty($_POST["t-categoria"]) || empty($_POST["t-desc"]) || empty($_POST["t-direcc"]) || empty($_POST["t-tel"])) {
             $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Rellene los campos no opcionales.</span>";
@@ -13,8 +14,8 @@
             $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Descripción muy larga, Max: 256 carácteres.</span>";
             header("Location: index.php?action=store");
             return;
-        } elseif (!is_numeric($_POST["t-tel"])) {
-            $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Formato del número de teléfono incorrecto.</span>";
+        } elseif (!is_numeric($_POST["t-tel"]) || strlen($_POST["t-tel"]) < 10) {
+            $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese un número de telefono válido.</span>";
             header("Location: index.php?action=store");
             return;
         } elseif ($_FILES["t-logo"]["size"] == 0) {
@@ -54,6 +55,7 @@
         }
     }
 
+    //* Validaciones para la creación de los productos.
     if (isset($_POST["p-name"])) {
         if (empty($_POST["p-name"]) || empty($_POST["p-tienda"]) || empty($_POST["p-desc"])) {
             $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Rellene todos los campos.</span>";
@@ -86,7 +88,7 @@
                     header("Location: index.php?action=product");
                     return;
                 } else {
-                    //Obteniendo categoria de la tienda para el producto.
+                    //* Obteniendo categoria de la tienda para el producto.
                     $store_id = $_POST["p-tienda"];
                     $query = "SELECT store_category FROM val_stores WHERE store_id = :sid";
                     $s_category = $pdo -> prepare($query);
@@ -95,7 +97,7 @@
                     ));
                     $category_get = $s_category -> fetch(PDO::FETCH_ASSOC);
 
-                    //Introduciendo los datos del producto.
+                    //* Introduciendo los datos del producto.
                     $query = "INSERT INTO pen_products (store_id, product_name, product_category, product_price, product_img, product_desc) VALUES (:sid, :pn, :pc, :pp, :pi, :pd)";
                     $insert = $pdo -> prepare($query);
                     $insert -> execute(array(
@@ -111,7 +113,7 @@
                     return;
                 }
             } else {
-                //Obteniendo categoria de la tienda para el producto.
+                //* Obteniendo categoria de la tienda para el producto.
                 $store_id = $_POST["p-tienda"];
                 $query = "SELECT store_category FROM val_stores WHERE store_id = :sid";
                 $s_category = $pdo -> prepare($query);
@@ -120,7 +122,7 @@
                 ));
                 $category_get = $s_category -> fetch(PDO::FETCH_ASSOC);
 
-                //Introduciendo los datos del producto.
+                //* Introduciendo los datos del producto.
                 $query = "INSERT INTO pen_products (store_id, product_name, product_category, product_price, product_img, product_desc) VALUES (:sid, :pn, :pc, :pp, :pi, :pd)";
                 $insert = $pdo -> prepare($query);
                 $insert -> execute(array(
@@ -138,7 +140,7 @@
         }
     }
 
-    //Obteniendo la cantidad de tiendas del usuario.
+    //* Obteniendo la cantidad de tiendas del usuario para el registro de los productos.
     $query = "SELECT count(*) t_cantidad FROM val_stores WHERE user_id = :id;";
     $extract = $pdo -> prepare($query);
     $extract -> execute(array(
@@ -152,7 +154,7 @@
         $nTiendas = false;
     }
 
-    //Si tiene tiendas, se obtienen los datos.
+    //* Si tiene tiendas, se obtienen los datos para el registro de los productos.
     if ($nTiendas) {
         $query = "SELECT store_id, store_name FROM val_stores WHERE user_id = :id";
         $extract = $pdo -> prepare($query);
