@@ -10,7 +10,7 @@
                 <option value="">Seleccione</option>
                 <hr>
                 <option value="entretenimiento">Entretenimiento</option>
-                <option value="comidas">Comida</option>
+                <option value="comida">Comida</option>
                 <option value="salud">Salud</option>
                 <option value="ropas">Ropas</option>
                 <option value="tecnologia">Tecnología</option>

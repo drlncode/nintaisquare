@@ -82,7 +82,7 @@
                                         <span class="title"><b><?= $products["product_name"] ?></b></span>
                                     </div>
                                     <div class="category-result">
-                                        <span class="category">Categoria: <b><?= $products["product_category"] ?></b></span>
+                                        <span class="category">Categoria: <b><?= prettyCategory($products["product_category"]); ?></b></span>
                                     </div>
                                 </div>
                             </div>

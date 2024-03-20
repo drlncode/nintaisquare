@@ -149,4 +149,35 @@
             return $_GET["product-category"] && $_GET["order-by"];
         }
     }
+
+    function prettyCategory($value) {
+        switch ($value) {
+            case "entretenimiento":
+                $value = "Entretenimiento";
+                break;
+            case "comida":
+                $value = "Comida";
+                break;
+            case "salud":
+                $value = "Salud";
+                break;
+            case "ropas":
+                $value = "Ropas";
+                break;
+            case "tecnologia":
+                $value = "Tecnología";
+                break;
+            case "c-basica":
+                $value = "Canasta básica";
+                break;
+            case "mecanica":
+                $value = "Mecánica";
+                break;
+            case "v-generales":
+                $value = "Ventas generales";
+                break;
+        }
+
+        return $value;
+    }
 ?>

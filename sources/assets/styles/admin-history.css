@@ -163,9 +163,10 @@ body::-webkit-scrollbar-thumb {
     width: 100%;
     margin: 0 auto;
     margin-top: 5vh;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 2.5vh;
     font-family: Nunito-Sistema;
+    margin-bottom: 10vh;
 }
 
 .container .history-container .history-register-container .history-register {
