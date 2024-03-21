@@ -20,6 +20,9 @@
                         <label for="salud">
                             <input type="radio" name="product-category" value="salud" id="salud">Salud
                         </label>
+                        <label for="deporte">
+                            <input type="radio" name="product-category" value="deporte" id="deporte">Deporte
+                        </label>
                         <label for="ropas">
                             <input type="radio" name="product-category" value="ropas" id="ropas">Ropas
                         </label>
