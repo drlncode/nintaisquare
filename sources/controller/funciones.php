@@ -82,6 +82,9 @@
                 case "salud":
                     $_GET["store-category"] = "Salud";
                     break;
+                case "deporte":
+                    $_GET["store-category"] = "Deporte";
+                    break;
                 case "ropas":
                     $_GET["store-category"] = "Ropas";
                     break;
@@ -119,6 +122,9 @@
                     break;
                 case "salud":
                     $_GET["product-category"] = "Salud";
+                    break;
+                case "deporte":
+                    $_GET["product-category"] = "Deporte";
                     break;
                 case "ropas":
                     $_GET["product-category"] = "Ropas";
@@ -160,6 +166,9 @@
                 break;
             case "salud":
                 $value = "Salud";
+                break;
+            case "deporte":
+                $value = "Deporte";
                 break;
             case "ropas":
                 $value = "Ropas";

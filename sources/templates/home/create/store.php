@@ -12,9 +12,10 @@
                 <option value="entretenimiento">Entretenimiento</option>
                 <option value="comida">Comida</option>
                 <option value="salud">Salud</option>
+                <option value="deporte">Deporte</option>
                 <option value="ropas">Ropas</option>
                 <option value="tecnologia">Tecnología</option>
-                <option value="c-basica">Canasta básica</option>
+                <option value="c-basica">Canasta Básica</option>
                 <option value="mecanica">Mecánica</option>
                 <option value="v-generales">Ventas generales</option>
             </select>
