@@ -1,4 +1,4 @@
-<footer class="footer-container">
+<footer class="footer-container" style="padding-bottom: 20px;">
     <div class="socials-content">
         <p class="sistema socials-icons">Encuéntranos en:</p>
         <a href="https://github.com/Darlin-code/nintaisquare" target="_blank" title="Github - NintaiSquare"><i class="fa-brands fa-github"></i></a>
