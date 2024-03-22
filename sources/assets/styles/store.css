@@ -195,6 +195,7 @@
     border-bottom: 1px solid var(--border-color);
     gap: 15px;
     position: relative;
+    margin-bottom: 30px;
 }
 
 .store-content .store-products .products .see-all {
