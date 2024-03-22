@@ -156,9 +156,6 @@
                     ?>
                 </div>
             </div>
-            <div class="like-this">
-
-            </div>
         </div>
         <?php
             require_once("../sources/templates/footer/footer.php");
