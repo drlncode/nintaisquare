@@ -114,14 +114,21 @@
                 </div>
                 <div class="products">
                     <?php
-                        $query = $pdo -> prepare("SELECT * FROM val_products WHERE store_id = :id");
+                        $query = $pdo -> prepare("SELECT * FROM val_products WHERE store_id = :id LIMIT 4");
                         $query -> execute(array(
                             ':id' => $store["store_id"]
                         ));
                         if ($query -> rowCount() < 1) {
                             echo ("<span class='empty'><i class='fa-solid fa-xmark'></i>Esta tienda no tiene productos actualmente.</span>");
                         } else { ?>
-                            <?php while ($product = $query -> fetch(PDO::FETCH_ASSOC)) { ?>
+                            <?php 
+                            if ($query -> rowCount() >= 4) { ?>
+                                <div class="see-all">
+                                    <a href="nintaisquare.com/search/result/?all-products=" class="btn">Ver todo<i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            <?php }
+
+                            while ($product = $query -> fetch(PDO::FETCH_ASSOC)) { ?>
                                 <a href="">
                                     <div class="product">
                                         <div class="product-content-1">
