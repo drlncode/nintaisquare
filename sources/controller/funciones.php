@@ -189,4 +189,17 @@
 
         return $value;
     }
+
+    function prettyPrice($value) {
+        switch ($value) {
+            case "free":
+                $value = "$" . "Gratis";
+            break;
+            default:
+                $value = "$" . $value;
+            break;
+        }
+
+        return $value;
+    }
 ?>

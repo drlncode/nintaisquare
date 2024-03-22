@@ -109,7 +109,45 @@
                 </div>
             </div>
             <div class="store-products">
-
+                <div class="title">
+                    <h3 class="sp-title"><i class="fa-solid fa-cart-shopping"></i>Productos</h3>
+                </div>
+                <div class="products">
+                    <?php
+                        $query = $pdo -> prepare("SELECT * FROM val_products WHERE store_id = :id");
+                        $query -> execute(array(
+                            ':id' => $store["store_id"]
+                        ));
+                        if ($query -> rowCount() < 1) {
+                            echo ("<span class='empty'><i class='fa-solid fa-xmark'></i>Esta tienda no tiene productos actualmente.</span>");
+                        } else { ?>
+                            <?php while ($product = $query -> fetch(PDO::FETCH_ASSOC)) { ?>
+                                <a href="">
+                                    <div class="product">
+                                        <div class="product-content-1">
+                                            <div class="img-product">
+                                                <img src="data:image/png;base64,<?= $product["product_img"] ?>" title="<?= $product["product_name"] ?>"/>
+                                            </div>
+                                            <div class="title-category-product">
+                                                <div class="title-product">
+                                                    <span class="p-name"><b><?= $product["product_name"] ?></b></span>
+                                                </div>
+                                                <div class="price-product">
+                                                    <span class="price"><b><?= prettyPrice($product["product_price"]); ?></b></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-content-2">
+                                            <div class="desc-product">
+                                                <span class="desc"><?= $product["product_desc"] ?></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            <?php }
+                        }
+                    ?>
+                </div>
             </div>
             <div class="like-this">
 

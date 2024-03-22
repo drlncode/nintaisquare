@@ -78,7 +78,7 @@
                         <div class="result">
                             <div class="result-content-1">
                                 <div class="img-result">
-                                    <img src="data:image/png;base64,<?= $products["product_img"] ?>" alt=""/>
+                                    <img src="data:image/png;base64,<?= $products["product_img"] ?>" title="<?= $products["product_name"] ?>"/>
                                 </div>
                                 <div class="title-category-result">
                                     <div class="title-result">
@@ -86,6 +86,9 @@
                                     </div>
                                     <div class="category-result">
                                         <span class="category">Categoria: <b><?= prettyCategory($products["product_category"]); ?></b></span>
+                                    </div>
+                                    <div class="price-result">
+                                        <span class="price"><b><?= prettyPrice($products["product_price"]); ?></b></span>
                                     </div>
                                 </div>
                             </div>

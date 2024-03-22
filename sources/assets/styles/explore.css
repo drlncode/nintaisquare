@@ -445,11 +445,6 @@ body::-webkit-scrollbar-thumb {
     flex-direction: column;
 }
 
-.container .content-sp .results .result .result-content-1 .title-category-result .category-result .category {
-    font-style: italic;
-    font-size: 0.87em;
-}
-
 .container .content-sp .results .result .result-content-2 .desc-result {
     padding: 5px;
     margin: 0 auto;
