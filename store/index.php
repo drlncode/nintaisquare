@@ -124,7 +124,7 @@
                             <?php 
                             if ($query -> rowCount() >= 4) { ?>
                                 <div class="see-all">
-                                    <a href="nintaisquare.com/search/result/?all-products=" class="btn">Ver todo<i class="fa-solid fa-arrow-right"></i></a>
+                                    <a href="https://nintaisquare.com/search/result/?all-products=" class="btn">Ver todo<i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             <?php }
 
