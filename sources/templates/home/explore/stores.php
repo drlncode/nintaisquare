@@ -74,7 +74,7 @@
         <div class="results">
             <?php
                 while ($stores = $query -> fetch(PDO::FETCH_ASSOC)) { ?>
-                    <a href="">
+                    <a href="https://nintaisquare.com/store/?store_id=<?= $stores["store_id"] ?>" target="_blank">
                         <div class="result">
                             <div class="result-content-1">
                                 <div class="img-result">

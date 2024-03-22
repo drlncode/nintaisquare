@@ -97,7 +97,7 @@
                         ));
                         
                         while ($user_stores = $query -> fetch(PDO::FETCH_ASSOC)) { ?>
-                            <a href="">
+                            <a href="https://nintaisquare.com/store/?store_id=<?= $stores["store_id"] ?>" target="_blank">
                                 <div class="store">
                                     <div class="divisor">
                                         <span>Tienda de <?= prettyCategory($user_stores["store_category"]) ?></span>
