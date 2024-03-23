@@ -42,7 +42,75 @@
             require_once("../sources/templates/header/header-login.php");
         ?>
         <div class="product-content">
-
+            <div class="general title">
+                <h2 class="title"><i class="fa-solid fa-cart-shopping"></i>Producto</h2>
+            </div>
+            <div class="content">
+                <div class="product">
+                    <div class="top-product">
+                        <div class="img-product">
+                            <img src="data:image/png;base64,<?= $product["product_img"] ?>" title="<?= $product["product_name"] ?>">
+                        </div>
+                        <div class="details-product">
+                            <div class="name-category">
+                                <h3 class="product-name"><?= $product["product_name"] ?></h3>
+                                <span class="product-category"><?= prettyCategory($product["product_category"]); ?></span>
+                                <span class="product-price"><?= prettyPrice($product["product_price"]) ?></span>
+                            </div>
+                            <div class="store">
+                                <?php
+                                    $query = $pdo -> prepare("SELECT store_id, store_name FROM val_stores WHERE store_id = :id");
+                                    $query -> execute(array(
+                                        ':id' => $product["store_id"]
+                                    ));
+                                    $store_data = $query -> fetch(PDO::FETCH_ASSOC);
+                                ?>
+                                <span class="store-name"><i class="fa-solid fa-shop"></i><?= $store_data["store_name"] ?></span>
+                                <a href="https://nintaisquare.com/store/?store_id=<?= $store_data["store_id"] ?>" class="go-store">Visitar<i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttom-product">
+                        <div class="product-desc">
+                            <span class="desc"><?= $product["product_desc"] ?></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="recommendations">
+                    <div class="recomm-title">
+                        <h3 class="title"><i class="fa-solid fa-heart"></i>Tambien te puede interesar</h3>
+                        <div class="some-products">
+                            <?php
+                                $query = $pdo -> prepare("SELECT product_id, product_name, product_price, product_img FROM val_products WHERE product_category = :ct LIMIT 4;");
+                                $query -> execute(array(
+                                    ':ct' => $product["product_category"]
+                                ));
+                                
+                                while ($some_product = $query -> fetch(PDO::FETCH_ASSOC)) {
+                                    if ($some_product["product_id"] == $_GET["product_id"] && count($some_product) == 4) { ?>
+                                        <span class="no-recommendation">Sin recomendaciones.</span> <?php
+                                        continue;
+                                    } elseif ($some_product["product_id"] == $_GET["product_id"]) {
+                                        continue;
+                                    } ?>
+                                    
+                                    <a href="https://nintaisquare.com/product/?product_id=<?= $some_product["product_id"]; ?>" class="some-product-link">
+                                        <div class="some-product">
+                                            <div class="some-product-img">
+                                                <img src="data:image/png;base64,<?= $some_product["product_img"] ?>" alt="">
+                                            </div>
+                                            <div class="some-product-name-price">
+                                                <span class="some-product-name"><?= $some_product["product_name"] ?></span>
+                                                <span class="some-product-price"><?= prettyPrice($some_product["product_price"]) ?></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                <?php }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <?php
             require_once("../sources/templates/footer/footer.php");
