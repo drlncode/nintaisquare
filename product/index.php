@@ -78,7 +78,7 @@
                 </div>
                 <div class="recommendations">
                     <div class="recomm-title">
-                        <h3 class="title"><i class="fa-solid fa-heart"></i>Tambien te puede interesar</h3>
+                        <h3 class="title"><i class="fa-solid fa-heart"></i>También te puede interesar</h3>
                     </div>
                     <div class="some-products">
                         <span class="no-recommendation">Sin recomendaciones.</span>
