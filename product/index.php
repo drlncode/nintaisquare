@@ -83,7 +83,7 @@
                     <div class="some-products">
                         <span class="no-recommendation">Sin recomendaciones.</span>
                         <?php
-                            $query = $pdo -> prepare("SELECT product_id, product_name, product_price, product_img FROM val_products WHERE product_category = :ct LIMIT 5;");
+                            $query = $pdo -> prepare("SELECT product_id, product_name, product_price, product_img FROM val_products WHERE product_category = :ct ORDER BY Rand() LIMIT 5;");
                             $query -> execute(array(
                                 ':ct' => $product["product_category"]
                             ));
