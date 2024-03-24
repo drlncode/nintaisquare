@@ -129,7 +129,7 @@
                             <?php }
 
                             while ($product = $query -> fetch(PDO::FETCH_ASSOC)) { ?>
-                                <a href="http://nintaisquare.com/product/?product_id=<?= $product["product_id"] ?>">
+                                <a href="http://nintaisquare.com/product/?product_id=<?= $product["product_id"] ?>" target="_blank">
                                     <div class="product">
                                         <div class="product-content-1">
                                             <div class="img-product">
