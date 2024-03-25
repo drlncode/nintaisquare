@@ -40,18 +40,18 @@
                             <?php }
                         ?>
                         <div class="search-bar">
-                            <input type="text" name="query" id="query" class="bar">
+                            <input type="text" name="query" id="query" class="bar" placeholder="Buscar...">
                         </div>
-                        <button type="submit" class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <button type="submit" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
                 </div>
                 <div class="added-filter">
-                    <div class="search-title">
+                    <div class="filter-title">
                         <?php
                             if (isset($_GET["filter"]) && $_GET["filter"] == "str") { ?>
-                                <h3 class="title"><i class="fa-solid fa-circle-check"></i>Solo se mostrarán resultados de tiendas. <a href="?reset" class="reset">Restablecer<i class="fa-solid fa-delete-left"></i></a></h3>
+                                <h3 class="title"><i class="fa-solid fa-circle-check"></i>Solo se mostrarán resultados de tiendas. <a href="?restarted" class="reset">Restablecer<i class="fa-solid fa-delete-left"></i></a></h3>
                             <?php } elseif (isset($_GET["filter"]) && $_GET["filter"] == "pdt") { ?>
-                                <h3 class="title"><i class="fa-solid fa-circle-check"></i>Solo se mostrarán resultados de productos. <a href="?reset" class="reset">Restablecer<i class="fa-solid fa-delete-left"></i></a></h3>
+                                <h3 class="title"><i class="fa-solid fa-circle-check"></i>Solo se mostrarán resultados de productos. <a href="?restarted" class="reset">Restablecer<i class="fa-solid fa-delete-left"></i></a></h3>
                             <?php } else { ?>
                                 <h3 class="title">¿Deseas buscar algo en específico?</h3>
                             <?php }

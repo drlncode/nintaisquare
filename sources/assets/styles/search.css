@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 20vh;
+    min-height: 100vh;
+}
+
+.search-container .search-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0px 35px 0px;
+    font-family: Merriweather-Titulos;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.search-container .search-header .title {
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-container .search-bar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding: 30px 0px;
+}
+
+.search-container .search-bar-container .search-bar-content {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    width: 40vw;
+}
+
+.search-container .search-bar-container .search-bar-content .search-bar .bar {
+    border: 0px;
+    outline: none;
+    padding: 10px 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    width: 36vw;
+    background-color: var(--background-color);
+    font-family: Nunito-Sistema;
+}
+
+.search-container .search-bar-container .search-bar-content .search-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4vw;
+    height: 100%;
+    padding: 12px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border: 0px;
+    background-color: var(--border-color);
+    font-family: Nunito-Sistema;
+    color: var(--background-color);
+    cursor: pointer;
+}
+
+.search-container .search-bar-container .search-bar-content .search-button:hover {
+    background-color: #333333;
+    transition: ease-in-out 0.5s;
+}
+
+.search-container .search-bar-container .search-bar-content .search-button i {
+    font-size: 1.1em;
+}
+
+.search-container .added-filter {
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    gap: 20px;
+}
+
+.search-container .added-filter .filter-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-container .added-filter .filter-title .title {
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    gap: 5px;
+    font-family: Merriweather-Titulos;
+}
+
+.search-container .added-filter .filter-title .title .fa-circle-check {
+    color: rgb(77, 235, 71);
+    font-size: 1.6em;
+}
+
+.search-container .added-filter .filter-title .title .reset {
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    background-color: var(--border-color);
+    color: var(--background-color);
+    font-size: 0.5em;
+    padding: 9px;
+    font-weight: 300;
+    font-family: Nunito-Sistema;
+    border-radius: 3px;
+    margin-left: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.search-container .added-filter .filter-title .title .reset:hover {
+    background-color: var(--background-color);
+    color: var(--border-color);
+    transition: ease-in-out 0.4s;
+}
+
+.search-container .added-filter .search-options {
+    display: flex;
+    font-family: Nunito-Sistema;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 30px;
+}
+
+.search-container .added-filter .search-options a {
+    text-decoration: none;
+    color: unset;
+}
+
+.search-container .added-filter .search-options .option {
+    width: 20vw;
+    height: 24vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    box-shadow: 2px 1px 10px 2px rgba(20, 20, 20, 0.20);
+    padding: 10px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.search-container .added-filter .search-options .option .check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    background-color: rgb(77, 235, 71);
+    position: absolute;
+    top: -10px;
+    right: -13px;
+    border-radius: 50%;
+    font-size: 0.9em;
+}
+
+.search-container .added-filter .search-options .option:hover {
+    box-shadow: 2px 1px 10px 2px rgba(20, 20, 20, 0.30);
+    transition: ease-in-out 0.3s;
+}
+
+.search-container .added-filter .search-options .option .option-title .title {
+    border-bottom: 1px solid var(--border-color);
+}
