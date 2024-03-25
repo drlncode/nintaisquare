@@ -134,7 +134,7 @@
                     if (isset($_GET["str"])) { ?>
                         <div class="search-results">
                             <div class="results-header">
-                                <h2><?= $count . " resultado(s) para " ?><b>"<?=$_GET['query']?>"</b></h2>
+                                <h2><?= $countStr . " resultado(s) para " ?><b>"<?=$_GET['query']?>"</b></h2>
                             </div>
                             <div class="results-content">
                                 <div class="resuls-stores-header">
@@ -168,7 +168,7 @@
                     <?php } elseif (isset($_GET["pdt"])) { ?>
                         <div class="search-results">
                             <div class="results-header">
-                                <h2><?= $count . " resultado(s) para " ?><b>"<?=$_GET['query']?>"</b></h2>
+                                <h2><?= $countPdt . " resultado(s) para " ?><b>"<?=$_GET['query']?>"</b></h2>
                             </div>
                             <div class="results-content">
                                 <div class="results-products-header">
