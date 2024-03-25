@@ -53,7 +53,7 @@
                             <?php } elseif (isset($_GET["filter"]) && $_GET["filter"] == "pdt") { ?>
                                 <h3 class="title"><i class="fa-solid fa-circle-check"></i>Solo se mostrarán resultados de productos. <a href="?restarted" class="reset">Restablecer<i class="fa-solid fa-delete-left"></i></a></h3>
                             <?php } else { ?>
-                                <h3 class="title">¿Deseas buscar algo en específico?</h3>
+                                <h3 class="title">Antes de buscar, ¿Deseas algo en específico?</h3>
                             <?php }
                         ?>
                     </div>

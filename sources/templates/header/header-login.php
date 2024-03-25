@@ -2,7 +2,7 @@
     <div class="header-content-1">
         <div class="space"></div>
         <div class="logo">
-            <a href="https://nintaisquare.com/"><img src="../sources/assets/img/logo.png" alt="NintaiSquare"></a>
+            <a href="https://nintaisquare.com/"><img src="https://nintaisquare.com/sources/assets/img/logo.png" alt="NintaiSquare"></a>
         </div>
         <div class="user-container">
             <div class="user">
