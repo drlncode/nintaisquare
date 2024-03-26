@@ -8,31 +8,22 @@
     <div class="infos-content">
         <div class="ic content-1">
             <div class="content-title">
-                <h4>Sobre nosotros</h4>
+                <h4>NintaiSquare</h4>
             </div>
             <div class="content-links">
+                <a href="">Contacto</a>
                 <a href="">Qué somos</a>
                 <a href="">Quienes somos</a>
                 <a href="">Misión, visión y valores</a>
-                <a href="">Contacto</a>
             </div>
         </div>
         <div class="ic content-2">
             <div class="content-title">
-                <h4>Descubrir</h4>
+                <h4>Soporte</h4>
             </div>
             <div class="content-links">
-                <a href="">Como usar</a>
-                <a href="">Funciones especiales</a>
-            </div>
-        </div>
-        <div class="ic content-3">
-            <div class="content-title">
-                <h4>Legal</h4>
-            </div>
-            <div class="content-links">
-                <a href="">Términos y condiciones</a>
-                <a href="">Privacidad</a>
+                <a href="https://support.nintaisquare.com/">Preguntas frecuentes</a>
+                <a href="https://support.nintaisquare.com/">Recuperar cuenta</a>
             </div>
         </div>
     </div>

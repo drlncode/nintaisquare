@@ -482,7 +482,7 @@ body::-webkit-scrollbar-thumb {
     justify-content: end;
     align-items: center;
     gap: 20px;
-    padding: 30px;
+    padding: 30px 30px 20px 0px;
 }
 
 .footer-container .socials-content .fa-brands {
@@ -493,6 +493,7 @@ body::-webkit-scrollbar-thumb {
 .footer-container .infos-content {
     display: flex;
     padding-left: 100px;
+    gap: 30px;
 }
 
 .footer-container .infos-content .ic {
