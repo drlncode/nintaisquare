@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    session_start(); //Done
     require_once("../sources/controller/funciones.php");
     require_once("../sources/controller/pdo.php");
     noset();
