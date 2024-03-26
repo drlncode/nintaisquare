@@ -1,14 +1,6 @@
 <?php
     session_start();
     require_once("../sources/controller/pdo.php");
-    $_SESSION["USER_AUTH"] = [
-        "user_id" => 1,
-        "name" => "Darlin",
-        "name_parts" => explode(" ", "Darlin"),
-        "email" => "darlin@gmail.com",
-        "user_pw" => "1234",
-        "admin" => true
-    ];
     require_once("../sources/controller/funciones.php");
     noset();
 
