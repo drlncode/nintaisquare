@@ -188,6 +188,7 @@
 
 .store-content .store-products .products {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     min-height: 20vh;
     font-family: Nunito-Sistema;
@@ -198,7 +199,7 @@
     margin-bottom: 30px;
 }
 
-.store-content .store-products .products .see-all {
+/*.store-content .store-products .products .see-all {
     position: absolute;
     top: 35%;
     right: 3.5%;
@@ -225,7 +226,7 @@
 
 .store-content .store-products .products .see-all a > i {
     margin-top: 3.5px;
-}
+}*/
 
 .store-content .store-products .products:has(.empty) {
     display: flex;

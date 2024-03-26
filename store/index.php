@@ -1,6 +1,14 @@
 <?php
     session_start();
     require_once("../sources/controller/pdo.php");
+    $_SESSION["USER_AUTH"] = [
+        "user_id" => 1,
+        "name" => "Darlin",
+        "name_parts" => explode(" ", "Darlin"),
+        "email" => "darlin@gmail.com",
+        "user_pw" => "1234",
+        "admin" => true
+    ];
     require_once("../sources/controller/funciones.php");
     noset();
 
@@ -114,19 +122,18 @@
                 </div>
                 <div class="products">
                     <?php
-                        $query = $pdo -> prepare("SELECT * FROM val_products WHERE store_id = :id LIMIT 4");
+                        $query = $pdo -> prepare("SELECT * FROM val_products WHERE store_id = :id;");
                         $query -> execute(array(
                             ':id' => $store["store_id"]
                         ));
                         if ($query -> rowCount() < 1) {
                             echo ("<span class='empty'><i class='fa-solid fa-xmark'></i>Esta tienda no tiene productos actualmente.</span>");
-                        } else { ?>
-                            <?php 
-                            if ($query -> rowCount() >= 4) { ?>
+                        } else {
+                            /*if ($query -> rowCount() >= 4) { ?>
                                 <div class="see-all">
                                     <a href="https://nintaisquare.com/search/result/?all-products=<?= $store["store_id"] ?>" class="btn" target="_blank">Ver todo<i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
-                            <?php }
+                            <?php }*/
 
                             while ($product = $query -> fetch(PDO::FETCH_ASSOC)) { ?>
                                 <a href="http://nintaisquare.com/product/?product_id=<?= $product["product_id"] ?>" target="_blank">
