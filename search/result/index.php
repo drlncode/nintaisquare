@@ -145,7 +145,7 @@
                                 <a href="?back" class="back"><i class="fa-solid fa-arrow-left"></i>Volver a buscar</a>
                             </div>
                             <div class="results-content">
-                                <div class="resuls-stores-header">
+                                <div class="resuls-filtred-header">
                                     <h3 class="title"><i class="fa-solid fa-shop"></i>Tiendas</h3>
                                 </div>
                                 <div class="results">
@@ -155,15 +155,15 @@
                                         <?php } else {
                                             while ($storeResult = $queryStr -> fetch(PDO::FETCH_ASSOC)) { ?>
                                                 <a href="https://nintaisquare.com/store/?store_id=<?= $storeResult["store_id"] ?>" class="folder" target="_blank">
-                                                    <div class="result-store">
-                                                        <div class="result-store-img">
+                                                    <div class="result-filtred">
+                                                        <div class="result-filtred-img">
                                                             <img src="data:img/png;base64,<?= $storeResult["store_img"]; ?>" alt="">
                                                         </div>
-                                                        <div class="result-store-details">
-                                                            <div class="result-store-name">
+                                                        <div class="result-filtred-details">
+                                                            <div class="result-filtred-name">
                                                                 <span class="name"><?= $storeResult["store_name"]; ?></span>
                                                             </div>
-                                                            <div class="result-store-category">
+                                                            <div class="result-filtred-category">
                                                                 <span class="category"><?= prettyCategory($storeResult["store_category"]); ?></span>
                                                             </div>
                                                         </div>
@@ -182,8 +182,8 @@
                                 <a href="?back" class="back"><i class="fa-solid fa-arrow-left"></i>Volver a buscar</a>
                             </div>
                             <div class="results-content">
-                                <div class="results-products-header">
-                                    <h3 class="title"><i class="fa-solid fa-cart-shopping"></i>Productos</h3>
+                                <div class="resuls-filtred-header">
+                                    <h3 class="title"><i class="fa-solid fa-shop"></i>Tiendas</h3>
                                 </div>
                                 <div class="results">
                                     <?php
@@ -191,16 +191,16 @@
                                             <span class="no-results"><i class="fa-solid fa-question"></i>Sin coincidencias.</span>
                                         <?php } else {
                                             while ($productResult = $queryPdt -> fetch(PDO::FETCH_ASSOC)) { ?>
-                                                <a href="https://nintaisquare.com/product/?product_id=<?= $productResult["product_id"] ?>" class="folder" target="_blank">
-                                                    <div class="result-product">
-                                                        <div class="result-product-img">
+                                                <a href="https://nintaisquare.com/product/?sproduct_id=<?= $productResult["product_id"] ?>" class="folder" target="_blank">
+                                                    <div class="result-filtred">
+                                                        <div class="result-filtred-img">
                                                             <img src="data:img/png;base64,<?= $productResult["product_img"]; ?>" alt="">
                                                         </div>
-                                                        <div class="result-product-details">
-                                                            <div class="result-product-name">
+                                                        <div class="result-filtred-details">
+                                                            <div class="result-filtred-name">
                                                                 <span class="name"><?= $productResult["product_name"]; ?></span>
                                                             </div>
-                                                            <div class="result-product-category">
+                                                            <div class="result-filtred-category">
                                                                 <span class="category"><?= prettyCategory($productResult["product_category"]); ?></span>
                                                             </div>
                                                         </div>
