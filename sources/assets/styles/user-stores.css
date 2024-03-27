@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+
+    .user-stores-container {
+        padding-top: 20vh;
+        min-height: 100vh;
+    
+        .user-stores-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0px 25px 0px;
+            border-bottom: 1px solid var(--border-color);
+            font-family: Merriweather-Titulos;
+    
+            .title {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+            }
+        }
+    
+        .user-stores-content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 20px;
+        }
+    }
+}
