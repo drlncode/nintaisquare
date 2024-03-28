@@ -35,12 +35,44 @@
         <?php
             require_once("../sources/templates/header/header-login.php");
 
-            if ($query_pen -> rowCount() != 0) { $earring = $query_pen -> fetch(PDO::FETCH_ASSOC); ?>
+            if ($query_pen -> rowCount() >= 1) { ?>
                 <div class="earrings">
-                    <div class="counter"><span class="count"><?= $query_pen -> rowCount(); ?></span></div>
                     <a href="?tabFor" class="tabFor-link">Tiendas pendientes<i class="fa-solid fa-angle-right"></i></a>
                 </div>
-                <div class="tabFor" style="<?= isset($_GET["tabFor"]) ? 'display: block;' : 'display: none;' ?>"></div>
+                <?php
+                    if (isset($_GET["tabFor"])) { ?>
+                        <div class="tabFor">
+                            <div class="content">
+                                <div class="out">
+                                    <a href="mystores.php"><i class="fa-regular fa-circle-xmark"></i></a>
+                                </div>
+                                <div class="content-header">
+                                    <h3 class="title"><i class="fa-regular fa-clock"></i>Mis tiendas pendientes.</h3>
+                                </div>
+                                <div class="pen-stores">
+                                    <?php
+                                        $query = $pdo -> prepare("SELECT * FROM pen_stores WHERE user_id = :id;");
+                                        $query -> execute(array(
+                                            ':id' => $_SESSION["USER_AUTH"]["user_id"]
+                                        ));
+
+                                        while ($store = $query -> fetch(PDO::FETCH_ASSOC)) { ?>
+                                            <div class="pen-store">
+                                                <div class="pen-store-img">
+                                                    <img src="data:img/png;base64,<?= $store["store_img"] ?>" alt="">
+                                                </div>
+                                                <div class="name-category">
+                                                    <span class="name"><?= $store["store_name"] ?></span>
+                                                    <span class="category"><?= prettyCategory($store["store_category"]); ?></span>
+                                                </div>
+                                            </div>
+                                        <?php }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php }
+                ?>
             <?php }
         ?>
         <div class="user-stores-container">
