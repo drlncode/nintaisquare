@@ -49,8 +49,8 @@
             </div>
             <div class="user-stores-content">
                 <?php
-                    if ($query_val -> rowCount() == 0) { ?>
-                        <span class="no-stores"></span>
+                    if ($query_val -> rowCount() < 1) { ?>
+                        <span class="no-stores"><i class="fa-solid fa-xmark"></i>No tienes tiendas registradas actualmente.</span>
                     <?php } else {
                         while ($store = $query_val -> fetch(PDO::FETCH_ASSOC)) { ?>
                             <div class="user-store">
@@ -58,10 +58,16 @@
                                     <span class="category"><?= prettyCategory($store["store_category"]) ?></span>
                                 </div>
                                 <div class="store-img">
-                                    <img src="data:img/png;base64,<?= $store["store_img"] ?>" alt="<?= $store["store_name"] ?>">
+                                    <img src="data:img/png;base64,<?= $store["store_img"] ?>" Title="<?= $store["store_name"] ?>">
                                 </div>
-                                <div class="store-name">
-                                    <span class="name"><?= $store["store_name"] ?></span>
+                                <div class="name-actions">
+                                    <div class="store-name">
+                                        <span class="name"><?= $store["store_name"] ?></span>
+                                    </div>
+                                    <div class="actions">
+                                        <a href="https://nintaisquare.com/store/?store_id=<?= $store["store_id"] ?>" target="_blank" class="btn see-store">Detalles</a>
+                                        <a href="" class="btn delete-store">Borrar</a>
+                                    </div>
                                 </div>
                             </div>
                         <?php }
