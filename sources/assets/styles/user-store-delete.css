@@ -64,7 +64,7 @@
                     padding: 10px;
                     background-color: var(--border-color);
                     text-decoration: none;
-                    transition: all 0.6s ease-in-out;
+                    transition: all 0.5s ease-in-out;
                     border-radius: 3px;
                     color: var(--background-color);
                     font-family: Nunito-Sistema;
