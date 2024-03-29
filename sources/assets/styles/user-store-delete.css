@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color);
+
+    .content {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+
+        .header-content {
+            height: 12vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 200px;
+            }
+        }
+
+        .body-content {
+            margin: 25vh auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 13vh;
+
+            .body-content-header {
+                font-family: Merriweather-Titulos;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+
+                .info {
+                    width: 70%;
+                    text-align: center;
+                    font-family: Nunito-Sistema;
+                    font-size: 1.1em;
+                }
+            }
+
+            .options {
+                display: flex;
+                gap: 6px;
+                width: 40%;
+
+                .btn {
+                    display: flex;
+                    justify-content: center;
+                    align-items: baseline;
+                    width: 100%;
+                    padding: 10px;
+                    background-color: var(--border-color);
+                    text-decoration: none;
+                    transition: all 0.6s ease-in-out;
+                    border-radius: 3px;
+                    color: var(--background-color);
+                    font-family: Nunito-Sistema;
+                    font-size: 0.8em;
+                    border: 1px solid var(--border-color);
+                }
+
+                .btn:hover {
+                    background-color: var(--background-color);
+                    color: var(--border-color);
+                }
+            }
+        }
+    }
+}

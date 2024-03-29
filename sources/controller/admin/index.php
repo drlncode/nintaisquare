@@ -2,7 +2,6 @@
     session_start();
     require_once("../funciones.php");
     noset();
-    $_SESSION["USER_AUTH"]["admin_confirm"] = true;
     $admin = new admin_validation; //Linea 19 funciones.php
     $admin -> noadmin();
     $admin -> admin_confirm();

@@ -98,7 +98,7 @@
                                     </div>
                                     <div class="actions">
                                         <a href="https://nintaisquare.com/store/?store_id=<?= $store["store_id"] ?>" target="_blank" class="btn see-store">Detalles</a>
-                                        <a href="" class="btn delete-store">Borrar</a>
+                                        <a href="delete/?dlt-str=<?= $store["store_id"] ?>" class="btn delete-store">Borrar</a>
                                     </div>
                                 </div>
                             </div>
