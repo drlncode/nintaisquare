@@ -1,6 +1,7 @@
 <?php
     session_start();
     require_once("../sources/controller/funciones.php");
+    noset();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,13 +21,9 @@
     ?>
     <div class="container">
     <?php
-        if (!isset($_SESSION["USER_AUTH"])) {
-            header("Location: https://nintaisquare.com/");
-        } else {
-            require_once("../sources/templates/header/header-login.php");
-            require_once("../sources/templates/home/index-login.php");
-            require_once("../sources/templates/footer/footer.php");
-        }
+        require_once("../sources/templates/header/header-login.php");
+        require_once("../sources/templates/home/index-login.php");
+        require_once("../sources/templates/footer/footer.php");
     ?>
     </div>
 </body>

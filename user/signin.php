@@ -1,6 +1,8 @@
 <?php
     session_start();
     require_once("../sources/controller/pdo.php");
+    require_once("../sources/controller/funciones.php");
+    set();
 
     if (isset($_POST["email-l"]) && isset($_POST["password-l"])) {
         if (empty($_POST["email-l"]) || empty($_POST["password-l"])) {
