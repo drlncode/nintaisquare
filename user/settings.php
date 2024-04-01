@@ -3,6 +3,11 @@
     require_once("../sources/controller/pdo.php");
     require_once("../sources/controller/funciones.php");
     noset();
+
+    if (!isset($_GET["personal"]) && !isset($_GET["danger-zone"]) && !isset($_GET["change-data"])) {
+        header("Location: " . $_SERVER["REQUEST_URI"] . "?personal");
+        exit;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +25,80 @@
         require_once("../sources/templates/no-resposive/index.php");
     ?>
     <div class="container">
+        <?php
+            if (isset($_SESSION["msg"])) {
+                echo($_SESSION["msg"]);
+                unset($_SESSION["msg"]);
+            }
+        ?>
+        <div class="settings-content">
+            <div class="settings-nav">
+                <nav class="navbar">
+                    <div class="header">
+                        <h2 class="title"><i class="fa-solid fa-gear"></i>Ajustes</h2>
+                    </div>
+                    <div class="navbar-options">
+                        <a href="settings.php?personal" class="link-personal"><i class="fa-solid fa-user-lock"></i>Datos personales</a>
+                        <a href="settings.php?change-data" class="link-personal"><i class="fa-solid fa-user-pen"></i>Cambiar datos</a>
+                        <a href="settings.php?danger-zone" class="link-danger-zone"><i class="fa-solid fa-triangle-exclamation"></i>Zona de riesgo.</a> 
+                    </div>
+                </nav>
+            </div>
+            <div class="settings-options">
+                <?php
+                    if (isset($_GET["personal"])) { ?>
+                        <div class="settings my-data">
+                            <div class="info"><span><i class="fa-solid fa-circle-info"></i>Recuerda no compartir tus datos personales con nadie.</span></div>
+                            <div class="user-info"></div>
+                        </div>
+                    <?php } elseif(isset($_GET["change-data"])) { ?>
+                        <div class="settings settings-personal">
+                            <form action="" method="post" class="content-name">
+                                <h3 class="title">Cambiar nombre</h3>
+                                <div class="inputs">
+                                    <div class="input-email">
+                                        <input type="email" name="change-name" class="text" placeholder="Introduzca su nuevo nombre...">
+                                    </div>
+                                    <div class="confirm-changes">
+                                        <input type="password" name="password-verify" placeholder="Introduzca su contraseña actual...">
+                                        <button type="submit">Confirmar</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <form action="" method="post" class="content-email">
+                                <h3 class="title">Cambiar dirección de correo</h3>
+                                <div class="inputs">
+                                    <div class="input-email">
+                                        <input type="email" name="change-email" class="email" placeholder="Introduzca su nuevo email...">
+                                    </div>
+                                    <div class="confirm-changes">
+                                        <input type="password" name="password-verify" placeholder="Introduzca su contraseña actual...">
+                                        <button type="submit">Confirmar</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <form action="" method="post" class="content-password">
+                                <h3 class="title">Cambiar contraseña</h3>
+                                <div class="inputs">
+                                    <div class="input-password">
+                                        <input type="password" name="change-pw-1" placeholder="Introduzca su nueva contraseña...">
+                                        <input type="password" name="change-pw-2" placeholder="Introduzcala de nuevo...">
+                                    </div>
+                                    <div class="confirm-changes">
+                                        <input type="password" name="password-verify" placeholder="Introduzca su contrasñea actual...">
+                                        <button type="submit">Confirmar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    <?php } else { ?>
+                        <div class="settings settings-danger-zone">
 
+                        </div>
+                    <?php }
+                ?>
+            </div>
+        </div>
     </div>
 </body>
 </html>
