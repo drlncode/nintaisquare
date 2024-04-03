@@ -17,6 +17,7 @@
     <title>Ajustes | NintaiSquare</title>
     <link rel="icon" type="image/x-icon" href="../sources/assets/img/favicon.png">
     <link rel="stylesheet" href="../sources/assets/styles/root.css">
+    <link rel="stylesheet" href="../sources/assets/styles/user-settings.css">
     <link rel="stylesheet" href="../sources/assets/styles/no-responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -38,9 +39,9 @@
                         <h2 class="title"><i class="fa-solid fa-gear"></i>Ajustes</h2>
                     </div>
                     <div class="navbar-options">
-                        <a href="settings.php?personal" class="link-personal"><i class="fa-solid fa-user-lock"></i>Datos personales</a>
-                        <a href="settings.php?change-data" class="link-personal"><i class="fa-solid fa-user-pen"></i>Cambiar datos</a>
-                        <a href="settings.php?danger-zone" class="link-danger-zone"><i class="fa-solid fa-triangle-exclamation"></i>Zona de riesgo.</a> 
+                        <a href="settings.php?personal" class="link personal" style="background-color:<?= isset($_GET['personal']) ? 'var(--border-color);color:var(--background-color)' : 'unset' ?>;"><i class="fa-solid fa-user-lock"></i>Datos personales</a>
+                        <a href="settings.php?change-data" class="link change-data" style="background-color:<?= isset($_GET['change-data']) ? 'var(--border-color);color:var(--background-color)' : 'unset' ?>;"><i class="fa-solid fa-user-pen"></i>Cambiar datos</a>
+                        <a href="settings.php?danger-zone" class="link danger-zone" style="background-color:<?= isset($_GET['danger-zone']) ? 'var(--border-color);color:var(--background-color)' : 'unset' ?>;"><i class="fa-solid fa-triangle-exclamation"></i>Zona de riesgo.</a> 
                     </div>
                 </nav>
             </div>
@@ -93,8 +94,21 @@
                         </div>
                     <?php } else { ?>
                         <div class="settings settings-danger-zone">
-                            <div class="header"><i class="fa-solid fa-triangle-exclamation"></i>Recuerda que todo lo que hagas aqui se aplicará de forma definitiva.</div>
-                            <div class="options"></div>
+                            <div class="header"><span class="info"><i class="fa-solid fa-triangle-exclamation"></i>Recuerda que todo lo que hagas aqui se aplicará de forma definitiva.</span></div>
+                            <div class="options">
+                                <div class="option">
+                                    <div class="header"><h3 class="title">Borrar todas mis tiendas registradas.</h3></div>
+                                    <div class="content"><a href="<?= $_SERVER["REQUEST_URI"]; ?>&dlt-all-stores=<?= $_SESSION["USER_AUTH"]["user_id"]; ?>" class="action"><i class="fa-solid fa-trash-can"></i>Borrar</a></div>
+                                </div>
+                                <div class="option">
+                                    <div class="header"><h3 class="title">Borrar todos mis productos registrados.</h3></div>
+                                    <div class="content"><a href="<?= $_SERVER["REQUEST_URI"] ?>&dlt-all-products=<?= $_SESSION["USER_AUTH"]["user_id"]; ?>" class="action"><i class="fa-solid fa-trash-can"></i>Borrar</a></div>
+                                </div>
+                                <div class="option">
+                                    <div class="header"><h3 class="title">Borrar mi cuenta</h3></div>
+                                    <div class="content"><a href="delete/?dlt-usr=<?= $_SESSION["USER_AUTH"]["user_id"]; ?>" class="action"><i class="fa-solid fa-trash-can"></i>Borrar</a></div>
+                                </div>
+                            </div>
                         </div>
                     <?php }
                 ?>

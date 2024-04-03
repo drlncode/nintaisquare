@@ -94,8 +94,8 @@
                             <span class="info">Ten cuenta que al borrar tu cuenta se perderán todos tus datos y se borrará todo lo que esté asociado a tu cuenta.</span>
                         </div>
                         <div class="options">
-                            <a href="<?= $_SERVER["REQUEST_URI"] ?>&confirm">Eliminar</a>
-                            <a href="../settings.php">Cancelar</a>
+                            <a class="btn go" href="<?= $_SERVER["REQUEST_URI"] ?>&confirm">Eliminar</a>
+                            <a class="btn out" href="../settings.php">Cancelar</a>
                         </div>
                     </div>
                 <?php }
