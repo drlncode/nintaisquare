@@ -93,7 +93,8 @@
                         </div>
                     <?php } else { ?>
                         <div class="settings settings-danger-zone">
-
+                            <div class="header"><i class="fa-solid fa-triangle-exclamation"></i>Recuerda que todo lo que hagas aqui se aplicará de forma definitiva.</div>
+                            <div class="options"></div>
                         </div>
                     <?php }
                 ?>
