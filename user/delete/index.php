@@ -95,7 +95,7 @@
                         </div>
                         <div class="options">
                             <a class="btn go" href="<?= $_SERVER["REQUEST_URI"] ?>&confirm">Eliminar</a>
-                            <a class="btn out" href="../settings.php">Cancelar</a>
+                            <a class="btn out" href="../settings.php?danger-zone">Cancelar</a>
                         </div>
                     </div>
                 <?php }

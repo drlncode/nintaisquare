@@ -10,7 +10,7 @@
                 <ul class="user-options">
                     <li class="sistema user-link"><a href="https://nintaisquare.com/user/profile.php?user_id=<?= $_SESSION['USER_AUTH']['user_id'] ?>"><i class="fa-solid fa-user"></i> Mi perfil</a></li>
                     <li class="sistema user-link"><a href="https://nintaisquare.com/user/mystores.php"><i class="fa-solid fa-shop"></i> Mis tiendas</a></li>
-                    <li class="sistema user-link"><a href="https://nintaisquare.com/user/settings.php"><i class="fa-solid fa-gear"></i> Ajustes</a></li>
+                    <li class="sistema user-link"><a href="https://nintaisquare.com/user/settings.php" target="_blank"><i class="fa-solid fa-gear"></i> Ajustes</a></li>
                     <li class="sistema user-link"><a href="https://nintaisquare.com/user/logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar sesión</a></li>
                     <?php
                         if (isset($_SESSION["USER_AUTH"]["admin"]) && $_SESSION["USER_AUTH"]["admin"] === true) { ?>
