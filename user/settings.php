@@ -49,12 +49,14 @@
                 <?php
                     if (isset($_GET["personal"])) { ?>
                         <div class="settings my-data">
-                            <div class="info"><span><i class="fa-solid fa-circle-info"></i>Recuerda no compartir tus datos personales con nadie.</span></div>
-                            <div class="user-info"></div>
+                            <div class="header-info"><span class="info"><i class="fa-solid fa-circle-info"></i>Recuerda no compartir tus datos personales con nadie.</span></div>
+                            <div class="user-info">
+
+                            </div>
                         </div>
                     <?php } elseif(isset($_GET["change-data"])) { ?>
                         <div class="settings settings-personal">
-                            <form action="" method="post" class="content-name">
+                            <form class="content-form" method="post" class="content-name">
                                 <h3 class="title">Cambiar nombre</h3>
                                 <div class="inputs">
                                     <div class="input-email">
@@ -66,7 +68,7 @@
                                     </div>
                                 </div>
                             </form>
-                            <form action="" method="post" class="content-email">
+                            <form class="content-form" method="post" class="content-email">
                                 <h3 class="title">Cambiar dirección de correo</h3>
                                 <div class="inputs">
                                     <div class="input-email">
@@ -78,12 +80,12 @@
                                     </div>
                                 </div>
                             </form>
-                            <form action="" method="post" class="content-password">
+                            <form class="content-form" method="post" class="content-password">
                                 <h3 class="title">Cambiar contraseña</h3>
                                 <div class="inputs">
                                     <div class="input-password">
                                         <input type="password" name="change-pw-1" placeholder="Introduzca su nueva contraseña...">
-                                        <input type="password" name="change-pw-2" placeholder="Introduzcala de nuevo...">
+                                        <input type="password" name="change-pw-2" placeholder="Introduzcala aquí de nuevo...">
                                     </div>
                                     <div class="confirm-changes">
                                         <input type="password" name="password-verify" placeholder="Introduzca su contrasñea actual...">
@@ -94,7 +96,7 @@
                         </div>
                     <?php } else { ?>
                         <div class="settings settings-danger-zone">
-                            <div class="header"><span class="info"><i class="fa-solid fa-triangle-exclamation"></i>Recuerda que todo lo que hagas aqui se aplicará de forma definitiva.</span></div>
+                            <div class="header-info"><span class="info"><i class="fa-solid fa-triangle-exclamation"></i>Recuerda que todo lo que hagas aqui se aplicará de forma definitiva.</span></div>
                             <div class="options">
                                 <div class="option">
                                     <div class="header"><h3 class="title">Borrar todas mis tiendas registradas.</h3></div>

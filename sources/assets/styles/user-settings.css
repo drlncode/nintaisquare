@@ -68,5 +68,91 @@
                 }
             }
         }
+
+        .settings-options {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            padding: 10px 20px;
+
+            .settings {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .header-info {
+                    .info {
+                        display: flex;
+                        align-items: baseline;
+                        gap: 2px;
+                        font-family: Nunito-Sistema;
+                        color: var(--border-color);
+                        font-size: 0.83em;
+                    }
+                }
+            }
+
+            .my-data {
+
+            }
+
+            .settings-personal {
+                gap: 20px;
+
+                .content-form {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    border-bottom: 1px solid var(--border-color);
+                    padding-bottom: 30px;
+
+                    .title {
+                        display: flex;
+                        align-items: baseline;
+                        font-family: Merriweather-Titulos;
+                    }
+
+                    .inputs {
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+
+                        input {
+                            width: 35%;
+                            margin-right: 5px;
+                            padding: 7px;
+                            outline: unset;
+                            font-family: Nunito-Sistema;
+                            color: var(--border-color);
+                            border: unset;
+                            border: 1px solid var(--border-color);
+                            border-radius: 3px;
+                            font-size: 0.8em;
+                            background-color: var(--background-color);
+                        }
+
+                        button {
+                            padding: 7px;
+                            border: unset;
+                            border: 1px solid var(--border-color);
+                            border-radius: 3px;
+                            font-family: Nunito-Sistema;
+                            background-color: var(--border-color);
+                            color: var(--background-color);
+                            transition: ease-in-out 0.4s;
+                            font-size: 0.8em;
+                            cursor: pointer;
+                        }
+
+                        button:hover {
+                            background-color: var(--background-color);
+                            color: var(--border-color);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
