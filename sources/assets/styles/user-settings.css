@@ -10,6 +10,52 @@
     flex-direction: column;
     background-color: var(--background-color);
 
+    .mensaje-error {
+        font-family: Nunito-Sistema;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        gap: 5px;
+        background-color: var(--background-color);
+        padding: 10px;
+        border-radius: 5px;
+        top: 40px;
+        right: 20px;
+        position: absolute;
+        color: rgb(204, 73, 73);
+        border: 1px solid rgb(204, 73, 73);
+        transition: all 0.5s ease;
+    }
+    
+    .mensaje-error:hover {
+        background-color: rgb(204, 73, 73);
+        color: var(--background-color);
+        cursor: default;
+    }
+    
+    .mensaje-success {
+        font-family: Nunito-Sistema;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        gap: 5px;
+        background-color: var(--background-color);
+        padding: 10px;
+        border-radius: 5px;
+        top: 45px;
+        right: 20px;
+        position: absolute;
+        color: rgb(77, 235, 71);
+        border: 1px solid rgb(77, 235, 71);
+        transition: all 0.5s ease;
+    }
+    
+    .mensaje-success:hover {
+        background-color: rgb(77, 235, 71);
+        color: var(--background-color);
+        cursor: default;
+    }
+
     .settings-content {
         margin: 0 auto;
         width: 90%;

@@ -8,6 +8,15 @@
         header("Location: " . $_SERVER["REQUEST_URI"] . "?personal");
         exit;
     }
+
+    //Datos del usuario.
+    $query = $pdo -> prepare("SELECT user_id, name, email FROM users WHERE user_id = :id");
+    $query -> execute(array(
+        ':id' => $_SESSION["USER_AUTH"]["user_id"]
+    ));
+    $n_e = $query -> fetch(PDO::FETCH_ASSOC);
+
+    $query = $pdo -> prepare("SELECT COUNT(*)")
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +60,30 @@
                         <div class="settings my-data">
                             <div class="header-info"><span class="info"><i class="fa-solid fa-circle-info"></i>Recuerda no compartir tus datos personales con nadie.</span></div>
                             <div class="user-info">
-
+                                <div class="vanished">
+                                    <div class="user-content">
+                                        <div class="header"><h3 class="title">Mi ID.</h3></div>
+                                        <div class="content"><span class="u-info">- <?= $n_e["user_id"] ?></span></div>
+                                    </div>
+                                    <div class="user-content">
+                                        <div class="header"><h3 class="title">Mi nombre.</h3></div>
+                                        <div class="content"><span class="u-info">- <?= $n_e["name"] ?></span></div>
+                                    </div>
+                                </div>
+                                <div class="user-content">
+                                    <div class="header"><h3 class="title">Mi correo.</h3></div>
+                                    <div class="content"><span class="u-info">- <?= $n_e["email"] ?></span></div>
+                                </div>
+                                <div class="user-statistics">
+                                    <div class="user-content">
+                                        <div class="header"><h3 class="title">Cantidad de tiendas registradas.</h3></div>
+                                        <div class="content"><span class="u-info">- <?= $n_e["email"] ?></span></div>
+                                    </div>
+                                    <div class="user-content">
+                                        <div class="header"><h3 class="title">Cantidad de productos registradas.</h3></div>
+                                        <div class="content"><span class="u-info">- <?= $n_e["email"] ?></span></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     <?php } elseif(isset($_GET["change-data"])) { ?>
