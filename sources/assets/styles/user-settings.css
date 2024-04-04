@@ -87,14 +87,21 @@
                         align-items: baseline;
                         gap: 2px;
                         font-family: Nunito-Sistema;
-                        color: var(--border-color);
                         font-size: 0.83em;
                     }
                 }
             }
 
             .my-data {
+                .header-info {
+                    margin-bottom: 3vh;
 
+                    .info {
+                        width: 335px;
+                        color: rgb(126, 179, 209);
+                        border-bottom: 1px solid rgb(126, 179, 209);
+                    }
+                }
             }
 
             .settings-personal {
@@ -149,6 +156,55 @@
                         button:hover {
                             background-color: var(--background-color);
                             color: var(--border-color);
+                        }
+                    }
+                }
+            }
+
+            .settings-danger-zone {
+                .header-info {
+                    margin-bottom: 3vh;
+
+                    .info {
+                        width: 413px;
+                        color: rgb(218, 100, 100);
+                        border-bottom: 1px solid rgb(218, 100, 100);
+                    }
+                }
+
+                .options {
+                    display: flex;
+                    flex-direction: column;
+                    font-family: Merriweather-Titulos;
+                    gap: 20px;
+
+                    .option {
+                        padding-bottom: 25px;
+                        border-bottom: 1px solid var(--border-color);
+
+                        .content {
+                            .action {
+                                width: 80px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                text-decoration: none;
+                                background-color: rgb(218, 100, 100);
+                                padding: 10px;
+                                font-family: Nunito-Sistema;
+                                font-size: 0.8em;
+                                gap: 5px;
+                                color: var(--background-color);
+                                margin-top: 10px;
+                                border-radius: 3px;
+                                transition: ease-in-out 0.4s;
+                                border: 1px solid rgb(218, 100, 100);
+                            }
+
+                            .action:hover {
+                                background-color: var(--background-color);
+                                color: rgb(218, 100, 100);
+                            }
                         }
                     }
                 }
