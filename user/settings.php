@@ -15,8 +15,6 @@
         ':id' => $_SESSION["USER_AUTH"]["user_id"]
     ));
     $n_e = $query -> fetch(PDO::FETCH_ASSOC);
-
-    $query = $pdo -> prepare("SELECT COUNT(*)")
 ?>
 <!DOCTYPE html>
 <html lang="en">
