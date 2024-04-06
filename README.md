@@ -4,7 +4,7 @@
 
 # Qué es NintaiSquare?
 
-*<a href="https://nintaisquare.com/" target="_blnak">NintaiSquare</a> es una plataforma en las que los usuarios pueden registrar y explorar tiendas y productos de forma gratuita y sin publicidad. NintaiSquare fue creado en el 2024 por _**Darlin Daniel Arias Méndez**_, _**Luis Emilio Javier de los Santos**_, _**Alanna Alcantara**_, _**Geriel Bautista Aibar**_ y _**WIndelson Peréz.**_*
+*<a href="https://nintaisquare.com/" target="_blnak">NintaiSquare</a> es una plataforma en las que los usuarios pueden registrar y explorar tiendas y productos de forma gratuita y sin publicidad. NintaiSquare fue creado en el 2024 por _**Darlin Daniel Arias Méndez**_, _**Luis Emilio Javier de los Santos**_, _**Alanna Alcantara**_ y _**Geriel Bautista Aibar**_.*
 
 ## Licencia 
 
