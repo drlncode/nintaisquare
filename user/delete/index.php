@@ -48,7 +48,23 @@
             exit;
         }
     } elseif (isset($_GET["dlt-usr"]) && !empty($_GET["dlt-usr"])) {
+        if ($_GET["dlt-usr"] != $_SESSION["USER_AUTH"]["user_id"]) {
+            session_destroy();
+            header("Location: https://nintaisquare.com/");
+            exit;
+        } else {
+            if (isset($_GET["confirm"])) {
+                $id = $_SESSION["USER_AUTH"]["user_id"];
+                $query_dlusr = $pdo -> prepare("DELETE FROM users WHERE user_id = :id");
+                $query_dlusr -> execute(array(
+                    ':id' => $id
+                ));
 
+                session_destroy();
+                header("Location: https://nintaisquare.com/");
+                exit;
+            }
+        }
     } else {
         header("Location: https://nintaisquare.com/");
         exit;
