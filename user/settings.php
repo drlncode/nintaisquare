@@ -3,6 +3,8 @@
     require_once("../sources/controller/pdo.php");
     require_once("../sources/controller/funciones.php");
     noset();
+    date_default_timezone_set("America/Santo_Domingo");
+    $date = getdate();
 
     if (!isset($_GET["personal"]) && !isset($_GET["danger-zone"]) && !isset($_GET["change-data"])) {
         header("Location: " . $_SERVER["REQUEST_URI"] . "?personal");
@@ -121,6 +123,101 @@
         $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese algún valor.</span>";
         header("Location: settings.php?change-data");
         exit;
+    }
+
+    if (isset($_GET["dlt-all-stores"]) && !empty($_GET["dlt-all-stores"])) {
+        if ($_GET["dlt-all-stores"] != $_SESSION["USER_AUTH"]["user_id"]) {
+            session_destroy();
+            header("Location: https://nintaisquare.com/");
+            exit;
+        } else {
+            $query = $pdo -> prepare("SELECT COUNT(*) us FROM val_stores WHERE user_id = :id");
+            $query -> execute(array(
+                ':id' => $_SESSION["USER_AUTH"]["user_id"]
+            ));
+            $us = $query -> fetch(PDO::FETCH_ASSOC);
+
+            if ($us["us"] < 1) {
+                $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>No tienes tiendas regístradas.</span>";
+                header("Location: settings.php?danger-zone");
+                exit;
+            } else {
+                $query = $pdo -> prepare("DELETE FROM val_stores WHERE user_id = :id;");
+                $query -> execute(array(
+                    ':id' => $_SESSION["USER_AUTH"]["user_id"]
+                ));
+
+                $query_his = $pdo -> prepare("INSERT INTO history (`status`, `by`, `category`, `of`, `date`) VALUES (:st, :by, :cy, :of, :dt)");
+                $query_his -> execute(array(
+                    ':st' => "deleted_all",
+                    ':by' => $_SESSION["USER_AUTH"]["user_id"],
+                    ':cy' => "store",
+                    ':of' => $_SESSION["USER_AUTH"]["user_id"],
+                    ':dt' => $date["year"] . "-" . $date["mon"] . "-" . $date["mday"] . " " . $date["hours"] . ":" . $date["minutes"] . ":" . $date["seconds"]
+                ));
+
+                $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>Todas tus tiendas fueron eliminadas.</span>";
+                header("Location: settings.php?danger-zone");
+                exit;
+            }
+        }
+    } elseif (isset($_GET["dlt-all-products"]) && !empty($_GET["dlt-all-products"])) {
+        $query_tid = $pdo -> prepare("SELECT store_id FROM val_stores WHERE user_id = :id");
+        $query_tid -> execute(array(
+            ':id' => $_SESSION["USER_AUTH"]["user_id"]
+        ));
+
+        if ($query_tid -> rowCount() < 1) {
+            $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>No tienes tiendas regístradas.</span>";
+            header("Location: settings.php?danger-zone");
+            exit;
+        } else {
+            $arr = [];
+            $arr_sti = [];
+            while ($strs = $query_tid -> fetch(PDO::FETCH_ASSOC)) {
+                $count = null;
+                for ($i = 0; $i < count($strs); $i++) {
+                    $query = $pdo -> prepare("SELECT COUNT(*) pdts FROM val_products WHERE store_id = :id");
+                    $query -> execute(array(
+                        ':id' => $strs["store_id"]
+                    ));
+                    $nrms = $query -> fetch(PDO::FETCH_ASSOC);
+                    array_push($arr, $nrms["pdts"]);
+                    array_push($arr_sti, $strs["store_id"]);
+                }
+            }
+
+            $t = 0;
+            for ($i = 0; $i < count($arr); $i++) {
+                $t += $arr[$i];
+            }
+
+            if ($t < 1) {
+                $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Tus tiendas no tienen productos regístrados.</span>";
+                header("Location: settings.php?danger-zone");
+                exit;
+            } else {
+                $query_del = $pdo -> prepare("DELETE FROM val_products WHERE store_id = :id");
+                for ($i = 0; $i < count($arr_sti); $i++) {
+                    $query_del -> execute(array(
+                        ':id' => $arr_sti[$i]
+                    ));
+                }
+
+                $query_his = $pdo -> prepare("INSERT INTO history (`status`, `by`, `category`, `of`, `date`) VALUES (:st, :by, :cy, :of, :dt)");
+                $query_his -> execute(array(
+                    ':st' => "deleted_all",
+                    ':by' => $_SESSION["USER_AUTH"]["user_id"],
+                    ':cy' => "product",
+                    ':of' => $_SESSION["USER_AUTH"]["user_id"],
+                    ':dt' => $date["year"] . "-" . $date["mon"] . "-" . $date["mday"] . " " . $date["hours"] . ":" . $date["minutes"] . ":" . $date["seconds"]
+                ));
+
+                $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>Todas tus productos fueron eliminados.</span>";
+                header("Location: settings.php?danger-zone");
+                exit;
+            }
+        }
     }
 ?>
 <!DOCTYPE html>
