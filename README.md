@@ -1,0 +1,1 @@
+![NintaiSquare Logo](sources/assets/img/logo.png)
