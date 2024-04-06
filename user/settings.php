@@ -15,6 +15,113 @@
         ':id' => $_SESSION["USER_AUTH"]["user_id"]
     ));
     $n_e = $query -> fetch(PDO::FETCH_ASSOC);
+
+    if (isset($_POST["change-name"]) && !empty($_POST["change-name"])) {
+        if(!empty($_POST["password-verify"])) {
+            for ($i = 0; $i < strlen($_POST["change-name"]); $i++) {
+                if (is_numeric($_POST["change-name"][$i])) {
+                    $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese un nombre válido</span>";
+                    header("Location: settings.php?change-data");
+                    exit;
+                }
+            }
+            $pw = hash("MD5", $_POST["password-verify"]);
+            if ($pw !== $_SESSION["USER_AUTH"]["user_pw"]) {
+                $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Contraseña incorrecta.</span>";
+                header("Location: settings.php?change-data");
+                exit;
+            } else {
+                $query = $pdo -> prepare("UPDATE `users` SET `name` = :cm WHERE `user_id` = :id;");
+                $query -> execute(array(
+                    ':cm' => htmlentities($_POST["change-name"]),
+                    ':id' => $_SESSION["USER_AUTH"]["user_id"]
+                ));
+
+                $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>Nombre modificado con éxito!</span>";
+                header("Location: settings.php?personal");
+                exit;
+            }
+        } else {
+            $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese su contraseña actual.</span>";
+            header("Location: settings.php?change-data");
+            exit;
+        }
+    } elseif (isset($_POST["change-name"]) && empty($_POST["change-name"])) {
+        $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese algún valor.</span>";
+        header("Location: settings.php?change-data");
+        exit;
+    }
+    
+    if (isset($_POST["change-email"]) && !empty($_POST["change-email"])) {
+        if(!empty($_POST["password-verify"])) {
+            $pw = hash("MD5", $_POST["password-verify"]);
+            if (!filter_var($_POST["change-email"], FILTER_VALIDATE_EMAIL)) {
+                $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese un email válido.</span>";
+                header("Location: settings.php?change-data");
+                exit;
+            } elseif ($pw !== $_SESSION["USER_AUTH"]["user_pw"]) {
+                $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Contraseña incorrecta.</span>";
+                header("Location: settings.php?change-data");
+                exit;   
+            } else {
+                $query = $pdo -> prepare("UPDATE `users` SET `email` = :em WHERE `user_id` = :id;");
+                $query -> execute(array(
+                    ':em' => htmlentities($_POST["change-email"]),
+                    ':id' => $_SESSION["USER_AUTH"]["user_id"]
+                ));
+
+                $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>Correo modificado con éxito!</span>";
+                header("Location: settings.php?personal");
+                exit;
+            }
+        } else {
+            $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese su contraseña actual.</span>";
+            header("Location: settings.php?change-data");
+            exit;
+        }
+    } elseif (isset($_POST["change-email"]) && empty($_POST["change-email"])) {
+        $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese algún valor.</span>";
+        header("Location: settings.php?change-data");
+        exit;
+    }
+
+    if (isset($_POST["change-pw-1"]) && !empty($_POST["change-pw-1"]) && !empty($_POST["change-pw-2"])) {
+        if(!empty($_POST["password-verify"])) {
+            $pw = hash("MD5", $_POST["password-verify"]);
+            $n_pw = hash("MD5", $_POST["change-pw-1"]);
+            if ($_POST["change-pw-1"] !== $_POST["change-pw-2"]) {
+                $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Las nuevas contraseñas no coinciden.</span>";
+                header("Location: settings.php?change-data");
+                exit;
+            } elseif ($pw !== $_SESSION["USER_AUTH"]["user_pw"]) {
+                $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Contraseña incorrecta.</span>";
+                header("Location: settings.php?change-data");
+                exit;
+            } elseif ($n_pw == $_SESSION["USER_AUTH"]["user_pw"]) {
+                $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>La contraseña debe ser diferente a la actual.</span>";
+                header("Location: settings.php?change-data");
+                exit;
+            } else {
+                $query = $pdo -> prepare("UPDATE `users` SET `password` = :pw WHERE `user_id` = :id;");
+                $query -> execute(array(
+                    ':pw' => hash("MD5", $_POST["change-pw-1"]),
+                    ':id' => $_SESSION["USER_AUTH"]["user_id"]
+                ));
+
+                $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>Contraseña modificada con éxito!</span>";
+                header("Location: settings.php?personal");
+                exit;
+            }
+        } else {
+            $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese su contraseña actual.</span>";
+            header("Location: settings.php?change-data");
+            exit;
+        }
+    } elseif (isset($_POST["change-pw-1"]) && empty($_POST["change-pw-1"]) && empty($_POST["change-pw-2"])) {
+        $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese algún valor.</span>";
+        header("Location: settings.php?change-data");
+        exit;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -126,7 +233,7 @@
                                     <span class="u-info"><a href="settings.php?change-data"><i class="fa-solid fa-pen-to-square"></i></a><?= $n_e["email"] ?></span>
                                 </div>
                                 <div class="user-content">
-                                    <div class="header"><h3 class="title">Contraseña</h3></div>
+                                    <div class="header"><h3 class="title">Contraseña (Encryptada)</h3></div>
                                     <span class="u-info"><a href="settings.php?change-data"><i class="fa-solid fa-pen-to-square"></i></a><?php
                                         $str = strlen($_SESSION["USER_AUTH"]["user_pw"]);
                                         for ($i = 0; $i < $str; $i++) {
@@ -142,7 +249,7 @@
                                 <h3 class="title">Cambiar nombre</h3>
                                 <div class="inputs">
                                     <div class="input-email">
-                                        <input type="email" name="change-name" class="text" placeholder="Introduzca su nuevo nombre...">
+                                        <input type="text" name="change-name" class="text" placeholder="Introduzca su nuevo nombre...">
                                     </div>
                                     <div class="confirm-changes">
                                         <input type="password" name="password-verify" placeholder="Introduzca su contraseña actual...">
