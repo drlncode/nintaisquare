@@ -91,21 +91,6 @@
                     flex-direction: column;
                     gap: 10px;
                     font-family: Nunito-Sistema;
-
-                    .link {
-                        text-decoration: none;
-                        width: 170px;
-                        display: flex;
-                        align-items: center;
-                        gap: 5px;
-                        padding: 10px;
-                        color: var(--border-color);
-                        border-radius: 30px;
-                        font-size: 0.8em;
-                        padding-top: 9.5px;
-                        padding-left: 15px;
-                    }
-
                     .danger-zone {
                         i {
                             margin-top: 1.5px;
@@ -146,6 +131,66 @@
                         width: 335px;
                         color: rgb(126, 179, 209);
                         border-bottom: 1px solid rgb(126, 179, 209);
+                    }
+                }
+
+                .main-title {
+                    display: flex;
+                    align-items: center;
+                    font-family: Merriweather-Titulos;
+                    margin: 10px 0px 20px 0px;
+                }
+
+                .user-info {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 10px;
+
+                    .user-content {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 4px;
+
+                        .header {
+                            .title {
+                                font-family: Merriweather-Titulos;
+                                border-bottom: 1px solid var(--border-color);
+                                width: max-content;
+                                padding: 2px 0px;
+                                margin-bottom: 7px;
+                            }
+                        }
+
+                        .u-info {
+                            font-family: Nunito-Sistema;
+                            margin-left: 10px;
+                            display: flex;
+                            align-items: baseline;
+                            color: var(--border-color);
+
+                            a {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                text-decoration: none;
+                                color: var(--border-color);
+                                margin-right: 5px;
+                            }
+
+                            id {
+                                width: max-content;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                background-color: var(--border-color);
+                                padding: 3px 7px;
+                                border-radius: 4px;
+                                margin-left: 10px;
+                                color: var(--background-color);
+                                font-size: 0.8em;
+                            }
+                        }
                     }
                 }
             }

@@ -46,10 +46,68 @@
                         <h2 class="title"><i class="fa-solid fa-gear"></i>Ajustes</h2>
                     </div>
                     <div class="navbar-options">
-                        <a href="settings.php?personal" class="link personal" style="background-color:<?= isset($_GET['personal']) ? 'var(--border-color);color:var(--background-color)' : 'unset' ?>;"><i class="fa-solid fa-user-lock"></i>Datos personales</a>
-                        <a href="settings.php?change-data" class="link change-data" style="background-color:<?= isset($_GET['change-data']) ? 'var(--border-color);color:var(--background-color)' : 'unset' ?>;"><i class="fa-solid fa-user-pen"></i>Cambiar datos</a>
-                        <a href="settings.php?danger-zone" class="link danger-zone" style="background-color:<?= isset($_GET['danger-zone']) ? 'var(--border-color);color:var(--background-color)' : 'unset' ?>;"><i class="fa-solid fa-triangle-exclamation"></i>Zona de riesgo.</a> 
+                        <a href="settings.php?personal" class="link personal"><i class="fa-solid fa-user-lock"></i>Datos personales</a>
+                        <a href="settings.php?change-data" class="link change-data"><i class="fa-solid fa-user-pen"></i>Cambiar datos</a>
+                        <a href="settings.php?danger-zone" class="link danger-zone"><i class="fa-solid fa-triangle-exclamation"></i>Zona de riesgo.</a> 
                     </div>
+                    <style>
+                        .link {
+                            text-decoration: none;
+                            width: 170px;
+                            display: flex;
+                            align-items: center;
+                            gap: 5px;
+                            padding: 10px;
+                            color: var(--border-color);
+                            border-radius: 30px;
+                            font-size: 0.8em;
+                            padding-top: 9.5px;
+                            padding-left: 15px;
+                            transition: all 0.2s;
+                        }
+
+                        .link:hover {
+                            background-color: #ebebeb;
+                            box-shadow: 2px 1px 10px 2px rgba(20, 20, 20, 0.20);
+                        }
+
+                        <?php
+                            if (isset($_GET['personal'])) { ?>
+                                .personal {
+                                    background-color: var(--border-color);
+                                    color: var(--background-color);
+                                    box-shadow: 2px 1px 10px 2px rgba(20, 20, 20, 0.20);
+                                }
+
+                                .personal:hover {
+                                    background-color: var(--border-color);
+                                    color: var(--background-color);
+                                }
+                            <?php } elseif (isset($_GET["change-data"])) { ?>
+                                .change-data {
+                                    background-color: var(--border-color);
+                                    color: var(--background-color);
+                                    box-shadow: 2px 1px 10px 2px rgba(20, 20, 20, 0.20);
+                                }
+
+                                .change-data:hover {
+                                    background-color: var(--border-color);
+                                    color: var(--background-color);
+                                }
+                            <?php } else { ?>
+                                .danger-zone {
+                                    background-color: var(--border-color);
+                                    color: var(--background-color);
+                                    box-shadow: 2px 1px 10px 2px rgba(20, 20, 20, 0.20);
+                                }
+
+                                .danger-zone:hover {
+                                    background-color: var(--border-color);
+                                    color: var(--background-color);
+                                }
+                            <?php }
+                        ?>
+                    </style>
                 </nav>
             </div>
             <div class="settings-options">
@@ -57,30 +115,24 @@
                     if (isset($_GET["personal"])) { ?>
                         <div class="settings my-data">
                             <div class="header-info"><span class="info"><i class="fa-solid fa-circle-info"></i>Recuerda no compartir tus datos personales con nadie.</span></div>
+                            <h2 class="main-title">Datos de usuario.</h2>
                             <div class="user-info">
-                                <div class="vanished">
-                                    <div class="user-content">
-                                        <div class="header"><h3 class="title">Mi ID.</h3></div>
-                                        <div class="content"><span class="u-info">- <?= $n_e["user_id"] ?></span></div>
-                                    </div>
-                                    <div class="user-content">
-                                        <div class="header"><h3 class="title">Mi nombre.</h3></div>
-                                        <div class="content"><span class="u-info">- <?= $n_e["name"] ?></span></div>
-                                    </div>
+                                <div class="user-content">
+                                    <div class="header"><h3 class="title">Nombre</h3></div>
+                                    <span class="u-info"><a href="settings.php?change-data"><i class="fa-solid fa-pen-to-square"></i></a><?= $n_e["name"] ?> <id><?= $n_e["user_id"] ?></id></span>
                                 </div>
                                 <div class="user-content">
-                                    <div class="header"><h3 class="title">Mi correo.</h3></div>
-                                    <div class="content"><span class="u-info">- <?= $n_e["email"] ?></span></div>
+                                    <div class="header"><h3 class="title">Correo</h3></div>
+                                    <span class="u-info"><a href="settings.php?change-data"><i class="fa-solid fa-pen-to-square"></i></a><?= $n_e["email"] ?></span>
                                 </div>
-                                <div class="user-statistics">
-                                    <div class="user-content">
-                                        <div class="header"><h3 class="title">Cantidad de tiendas registradas.</h3></div>
-                                        <div class="content"><span class="u-info">- <?= $n_e["email"] ?></span></div>
-                                    </div>
-                                    <div class="user-content">
-                                        <div class="header"><h3 class="title">Cantidad de productos registradas.</h3></div>
-                                        <div class="content"><span class="u-info">- <?= $n_e["email"] ?></span></div>
-                                    </div>
+                                <div class="user-content">
+                                    <div class="header"><h3 class="title">Contraseña</h3></div>
+                                    <span class="u-info"><a href="settings.php?change-data"><i class="fa-solid fa-pen-to-square"></i></a><?php
+                                        $str = strlen($_SESSION["USER_AUTH"]["user_pw"]);
+                                        for ($i = 0; $i < $str; $i++) {
+                                            echo "•";
+                                        }
+                                    ?></span>
                                 </div>
                             </div>
                         </div>
