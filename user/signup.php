@@ -9,10 +9,14 @@
             $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Rellene todos los campos.</span>";
             header("Location: https://nintaisquare.com/user/signup.php");
             return;
-        } elseif (is_numeric($_POST["name-r"])) {
-            $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese un nombre válido.</span>";
-            header("Location: https://nintaisquare.com/user/signup.php");
-            return;
+        } elseif (!is_numeric($_POST["name-r"])) {
+            for ($i = 0; $i < strlen($_POST["name-r"]); $i++) {
+                if (is_numeric($_POST["name-r"][$i])) {
+                    $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese un nombre válido.</span>";
+                    header("Location: https://nintaisquare.com/user/signup.php");
+                    exit;
+                }
+            } 
         } elseif (!filter_var($_POST["email-r"], FILTER_VALIDATE_EMAIL)) {
             $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese un correo válido.</span>";
             header("Location: https://nintaisquare.com/user/signup.php");
