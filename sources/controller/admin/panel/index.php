@@ -451,10 +451,26 @@
                     </div>
                 <?php }
             } elseif (isset($_GET["users-list"])) {
-                $query = $pdo -> query("SELECT user_id, name, email FROM users;");
+                $query_u = $pdo -> query("SELECT user_id, name, email, admin FROM users;");
 
                 if (isset($_GET["delete-user"])) {
+                    $query_del = $pdo -> prepare("DELETE FROM users WHERE user_id = :id");
+                    $query_del -> execute(array(
+                        ':id' => $_GET["delete-user"]
+                    ));
 
+                    $query = $pdo -> prepare("INSERT INTO history (`status`, `by`, `category`, `of`, `date`) VALUES (:st, :by, :cy, :of, :dt)");
+                    $query -> execute(array(
+                        ':st' => "deleted",
+                        ':by' => $_SESSION["USER_AUTH"]["user_id"],
+                        ':cy' => "user",
+                        ':of' => $_GET["delete-user"],
+                        ':dt' => $date["year"] . "-" . $date["mon"] . "-" . $date["mday"] . " " . $date["hours"] . ":" . $date["minutes"] . ":" . $date["seconds"]
+                    ));
+
+                    $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>Usuario eliminado.</span>";
+                    header("Location: index.php?users-list");
+                    exit;
                 } else { ?>
                     <div class="container-users-list">
                         <div class="header-title">
@@ -473,7 +489,7 @@
                         </div>
                         <div class="users">
                             <?php
-                                while ($user = $query -> fetch(PDO::FETCH_ASSOC)) { ?>
+                                while ($user = $query_u -> fetch(PDO::FETCH_ASSOC)) { ?>
                                     <div class="user">
                                         <div class="user-id">
                                             <p><?= $user["user_id"] ?></p>
@@ -492,11 +508,15 @@
                                                     <p>Ver perfil</p>
                                                 </div>
                                             </a>
-                                            <a href="index.php?users-list&delete-user=<?= $user["user_id"] ?>">
-                                                <div class="delete-user">
-                                                    <p>Eliminar</p>
-                                                </div>
-                                            </a>
+                                            <?php
+                                                if ($user["admin"] != 1) { ?>
+                                                    <a href="index.php?users-list&delete-user=<?= $user["user_id"] ?>">
+                                                        <div class="delete-user">
+                                                            <p>Eliminar</p>
+                                                        </div>
+                                                    </a>
+                                                <?php }
+                                            ?>
                                         </div>
                                     </div>
                                 <?php }

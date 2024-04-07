@@ -69,28 +69,67 @@
                             <div class="history-register accepted">
                                 <div class="date"><span><?= $history["date"] ?></span></div>
                                 <div class="info">
-                                    <span><?= $name[0] ?> aprobó una tienda del usuario con el ID: <a href="https://nintaisquare.com/user/profile.php?user_id=<?= $history["of"] ?>" target="_blank"><?= $history["of"] ?></a></span>
+                                    <span><?= $name[0] ?>[<a href="https://nintaisquare.com/user/profile.php?user_id=<?= $history["by"] ?>" target="_blank"><?= $history["by"] ?></a>] aprobó una tienda del usuario con el ID: <a href="https://nintaisquare.com/user/profile.php?user_id=<?= $history["of"] ?>" target="_blank"><?= $history["of"] ?></a></span>
                                 </div>
                             </div>
                         <?php } elseif ($history["status"] == "accepted" && $history["category"] == "product") { ?>
                             <div class="history-register accepted">
                                 <div class="date"><span><?= $history["date"] ?></span></div>
                                 <div class="info">
-                                    <span><?= $name[0] ?> aprobó un producto de la tienda con el ID: <?= $history["of"] ?></span>
+                                    <span><?= $name[0] ?>[<a href="https://nintaisquare.com/user/profile.php?user_id=<?= $history["by"] ?>" target="_blank"><?= $history["by"] ?></a>] aprobó un producto de la tienda con el ID: <a href="https://nintaisquare.com/store/?store_id=<?= $history["of"] ?>"><?= $history["of"] ?></a></span>
                                 </div>
                             </div>
                         <?php } elseif ($history["status"] == "denied" && $history["category"] == "store") { ?>
                             <div class="history-register denied">
                                 <div class="date"><span><?= $history["date"] ?></span></div>
                                 <div class="info">
-                                    <span><?= $name[0] ?> rechazó una tienda del usuario con el ID: <a href="https://nintaisquare.com/user/profile.php?user_id=<?= $history["of"] ?>" target="_blank"><?= $history["of"] ?></a></span>
+                                    <span><?= $name[0] ?>[<a href="https://nintaisquare.com/user/profile.php?user_id=<?= $history["by"] ?>" target="_blank"><?= $history["by"] ?></a>] rechazó una tienda del usuario con el ID: <a href="https://nintaisquare.com/user/profile.php?user_id=<?= $history["of"] ?>" target="_blank"><?= $history["of"] ?></a></span>
                                 </div>
                             </div>
                         <?php } elseif ($history["status"] == "denied" && $history["category"] == "product") { ?>
                             <div class="history-register denied">
                                 <div class="date"><span><?= $history["date"] ?></span></div>
                                 <div class="info">
-                                    <span><?= $name[0] ?> rechazó un producto de la tienda con el ID: <?= $history["of"] ?></span>
+                                    <span><?= $name[0] ?>[<a href="https://nintaisquare.com/user/profile.php?user_id=<?= $history["by"] ?>" target="_blank"><?= $history["by"] ?></a>] rechazó un producto de la tienda con el ID: <a href="https://nintaisquare.com/store/?store_id=<?= $history["of"] ?>"><?= $history["of"] ?></a></span>
+                                </div>
+                            </div>
+                        <?php } elseif ($history["status"] == "deleted" && $history["category"] == "store") {
+                            if ($history["by"] == $history["of"]) { ?>
+                                <div class="history-register denied">
+                                    <div class="date"><span><?= $history["date"] ?></span></div>
+                                    <div class="info">
+                                        <span><?= $name[0] ?>[<a href="https://nintaisquare.com/user/profile.php?user_id=<?= $history["by"] ?>" target="_blank"><?= $history["by"] ?></a>] eliminó su tienda con el ID: <?= $history["of"] ?></span>
+                                    </div>
+                                </div>
+                            <?php } else { ?>
+                                <div class="history-register denied">
+                                    <div class="date"><span><?= $history["date"] ?></span></div>
+                                    <div class="info">
+                                        <span><?= $name[0] ?>[<a href="https://nintaisquare.com/user/profile.php?user_id=<?= $history["by"] ?>" target="_blank"><?= $history["by"] ?></a>] eliminó una tienda con el ID: <?= $history["of"] ?></span>
+                                    </div>
+                                </div>
+                            <?php }
+                        } elseif ($history["status"] == "deleted_all") {
+                            if ($history["category"] == "store") { ?>
+                                <div class="history-register denied">
+                                    <div class="date"><span><?= $history["date"] ?></span></div>
+                                    <div class="info">
+                                        <span><?= $name[0] ?>[<a href="https://nintaisquare.com/user/profile.php?user_id=<?= $history["by"] ?>" target="_blank"><?= $history["by"] ?></a>] eliminó todas sus tiendas.</span>
+                                    </div>
+                                </div>
+                            <?php } elseif ($history["category"] == "product") { ?>
+                                <div class="history-register denied">
+                                    <div class="date"><span><?= $history["date"] ?></span></div>
+                                    <div class="info">
+                                        <span><?= $name[0] ?>[<a href="https://nintaisquare.com/user/profile.php?user_id=<?= $history["by"] ?>" target="_blank"><?= $history["by"] ?></a>] eliminó todos los productos de su tienda con el ID: <a href="https://nintaisquare.com/store/?store_id=<?= $history["of"] ?>" target="_blank"><?= $history["of"] ?></a></span>
+                                    </div>
+                                </div>
+                            <?php }
+                        } elseif ($history["status"] == "deleted" && $history["category"] == "user") { ?>
+                            <div class="history-register denied">
+                                <div class="date"><span><?= $history["date"] ?></span></div>
+                                <div class="info">
+                                    <span><?= $name[0] ?>[<a href="https://nintaisquare.com/user/profile.php?user_id=<?= $history["by"] ?>" target="_blank"><?= $history["by"] ?></a>] eliminó a un usuario con el ID: <?= $history["of"] ?></span>
                                 </div>
                             </div>
                         <?php }
