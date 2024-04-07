@@ -218,7 +218,7 @@
                         ':dt' => $date["year"] . "-" . $date["mon"] . "-" . $date["mday"] . " " . $date["hours"] . ":" . $date["minutes"] . ":" . $date["seconds"]
                     ));
 
-                    $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>Todas tus productos fueron eliminados.</span>";
+                    $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>Todos tus productos fueron eliminados.</span>";
                     header("Location: settings.php?danger-zone");
                     exit;
                 }
