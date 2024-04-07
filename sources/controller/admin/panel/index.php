@@ -525,7 +525,82 @@
                     </div>
                 <?php }
             } elseif (isset($_GET["stores-list"])) {
+                $query_s = $pdo -> query("SELECT store_id, store_name, user_id FROM val_stores;");
+                $query_un = $pdo -> prepare("SELECT user_id, name FROM users WHERE user_id = :id");
 
+                if (isset($_GET["delete-store"])) {
+                    $query_del = $pdo -> prepare("DELETE FROM val_stores WHERE store_id = :id");
+                    $query_del -> execute(array(
+                        ':id' => $_GET["delete-store"]
+                    ));
+
+                    $query = $pdo -> prepare("INSERT INTO history (`status`, `by`, `category`, `of`, `date`) VALUES (:st, :by, :cy, :of, :dt)");
+                    $query -> execute(array(
+                        ':st' => "deleted",
+                        ':by' => $_SESSION["USER_AUTH"]["user_id"],
+                        ':cy' => "store",
+                        ':of' => $_GET["delete-store"],
+                        ':dt' => $date["year"] . "-" . $date["mon"] . "-" . $date["mday"] . " " . $date["hours"] . ":" . $date["minutes"] . ":" . $date["seconds"]
+                    ));
+
+                    $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>Tienda eliminada.</span>";
+                    header("Location: index.php?stores-list");
+                    exit;
+                } else { ?>
+                    <div class="container-users-list">
+                        <div class="header-title">
+                            <div class="title-content"><h2 class="title"><i class="fa-solid fa-shop"></i>Lista de tiendas</h2></div>
+                        </div>
+                        <div class="caption-titles">
+                            <div class="caption id-caption">
+                                <p>Store ID</p>
+                            </div>
+                            <div class="caption cn-caption">
+                                <p>Nombre/Dueño</p>
+                            </div>
+                            <div class="caption acc-caption">
+                                <p>Acciones</p>
+                            </div>
+                        </div>
+                        <div class="users">
+                            <?php
+                                while ($user_store = $query_s -> fetch(PDO::FETCH_ASSOC)) { 
+                                    $query_un -> execute(array(
+                                        ':id' => $user_store["user_id"]
+                                    ));
+                                    $user = $query_un -> fetch(PDO::FETCH_ASSOC);
+                                    
+                                    ?>
+                                    <div class="user">
+                                        <div class="user-id store-id">
+                                            <p><?= $user_store["store_id"] ?></p>
+                                        </div>
+                                        <div class="user-email-name store-name">
+                                            <div class="name">
+                                                <p><?= $user_store["store_name"] ?></p>
+                                            </div>
+                                            <div class="email store-own">
+                                                <p><?= $user["name"] ?> [<a href="https://nintaisquare.com/user/profile.php?user_id=<?= $user_store["user_id"] ?>" target="_blank"><?= $user["user_id"] ?></a>]</p>
+                                            </div>
+                                        </div>
+                                        <div class="actions">
+                                            <a href="https://nintaisquare.com/store/?store_id=<?= $user_store["store_id"] ?>" target="_blank">
+                                                <div class="details-user">
+                                                    <p>Ver tienda</p>
+                                                </div>
+                                            </a>
+                                            <a href="index.php?stores-list&delete-store=<?= $user_store["store_id"] ?>">
+                                                <div class="delete-user">
+                                                    <p>Eliminar</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php }
+                            ?>
+                        </div>
+                    </div>
+                <?php }
             } elseif (isset($_GET["products-list"])) {
 
             } else { ?>
