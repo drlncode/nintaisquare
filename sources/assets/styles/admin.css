@@ -18,6 +18,7 @@
     justify-content: center;
     height: 10vh;
     font-family: Nunito-Sistema;
+    transition: 0.5s ease-in-out;
 }
 
 .admin-header-container .admin-header-content {
@@ -122,6 +123,34 @@
 .admin-statistics-container {
     margin: 10vh auto;
     width: 90%;
+
+    .header {
+        display: flex;
+        justify-content: baseline;
+        align-items: center;
+
+        .update {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            color: var(--background-color);
+            background-color: var(--border-color);
+            font-size: 0.8em;
+            text-decoration: none;
+            border-radius: 3px;
+            font-family: Nunito-Sistema;
+            gap: 5px;
+            transition: 0.4s ease-in-out;
+        }
+
+        .update:hover {
+            background-color: var(--background-color);
+            color: var(--border-color);
+        }
+    }
 }
 
 .admin-statistics-container .title-statistics {
@@ -165,4 +194,33 @@
 
 .admin-statistics-container .statistics-container .statistic-value {
     padding-left: 35px;
+}
+
+@media screen and (max-width: 695px) {
+    .admin-header-container {
+        .nav-list-container {
+            padding: 10px;
+            font-size: 0.9em;
+        }
+
+        .content-img {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .admin-header-container {
+        height: auto;
+
+        .admin-header-content {
+            flex-direction: column-reverse;
+            padding: 10px;
+            gap: 10px;
+
+            .content-out {
+                align-self: flex-end;
+            }
+        }
+    }
 }

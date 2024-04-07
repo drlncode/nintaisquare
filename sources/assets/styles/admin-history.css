@@ -205,3 +205,38 @@ body::-webkit-scrollbar-thumb {
     margin: 2px 5px 0px 0px;
     font-style: italic;
 }
+
+@media screen and (max-width: 695px) {
+    .admin-header-container {
+        .nav-list-container {
+            padding: 10px;
+            font-size: 0.9em;
+        }
+
+        .content-img {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        .history-container {
+            margin-top: 10vh;
+        }
+    }
+
+    .admin-header-container {
+        height: auto;
+
+        .admin-header-content {
+            flex-direction: column-reverse;
+            padding: 10px;
+            gap: 10px;
+
+            .content-out {
+                align-self: flex-end;
+            }
+        }
+    }
+}

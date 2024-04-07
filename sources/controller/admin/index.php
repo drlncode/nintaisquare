@@ -49,17 +49,22 @@
             </div>
         </div>
         <div class="admin-statistics-container">
-            <h1 class="title-statistics"><i class="fa-solid fa-chart-column"></i>Estadísticas generales</h1>
+            <div class="header">
+                <h1 class="title-statistics"><i class="fa-solid fa-chart-column"></i>Estadísticas generales</h1>
+                <a href="<?= $_SERVER["REQUEST_URI"] ?>?update" class="update">Actualizar<i class="fa-solid fa-arrows-rotate"></i></a>
+            </div>
             <div class="statistics-container">
                 <ul class="statistics-content"><p class="statistic-title"><i class="fa-solid fa-shop"></i>Tiendas</p>
                     <li class="statistic-value">Total:</li>
                     <li class="statistic-value">Aceptadas:</li>
                     <li class="statistic-value">Rechazadas:</li>
+                    <li class="statistic-value">Eliminadas:</li>
                 </ul>
                 <ul class="statistics-content"><p class="statistic-title"><i class="fa-solid fa-cart-shopping"></i>Productos</p>
                     <li class="statistic-value">Total:</li>
                     <li class="statistic-value">Aceptados:</li>
                     <li class="statistic-value">Rechazados:</li>
+                    <li class="statistic-value">Eliminados:</li>
                 </ul>
                 <ul class="statistics-content"><p class="statistic-title"><i class="fa-solid fa-users"></i>Usuarios</p>
                     <li class="statistic-value">Total:</li>

@@ -1041,3 +1041,38 @@ body::-webkit-scrollbar-thumb {
     color: rgb(218, 100, 100);
     transition: ease-in-out 0.3s all;
 }
+
+@media screen and (max-width: 695px) {
+    .admin-header-container {
+        .nav-list-container {
+            padding: 10px;
+            font-size: 0.9em;
+        }
+
+        .content-img {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        .panel-container {
+            margin-top: 25vh;
+        }
+    }
+
+    .admin-header-container {
+        height: auto;
+
+        .admin-header-content {
+            flex-direction: column-reverse;
+            padding: 10px;
+            gap: 10px;
+
+            .content-out {
+                align-self: flex-end;
+            }
+        }
+    }
+}
