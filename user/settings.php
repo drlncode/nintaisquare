@@ -203,20 +203,21 @@
                     exit;
                 } else {
                     $query_del = $pdo -> prepare("DELETE FROM val_products WHERE store_id = :id");
+                    $query_his = $pdo -> prepare("INSERT INTO history (`status`, `by`, `category`, `of`, `date`) VALUES (:st, :by, :cy, :of, :dt)");
+                    
                     for ($i = 0; $i < count($arr_sti); $i++) {
                         $query_del -> execute(array(
                             ':id' => $arr_sti[$i]
                         ));
-                    }
 
-                    $query_his = $pdo -> prepare("INSERT INTO history (`status`, `by`, `category`, `of`, `date`) VALUES (:st, :by, :cy, :of, :dt)");
-                    $query_his -> execute(array(
-                        ':st' => "deleted_all",
-                        ':by' => $_SESSION["USER_AUTH"]["user_id"],
-                        ':cy' => "product",
-                        ':of' => $_SESSION["USER_AUTH"]["user_id"],
-                        ':dt' => $date["year"] . "-" . $date["mon"] . "-" . $date["mday"] . " " . $date["hours"] . ":" . $date["minutes"] . ":" . $date["seconds"]
-                    ));
+                        $query_his -> execute(array(
+                            ':st' => "deleted_all",
+                            ':by' => $_SESSION["USER_AUTH"]["user_id"],
+                            ':cy' => "product",
+                            ':of' => $arr_sti[$i],
+                            ':dt' => $date["year"] . "-" . $date["mon"] . "-" . $date["mday"] . " " . $date["hours"] . ":" . $date["minutes"] . ":" . $date["seconds"]
+                        ));
+                    }
 
                     $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>Todos tus productos fueron eliminados.</span>";
                     header("Location: settings.php?danger-zone");

@@ -635,7 +635,7 @@
                                 <p>Product ID</p>
                             </div>
                             <div class="caption cn-caption">
-                                <p>Nombre/Tiendao</p>
+                                <p>Nombre/Tienda</p>
                             </div>
                             <div class="caption acc-caption">
                                 <p>Acciones</p>
