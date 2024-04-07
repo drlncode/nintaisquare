@@ -8,19 +8,21 @@
         if (empty($_POST["name-r"]) || empty($_POST["email-r"]) || empty($_POST["password-r"])) {
             $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Rellene todos los campos.</span>";
             header("Location: https://nintaisquare.com/user/signup.php");
-            return;
-        } elseif (!is_numeric($_POST["name-r"])) {
-            for ($i = 0; $i < strlen($_POST["name-r"]); $i++) {
-                if (is_numeric($_POST["name-r"][$i])) {
-                    $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese un nombre válido.</span>";
-                    header("Location: https://nintaisquare.com/user/signup.php");
-                    exit;
-                }
-            } 
-        } elseif (!filter_var($_POST["email-r"], FILTER_VALIDATE_EMAIL)) {
+            exit;
+        } 
+        
+        for ($i = 0; $i < strlen($_POST["name-r"]); $i++) {
+            if (is_numeric($_POST["name-r"][$i])) {
+                $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese un nombre válido.</span>";
+                header("Location: https://nintaisquare.com/user/signup.php");
+                exit;
+            }
+        }
+        
+        if (!filter_var($_POST["email-r"], FILTER_VALIDATE_EMAIL)) {
             $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese un correo válido.</span>";
             header("Location: https://nintaisquare.com/user/signup.php");
-            return;
+            exit;
         } else {
             $query = $pdo -> prepare("SELECT count(email) email FROM users WHERE email = :em");
             $query -> execute(array(
@@ -31,7 +33,7 @@
             if ($email["email"] == 1) {
                 $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Este correo ya está registrado.</span>";
                 header("Location: https://nintaisquare.com/user/signup.php");
-                return;
+                exit;
             } else {
                 $sql = "INSERT INTO users(name, email, password, admin) VALUES (:nm, :em, :pw, :ad);";
                 $query = $pdo -> prepare($sql);
@@ -43,7 +45,7 @@
                 ));
                 $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>Registro exitoso!</span>";
                 header("Location: https://nintaisquare.com/user/signin.php");
-                return;
+                exit;
             }
         }
     }
