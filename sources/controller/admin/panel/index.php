@@ -585,12 +585,12 @@
                                         </div>
                                         <div class="actions">
                                             <a href="https://nintaisquare.com/store/?store_id=<?= $user_store["store_id"] ?>" target="_blank">
-                                                <div class="details-user">
+                                                <div class="details-user store">
                                                     <p>Ver tienda</p>
                                                 </div>
                                             </a>
                                             <a href="index.php?stores-list&delete-store=<?= $user_store["store_id"] ?>">
-                                                <div class="delete-user">
+                                                <div class="delete-user store">
                                                     <p>Eliminar</p>
                                                 </div>
                                             </a>
@@ -602,7 +602,84 @@
                     </div>
                 <?php }
             } elseif (isset($_GET["products-list"])) {
+                $query_p = $pdo -> query("SELECT product_id, product_name, store_id FROM val_products;");
+                $query_pn = $pdo -> prepare("SELECT store_id, store_name FROM val_stores WHERE store_id = :id");
 
+                if (isset($_GET["delete-product"])) {
+                    $pd_st = explode("-", $_GET["delete-product"]);
+
+                    $query_del = $pdo -> prepare("DELETE FROM val_products WHERE product_id = :id");
+                    $query_del -> execute(array(
+                        ':id' => $pd_st[0]
+                    ));
+
+                    $query = $pdo -> prepare("INSERT INTO history (`status`, `by`, `category`, `of`, `date`) VALUES (:st, :by, :cy, :of, :dt)");
+                    $query -> execute(array(
+                        ':st' => "deleted",
+                        ':by' => $_SESSION["USER_AUTH"]["user_id"],
+                        ':cy' => "product",
+                        ':of' => $pd_st[0] . "01" . $pd_st[1],
+                        ':dt' => $date["year"] . "-" . $date["mon"] . "-" . $date["mday"] . " " . $date["hours"] . ":" . $date["minutes"] . ":" . $date["seconds"]
+                    ));
+
+                    $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-check'></i>Producto eliminado.</span>";
+                    header("Location: index.php?products-list");
+                    exit;
+                } else { ?>
+                    <div class="container-users-list">
+                        <div class="header-title">
+                            <div class="title-content"><h2 class="title"><i class="fa-solid fa-cart-shopping"></i>Lista de productos</h2></div>
+                        </div>
+                        <div class="caption-titles">
+                            <div class="caption id-caption">
+                                <p>Product ID</p>
+                            </div>
+                            <div class="caption cn-caption">
+                                <p>Nombre/Tiendao</p>
+                            </div>
+                            <div class="caption acc-caption">
+                                <p>Acciones</p>
+                            </div>
+                        </div>
+                        <div class="users">
+                            <?php
+                                while ($product = $query_p -> fetch(PDO::FETCH_ASSOC)) { 
+                                    $query_pn -> execute(array(
+                                        ':id' => $product["store_id"]
+                                    ));
+                                    $store_product = $query_pn -> fetch(PDO::FETCH_ASSOC);
+                                    
+                                    ?>
+                                    <div class="user">
+                                        <div class="user-id store-id">
+                                            <p><?= $product["product_id"] ?></p>
+                                        </div>
+                                        <div class="user-email-name store-name">
+                                            <div class="name">
+                                                <p><?= $product["product_name"] ?></p>
+                                            </div>
+                                            <div class="email store-own">
+                                                <p><?= $store_product["store_name"] ?> [<a href="https://nintaisquare.com/store/?store_id=<?= $product["store_id"] ?>" target="_blank"><?= $store_product["store_id"] ?></a>]</p>
+                                            </div>
+                                        </div>
+                                        <div class="actions">
+                                            <a href="https://nintaisquare.com/product/?product_id=<?= $product["product_id"] ?>" target="_blank">
+                                                <div class="details-user product">
+                                                    <p>Ver producto</p>
+                                                </div>
+                                            </a>
+                                            <a href="index.php?products-list&delete-product=<?= $product["product_id"] ?>-<?= $product["store_id"] ?>">
+                                                <div class="delete-user product">
+                                                    <p>Eliminar</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                <?php }
+                            ?>
+                        </div>
+                    </div>
+                <?php }
             } else { ?>
                 <div class="panel-container">
                     <div class="title-container">

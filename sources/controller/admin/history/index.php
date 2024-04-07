@@ -132,6 +132,15 @@
                                     <span><?= $name[0] ?>[<a href="https://nintaisquare.com/user/profile.php?user_id=<?= $history["by"] ?>" target="_blank"><?= $history["by"] ?></a>] eliminó a un usuario con el ID: <?= $history["of"] ?></span>
                                 </div>
                             </div>
+                        <?php } elseif ($history["status"] == "deleted" && $history["category"] == "product") { 
+                            $of = explode("01", $history["of"]);
+                            ?>
+                            <div class="history-register denied">
+                                <div class="date"><span><?= $history["date"] ?></span></div>
+                                <div class="info">
+                                    <span><?= $name[0] ?>[<a href="https://nintaisquare.com/user/profile.php?user_id=<?= $history["by"] ?>" target="_blank"><?= $history["by"] ?></a>] eliminó un producto con el ID: <?= $of[0]; ?> de la tienda con el ID: <a href="https://nintaisquare.com/store/?store_id=<?= $of[1] ?>" target="_blank"><?= $of[1] ?></a></span>
+                                </div>
+                            </div>
                         <?php }
                     }
                 ?>
