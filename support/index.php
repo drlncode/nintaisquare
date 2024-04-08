@@ -25,7 +25,7 @@
         ?>
         <div class="header-container">
             <div class="logo-text">
-                <img src="../sources/assets/img/logo-socials-negro.png" alt="">
+                <img src="../source/img/logo-socials-negro.png">
                 <h3 class="header-text">Soporte</h3>
             </div>
             <div class="user">
