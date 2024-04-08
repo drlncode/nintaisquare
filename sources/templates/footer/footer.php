@@ -24,6 +24,7 @@
             <div class="content-links">
                 <a href="https://support.nintaisquare.com/">Preguntas frecuentes</a>
                 <a href="https://support.nintaisquare.com/">Recuperar cuenta</a>
+                <a href="https://support.nintaisquare.com/">Reportar error</a>
             </div>
         </div>
     </div>

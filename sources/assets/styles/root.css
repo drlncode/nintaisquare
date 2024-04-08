@@ -1,9 +1,12 @@
 :root {
     --background-color: #f3f3f3; 
+    --background-color-support: #000000;
+    --background-color-support-secundary: #0c1016;
+    --text-color-support: #e6ecf2;
     --text-color: #0f0f0f;
     --text-color-hover: #1b1a1a;
     --border-color: #4e4d4d;
-    --border-color-clear: #807d7d;
+    --border-color-clear: #303030;
 }
 
 @font-face {

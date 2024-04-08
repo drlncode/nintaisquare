@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color-support-secundary);
+    color: var(--text-color-support);
+    font-family: Nunito-Sistema;
+
+    .header-container {
+        position: fixed;
+        background-color: var(--background-color-support);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 50px;
+        min-height: 12vh;
+        border-bottom: 1px solid var(--border-color-clear);
+
+        .logo-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                width: 67px;
+            }
+
+            .header-text {
+                font-family: Merriweather-Titulos;
+            }
+        }
+
+        .user {
+            .login {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                text-decoration: none;
+                color: var(--text-color-support);
+                padding: 10px;
+                border-radius: 3px;
+                transition: 0.4s ease-in-out;
+                border: 1px solid var(--background-color-support);
+                font-size: 0.9em;
+
+                i {
+                    margin-top: 1.1px;
+                }
+            }
+
+            .login:hover {
+                border: 1px solid var(--text-color-support);
+            }
+
+            .account {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-decoration: none;
+                gap: 5px;
+                font-size: 0.75em;
+                color: var(--text-color-support);
+                padding: 10px;
+                margin-right: 0px;
+                border-radius: 3px;
+                border: 1px solid var(--background-color-support);
+                transition: 0.4s ease-in-out;
+
+                svg {
+                    width: 23px;
+                    fill: var(--text-color-support);
+                }
+
+                .text {
+                    margin-top: 2px;
+                }
+            }
+
+            .account:hover {
+                border: 1px solid var(--text-color-support);
+                margin-right: 7px;
+            }
+        }
+    }
+
+    .content {
+        width: 90%;
+        margin: 0 auto;
+        padding-top: 16vh;
+        min-height: 100vh;
+
+        .sub-header-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-color-clear);
+
+            .sub-header-title {
+                font-family: Merriweather-Titulos;
+                text-align: center;
+            }
+
+            .sub-header-text {
+                text-align: center;
+                width: 70%;
+            }
+        }
+
+        .support-questions {
+            display: flex;
+            flex-direction: column;
+            padding: 30px 0px;
+            gap: 30px;
+
+            .title {
+                width: max-content;
+                margin: 0 auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                gap: 5px;
+                font-family: Merriweather-Titulos;
+                font-size: 1.1em;
+
+                i {
+                    margin-top: 2px;
+                }
+            }
+
+            .questions {
+                width: 70%;
+                margin: 0 auto;
+                border: 1px solid var(--border-color-clear);
+                border-radius: 4px;
+
+                details {
+                    border-bottom: 1px solid var(--border-color-clear);
+                    padding: 10px;
+                }
+
+                details:hover {
+                    background-color: #171a20;
+                }
+
+                details:has(#last) {
+                    border-bottom: unset;
+                }
+
+                summary {
+                    padding: 10px;
+                    cursor: pointer;
+                    font-size: 0.9em;
+                }
+
+                summary::marker {
+                    font-size: 0.9em;
+                }
+
+                .p-text {
+                    border-top: 1.5px dotted var(--border-color-clear);
+                    padding: 12px 0px 5px 0px;
+                    font-size: 0.9em;
+                    padding-left: 15px;
+                }
+            }
+        }
+    }
+}
