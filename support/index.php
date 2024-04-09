@@ -75,5 +75,16 @@
             </div>
         </div>
     </div>
+    <footer class="footer-container">
+            <div class="img">
+                <img src="../sources/assets/img/logo-blanco.png" alt="">
+            </div>
+            <div class="text"><i class="fa-regular fa-copyright"></i>NintaiSquare, todos los derechos reservados.</div>
+            <div class="socials">
+                <a href="https://github.com/Darlin-code/nintaisquare" target="_blank" title="Github - NintaiSquare"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com/nintaisquare/" target="_blank" title="Instagram - NintaiSquare"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://twitter.com/NintaiSquare" target="_blank" title="Twitter - NintaiSquare"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+    </footer>
 </body>
 </html>

@@ -40,6 +40,7 @@ body::-webkit-scrollbar-thumb {
             display: flex;
             justify-content: center;
             align-items: center;
+            color: #fff;
 
             img {
                 width: 67px;
@@ -47,6 +48,10 @@ body::-webkit-scrollbar-thumb {
 
             .header-text {
                 font-family: Merriweather-Titulos;
+                margin-left: -8px;
+                margin-top: 2px;
+                border-left: 1px solid var(--border-color-clear);
+                padding: 5px;
             }
         }
 
@@ -189,6 +194,57 @@ body::-webkit-scrollbar-thumb {
                     padding-left: 15px;
                 }
             }
+        }
+    }
+}
+
+.footer-container {
+    display: flex;
+    border-top: 1px solid var(--border-color-clear);
+    justify-content: space-between;
+    align-items: center;
+    min-height: 12vh;
+    padding: 0px 65px 0px 10px;
+    font-family: Nunito-Sistema;
+
+    .img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 170px;
+        }
+    }
+
+    .text {
+        font-size: 0.9em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        color: var(--border-color);
+
+        i {
+            font-size: 0.7em;
+        }
+    }
+
+    .socials {
+        display: flex;
+        justify-content: space-around;
+        gap: 20px;
+        
+        a {
+            text-decoration: none;
+            color: var(--background-color);
+            border-bottom: 1px solid var(--background-color-support);
+            padding: 0px 2px 0px 2px;
+            transition: ease-in-out 0.4s;
+        }
+
+        a:hover {
+            border-bottom: 1px solid var(--background-color);
         }
     }
 }
