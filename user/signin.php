@@ -45,8 +45,14 @@
                     "user_pw" => $cuenta["password"],
                     "admin" => $cuenta["admin"]
                 ];
-                header("Location: https://nintaisquare.com/home/");
-                return;
+                
+                if (isset($_GET["support"])) {
+                    header("Location: https://nintaisquare.com/support/");
+                    exit;
+                } else {
+                    header("Location: https://nintaisquare.com/home/");
+                    exit;
+                }
             }
         }
     }
