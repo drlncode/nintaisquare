@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre nosotros | NintaiSquare</title>
+    <title>Qué somos | NintaiSquare</title>
     <link rel="stylesheet" href="../sources/assets/styles/index-l.css">
     <link rel="stylesheet" href="../sources/assets/styles/about.css">
     <link rel="stylesheet" href="../sources/assets/styles/root.css">
@@ -24,17 +24,17 @@
         ?>
         <div class="content">
             <div class="header">
-                <h2 class="title"><i class="fa-solid fa-users"></i>Que sómos</h2>
+                <h2 class="title"><i class="fa-solid fa-users"></i>Qué somos</h2>
             </div>
             <div class="body-content">
-                <article class="info">
-                    <span class="info">Nintaisquare es una empresa que te ayuda a ti y tu empresa a poder crecer a nivel empresarial brindandote un espacio totalmente gratuito en nuestro sitio web para poder darle promocion a tu negocio.</span>
+                <article class="info-container">
+                    <span class="info">Nintaisquare es una empresa que te ayuda a ti y tu negocio a poder crecer a nivel empresarial, brindandote un espacio totalmente gratuito en nuestra plataforma para poder darle promocion a tu negocio.</span>
                 </article>
-                <article class="info">
+                <article class="info-container">
                     <span class="info">Los usuarios podran ver los diferentes productos que registres en tu tienda, junto con sus detalles y distintos precios. Para facilitar la compra de sus productos.</span>
                 </article>
-                <article class="info">
-                    <span class="info"></span>
+                <article class="info-container">
+                    <span class="info">También contamos con un sistema de soporte para que los usuarios puedan tener respuesta a sus incovenientes o reportar problemas que hayan surgido, para que nuestro equipo los solucione lo antes posible.</span>
                 </article>
             </div>
         </div>

@@ -21,4 +21,20 @@
             font-family: Merriweather-Titulos;
         }
     }
+
+    .body-content {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 25px;
+        padding: 20px;
+        justify-content: center;
+        height: 100%;
+
+        .info-container {
+            width: 450px;
+            font-family: Nunito-Sistema;
+        }
+    }
 }
