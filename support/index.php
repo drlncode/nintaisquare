@@ -79,7 +79,7 @@
                     </div>
                 </a>
             </div>
-            <div class="support-questions" id="frecuent-questions">
+            <div class="support-questions" id="frequent-questions">
                 <h2 class="title"><i class="fa-regular fa-circle-question"></i>Preguntas frecuentes</h2>
                 <div class="questions">
                     <details>
