@@ -7,6 +7,7 @@
     --text-color-hover: #1b1a1a;
     --border-color: #4e4d4d;
     --border-color-clear: #303030;
+    --hover-effect-support: #171a20;
 }
 
 @font-face {

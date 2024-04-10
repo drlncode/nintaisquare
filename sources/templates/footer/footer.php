@@ -22,9 +22,9 @@
                 <h4>Soporte</h4>
             </div>
             <div class="content-links">
-                <a href="https://support.nintaisquare.com/">Preguntas frecuentes</a>
-                <a href="https://support.nintaisquare.com/">Recuperar cuenta</a>
-                <a href="https://support.nintaisquare.com/">Reportar error</a>
+                <a href="https://nintaisquare.com/#frecuent-questions">Preguntas frecuentes</a>
+                <a href="https://nintaisquare.com/">Recuperar cuenta</a>
+                <a href="https://nintaisquare.com/">Reportar error</a>
             </div>
         </div>
     </div>

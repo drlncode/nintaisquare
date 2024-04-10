@@ -48,10 +48,10 @@ body::-webkit-scrollbar-thumb {
 
             .header-text {
                 font-family: Merriweather-Titulos;
-                margin-left: -8px;
+                margin-left: -4px;
                 margin-top: 2px;
                 border-left: 1px solid var(--border-color-clear);
-                padding: 5px;
+                padding: 10px;
             }
         }
 
@@ -112,7 +112,7 @@ body::-webkit-scrollbar-thumb {
     .content {
         width: 90%;
         margin: 0 auto;
-        padding-top: 16vh;
+        padding-top: 23.5vh;
         min-height: 100vh;
 
         .sub-header-container {
@@ -122,12 +122,17 @@ body::-webkit-scrollbar-thumb {
             justify-content: center;
             align-items: center;
             gap: 20px;
-            padding-bottom: 30px;
+            padding-bottom: 100px;
             border-bottom: 1px solid var(--border-color-clear);
 
             .sub-header-title {
                 font-family: Merriweather-Titulos;
                 text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 7px;
+                margin-bottom: 10px;
             }
 
             .sub-header-text {
@@ -136,10 +141,76 @@ body::-webkit-scrollbar-thumb {
             }
         }
 
+        .options-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 50px 0px;
+            border-bottom: 1px solid var(--border-color-clear);
+            flex-wrap: wrap;
+
+            a {
+                text-decoration: none;
+                color: var(--background-color);
+                font-size: 1em;
+
+                .option {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    padding: 10px;
+                    width: 250px;
+                    height: 185px;
+                    border: 1px solid var(--border-color-clear);
+                    border-radius: 3px;
+                    transition: ease-in-out 0.3s;
+    
+                    .option-title {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 10px;
+                        border-bottom: 1px solid var(--border-color-clear);
+    
+                        .title {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 7px;
+                            font-family: Merriweather-Titulos;
+    
+                            i {
+                                font-size: 1.5em;
+                            }
+                        }
+                    }
+
+                    .option-content {
+                        .text {
+                            margin: 0 auto;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            text-align: center;
+                            width: 90%;
+                        }
+                    }
+                }
+            }
+
+            a:hover {
+                .option {
+                    background-color: var(--hover-effect-support);
+                    border: 1px solid var(--border-color);
+                }
+            }
+        }
+
         .support-questions {
             display: flex;
             flex-direction: column;
-            padding: 30px 0px;
+            padding: 30px 0px 120px 0px;
             gap: 30px;
 
             .title {
@@ -170,7 +241,7 @@ body::-webkit-scrollbar-thumb {
                 }
 
                 details:hover {
-                    background-color: #171a20;
+                    background-color: var(--hover-effect-support);
                 }
 
                 details:has(#last) {
@@ -206,6 +277,7 @@ body::-webkit-scrollbar-thumb {
     min-height: 12vh;
     padding: 0px 65px 0px 10px;
     font-family: Nunito-Sistema;
+    flex-wrap: wrap;
 
     .img {
         display: flex;
