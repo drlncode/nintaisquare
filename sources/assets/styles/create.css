@@ -542,16 +542,18 @@ body::-webkit-scrollbar-thumb {
 }
 
 .footer-container .infos-content .ic a {
+    width: max-content;
     display: block;
     text-decoration: none;
     color: var(--border-color);
     margin: 5px 0;
     font-size: 0.9em;
+    transition: all 0.3s ease-in-out;
+    border-bottom: 1px solid var(--text-color);
 }
 
 .footer-container .infos-content .ic a:hover {
-    color: var(--border-color-clear);
-    transition: all 0.2s ease-in-out;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .copy-content {
