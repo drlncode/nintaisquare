@@ -7,8 +7,8 @@
     if (isset($_POST["email-l"]) && isset($_POST["password-l"])) {
         if (empty($_POST["email-l"]) || empty($_POST["password-l"])) {
             $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Rellene todos los campos.</span>";
-            header("Location: https://nintaisquare.com/user/signin.php");
-            return;
+            header("Location: " . $_SERVER["REQUEST_URI"] . "");
+            exit;
         } else {
             $sql = "SELECT COUNT(*) conteo FROM users WHERE email = :em AND password = :pw;";
             $query = $pdo -> prepare($sql);
@@ -20,8 +20,8 @@
 
             if ($existe["conteo"] < 1) {
                 $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Correo o contraseña incorrectos.</span>";
-                header("Location: https://nintaisquare.com/user/signin.php");
-                return;
+                header("Location: " . $_SERVER["REQUEST_URI"] . "");
+                exit;
             } else {
                 $sql = "SELECT * FROM users WHERE email = :em AND password = :pw;";
                 $query = $pdo -> prepare($sql);
