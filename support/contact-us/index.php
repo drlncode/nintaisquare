@@ -22,11 +22,27 @@
                 echo $_SESSION["msg"];
                 unset($_SESSION["msg"]);
             }
-            
+
             require_once("../../sources/templates/support/support-header.php");
         ?>
         <div class="contact-content">
-
+            <div class="header">
+                <h2 class="title">¿Cómo ponerte en contácto con nuestro equipo?</h2>
+            </div>
+            <article class="info-container">
+                <p class="info">Actualmente los usuarios cuentan con 3 medios para comunicarse con nuestro equipo. Los cuales son: <b>Email</b>, <b>Instagram</b> y <b>Twitter</b>. Mediante estos, los usuarios pueden realizar preguntas o comentarle al equipo de desarrollo cualquier problemática con la que esté lidiando el usuario. Normalmente el tiempo de respuesta será como máximo de 24 horas, por lo que les pedimos paciencia de antemano.</p>
+            </article>
+            <div class="socials-container">
+                <div class="social">
+                    <a href="mailto:nintaisquare@nintaisquare.com" class="link"><i class="fa-solid fa-envelope"></i>Correo electrónico.</a>
+                </div>
+                <div class="social">
+                    <a href="https://www.instagram.com/nintaisquare/" class="link"><i class="fa-brands fa-instagram"></i>Instagram.</a>
+                </div>
+                <div class="social">
+                    <a href="https://twitter.com/nintaisquare" class="link"><i class="fa-brands fa-twitter"></i>Twitter.</a>
+                </div>
+            </div>
         </div>
         <?php
             require_once("../../sources/templates/support/support-footer.php");

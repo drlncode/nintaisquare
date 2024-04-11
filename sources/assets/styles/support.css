@@ -267,9 +267,69 @@ body::-webkit-scrollbar-thumb {
             }
         }
     }
+
+    .contact-content {
+        display: flex;
+        flex-direction: column;
+        padding-top: 18vh;
+        min-height: 100vh;
+        width: 90%;
+        margin: 0 auto;
+        
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 20px 0px 0px 0px;
+            font-family: Merriweather-Titulos;
+
+            .title {
+                width: max-content;
+                padding-bottom: 20px;
+                border-bottom: 1px solid var(--border-color-clear);
+            }
+        }
+
+        .info-container {
+            display: flex;
+            padding: 30px 0px;
+
+            .info {
+                width: 750px;
+                font-size: 0.98em;
+            }
+        }
+
+        .socials-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 0.94em;
+
+            .social {
+                width: max-content;
+                border-bottom: 1px solid var(--background-color-support-secundary);
+                transition: 0.3s ease-in-out;
+
+                .link {
+                    padding: 5px 0px;
+                    text-decoration: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 5px;
+                    color: var(--background-color);
+                }
+            }
+
+            .social:hover {
+                border-bottom: 1px solid var(--background-color);
+            }
+        }
+    }
 }
 
 .footer-container {
+    background-color: var(--background-color-support);
     display: flex;
     border-top: 1px solid var(--border-color-clear);
     justify-content: space-between;
