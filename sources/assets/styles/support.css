@@ -393,7 +393,122 @@ body::-webkit-scrollbar-thumb {
             }
         }
 
+        .report-form-content {
+            margin: 5vh auto;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            width: 450px;
 
+            .divisor {
+                margin: 20px auto;
+                width: 100%;
+                height: 1px;
+                border-bottom: 1px solid var(--border-color-clear);
+            }
+
+            select, textarea, input {
+                font-family: Nunito-Sistema;
+                width: 100%;
+                padding: 10px;
+                margin-top: 10px;
+                background-color: var(--background-color-support-secundary);
+                border: unset;
+                border: 1px solid var(--border-color);
+                border-radius: 3px;
+                color: var(--background-color);
+            }
+
+            textarea {
+                width: 100%;
+                height: 100px;
+            }
+
+            input[type="file"]::file-selector-button {
+                border: unset;
+                border: 1px solid var(--border-color);
+                border-radius: 3px;
+                background-color: var(--background-color-support-secundary);
+                padding: 7px;
+                color: var(--background-color);
+                font-family: Nunito-Sistema;
+                margin-right: 10px;
+            }
+
+            .diff {
+                font-size: 0.9em;
+                font-style: italic;
+            }
+
+            .actions {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                padding-top: 10px;
+
+                .btn {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 10px;
+                    font-family: Nunito-Sistema;
+                    text-decoration: none;
+                    width: 100%;
+                    color: var(--background-color);
+                    border: unset;
+                    border: 1px solid var(--border-color-clear);
+                    border-radius: 3px;
+                    background-color: var(--background-color-support-secundary);
+                    transition: 0.4s ease-in-out;
+                }
+
+                .btn:hover {
+                    border: 1px solid var(--background-color);
+                }
+
+                .submit {
+                    cursor: pointer;
+                }
+
+                .cancel {
+                    font-size: 0.8em;
+                }
+            }
+        }
+
+        .content-github-link {
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            border-top: 1px solid var(--border-color-clear);
+            padding: 50px 10px 50px 0px;
+
+            .go-github {
+                width: max-content;
+                padding: 10px;
+                border: 1px solid var(--border-color-clear);
+                text-decoration: none;
+                color: var(--background-color);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                font-size: 0.8em;
+                font-weight: normal;
+                font-family: Nunito-Sistema;
+                transition: 0.4s ease-in-out;
+                border-radius: 3px;
+
+                i {
+                    margin-top: 3px;
+                }
+            }
+
+            .go-github:hover {
+                border: 1px solid var(--background-color);
+            }
+        }
     }
 }
 

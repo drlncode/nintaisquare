@@ -27,7 +27,7 @@
         ?>
         <div class="contact-content">
             <div class="header">
-                <h2 class="title">¿Cómo ponerte en contácto con nuestro equipo? <a href="../" class="back"><i class="fa-solid fa-arrow-left"></i>Ir al contenido principal</a></h2>
+                <h2 class="title">¿Cómo ponerte en contácto con nuestro equipo?<a href="../" class="back"><i class="fa-solid fa-arrow-left"></i>Ir al contenido principal</a></h2>
             </div>
             <article class="info-container">
                 <p class="alert" style="<?= isset($_GET["recover-account"]) ? 'background-color: var(--border-color);' : '' ?>""><i class="fa-solid fa-circle-info"></i>Si estás aquí porque quieres recuperar tu cuenta o contraseña, escríbenos vía correo electrónico.</p>
