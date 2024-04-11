@@ -364,6 +364,37 @@ body::-webkit-scrollbar-thumb {
             }
         }
     }
+
+    .report-container {
+        padding-top: 15vh;
+        min-height: 100vh;
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color-clear);
+            font-family: Merriweather-Titulos;
+
+            .title {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 10px 0px 30px 0px;
+                gap: 5px;
+
+                i {
+                    margin-bottom: 2.5px;
+                }
+            }
+        }
+
+
+    }
 }
 
 .footer-container {

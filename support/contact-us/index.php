@@ -30,7 +30,7 @@
                 <h2 class="title">¿Cómo ponerte en contácto con nuestro equipo? <a href="../" class="back"><i class="fa-solid fa-arrow-left"></i>Ir al contenido principal</a></h2>
             </div>
             <article class="info-container">
-                <p class="alert" style="<?= isset($_GET["recover-account"]) ? 'background-color: var(--border-color);' : '' ?>""><i class="fa-solid fa-circle-info"></i>Si estás aquí porque quieres recuperar tu cuenta, escríbenos vía correo electrónico.</p>
+                <p class="alert" style="<?= isset($_GET["recover-account"]) ? 'background-color: var(--border-color);' : '' ?>""><i class="fa-solid fa-circle-info"></i>Si estás aquí porque quieres recuperar tu cuenta o contraseña, escríbenos vía correo electrónico.</p>
                 <p class="info">Actualmente los usuarios cuentan con 3 medios para comunicarse con nuestro equipo. Los cuales son: <b>Email</b>, <b>Instagram</b> y <b>Twitter</b>. Mediante estos, los usuarios pueden realizar preguntas o comentarle al equipo de desarrollo cualquier problemática con la que esté lidiando el usuario. Normalmente el tiempo de respuesta será como máximo de 24 horas, por lo que les pedimos paciencia de antemano.</p>
             </article>
             <div class="socials-container">
