@@ -71,10 +71,6 @@
                         <p class="p-text"></p>
                     </details>
                     <details>
-                        <summary>Tengo que pagar?</summary>
-                        <p class="p-text"></p>
-                    </details>
-                    <details>
                         <summary>Cuantas tiendas y productos puedo registrar?</summary>
                         <p class="p-text"></p>
                     </details>
@@ -84,6 +80,10 @@
                     </details>
                     <details>
                         <summary>Perdí mi cuenta, como la recupero?</summary>
+                        <p class="p-text"></p>
+                    </details>
+                    <details>
+                        <summary>Por qué el contenido no está disponible en dispositivos móviles?</summary>
                         <p class="p-text"></p>
                         <div id="last" style="display: none;"></div>
                     </details>

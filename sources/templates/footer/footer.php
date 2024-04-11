@@ -23,8 +23,8 @@
             </div>
             <div class="content-links">
                 <a href="https://nintaisquare.com/support/#frequent-questions">Preguntas frecuentes</a>
-                <a href="https://nintaisquare.com/">Recuperar cuenta</a>
-                <a href="https://nintaisquare.com/">Reportar error</a>
+                <a href="https://nintaisquare.com/support/contact-us/?recover-account">Recuperar cuenta</a>
+                <a href="https://nintaisquare.com/support/report-bug/">Reportar error</a>
             </div>
         </div>
     </div>

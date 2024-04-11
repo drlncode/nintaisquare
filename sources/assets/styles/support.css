@@ -283,15 +283,53 @@ body::-webkit-scrollbar-thumb {
             font-family: Merriweather-Titulos;
 
             .title {
-                width: max-content;
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
                 padding-bottom: 20px;
                 border-bottom: 1px solid var(--border-color-clear);
+
+                .back {
+                    text-decoration: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 0.6em;
+                    font-family: Nunito-Sistema;
+                    gap: 5px;
+                    color: var(--background-color);
+                    font-weight: normal;
+                    padding: 10px;
+                    border: 1px solid var(--background-color-support-secundary);
+                    border-radius: 3px;
+                    transition: 0.3s ease-in-out;
+                }
+
+                .back:hover {
+                    border: 1px solid var(--background-color);
+                }
             }
         }
 
         .info-container {
             display: flex;
-            padding: 30px 0px;
+            flex-direction: column;
+            gap: 30px;
+            padding: 10px 0px 30px 0px;
+
+            .alert {
+                width: max-content;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 5px 0px;
+                border-bottom: 1px solid var(--border-color-clear);
+                gap: 5px;
+                font-size: 0.75em;
+                padding: 7px;
+                border-radius: 3px;
+            }
 
             .info {
                 width: 750px;
