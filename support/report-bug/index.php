@@ -4,8 +4,23 @@
     require_once("../../sources/controller/funciones.php");
 
     if (isset($_POST["e-category"])) {
-        if (empty($_POST["e-category"]) || empty($_POST["e-desc"]) || empty($_POST["e-img"])) {
+        if (empty($_POST["e-category"]) || empty($_POST["e-desc"])) {
             $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Rellene todos los campos.</span>";
+            header("Location: " . $_SERVER["REQUEST_URI"] . "");
+            exit;
+        } elseif (isset($_POST["e-r-email"])) {
+            if (empty($_POST["e-r-email"])) {
+                $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese un correo.</span>";
+                header("Location: " . $_SERVER["REQUEST_URI"] . "");
+                exit;
+            } elseif (!filter_var($_POST["e-r-email"], FILTER_VALIDATE_EMAIL)) {
+                $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Ingrese un correo válido.</span>";
+                header("Location: " . $_SERVER["REQUEST_URI"] . "");
+                exit;
+            }
+        } elseif (strlen($_POST["e-desc"]) > 512) {
+            $_SESSION["cache"] = $_POST["e-r-email"];
+            $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>La descripción excede el máximo de carácteres.</span>";
             header("Location: " . $_SERVER["REQUEST_URI"] . "");
             exit;
         }
@@ -49,7 +64,7 @@
                 </label>
                 <div class="divisor"></div>
                 <label for="e-desc"><p class="caption">Háblanos sobre el problema</p>
-                    <textarea name="e-desc" id="e-desc" placeholder="Describe aquí..." style="resize: none;"></textarea>
+                    <textarea name="e-desc" id="e-desc" placeholder="Escribe aquí..." style="resize: none;"></textarea>
                 </label>
                 <div class="divisor"></div>
                 <label for="e-img"><p class="caption">Adjuntar una imagen del problema [Max: 2MB / Formato: .png, .jpg] <b>(Opcional)</b></p>
