@@ -2,6 +2,14 @@
     session_start();
     require_once("../../sources/controller/pdo.php");
     require_once("../../sources/controller/funciones.php");
+
+    if (isset($_POST["e-category"])) {
+        if (empty($_POST["e-category"]) || empty($_POST["e-desc"]) || empty($_POST["e-img"])) {
+            $_SESSION["msg"] = "<span class='mensaje-error'><i class='fa-solid fa-circle-exclamation'></i>Rellene todos los campos.</span>";
+            header("Location: " . $_SERVER["REQUEST_URI"] . "");
+            exit;
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,8 +38,8 @@
                 <h2 class="title"><i class="fa-solid fa-bug"></i>Reportar un error</h2>
             </div>
             <form action="" method="post" class="report-form-content">
-                <label for="type"><p class="caption">Selecciona el problema</p>
-                    <select name="type" id="type" autofocus="autofocus">
+                <label for="e-category"><p class="caption">Selecciona el problema</p>
+                    <select name="e-category" id="e-category" autofocus="autofocus">
                         <option value="">Seleccione</option><hr class="new">
                         <option value="e-d">Error de diseño</option>
                         <option value="e-r">Error al registrar</option>
