@@ -25,6 +25,52 @@ body::-webkit-scrollbar-thumb {
     color: var(--text-color-support);
     font-family: Nunito-Sistema;
 
+    .mensaje-error {
+        font-family: Nunito-Sistema;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        gap: 5px;
+        background-color: var(--background-color-support-secundary);
+        padding: 10px;
+        border-radius: 5px;
+        top: 15vh;
+        right: 20px;
+        position: absolute;
+        color: rgb(204, 73, 73);
+        border: 1px solid rgb(204, 73, 73);
+    }
+    
+    .mensaje-error:hover {
+        background-color: rgb(204, 73, 73);
+        color: var(--background-color);
+        transition: all 0.5s ease;
+        cursor: default;
+    }
+    
+    .mensaje-success {
+        font-family: Nunito-Sistema;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        gap: 5px;
+        background-color: var(--background-color-support-secundary);
+        padding: 10px;
+        border-radius: 5px;
+        top: 15vh;
+        right: 20px;
+        position: absolute;
+        color: rgb(77, 235, 71);
+        border: 1px solid rgb(77, 235, 71);
+    }
+    
+    .mensaje-success:hover {
+        background-color: rgb(77, 235, 71);
+        color: var(--background-color);
+        transition: all 0.5s ease;
+        cursor: default;
+    }
+
     .header-container {
         position: fixed;
         background-color: var(--background-color-support);

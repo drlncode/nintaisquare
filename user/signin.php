@@ -46,6 +46,7 @@
                     "admin" => $cuenta["admin"]
                 ];
                 
+                $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-exclamation'></i>Bienvenido.</span>";
                 if (isset($_GET["support"])) {
                     header("Location: https://nintaisquare.com/support/");
                     exit;
