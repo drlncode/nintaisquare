@@ -576,7 +576,8 @@ body::-webkit-scrollbar-thumb {
         align-items: center;
 
         img {
-            width: 170px;
+            width: 200px;
+            padding-left: 45px;
         }
     }
 

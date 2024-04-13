@@ -2,6 +2,8 @@
     session_start();
     require_once("../../sources/controller/pdo.php");
     require_once("../../sources/controller/funciones.php");
+    date_default_timezone_set("America/Santo_Domingo");
+    $date = getdate();
 
     if (isset($_POST["e-category"])) {
         if (empty($_POST["e-category"]) || empty($_POST["e-desc"])) {
@@ -43,6 +45,19 @@
                 exit;
             }
         }
+
+        $query = $pdo -> prepare("INSERT INTO reports (category_report, desc_report, img_report, by_report, date_report) VALUES (:cr, :dr, :ir, :br, :dtr)");
+        $query -> execute(array(
+            ':cr' => htmlentities($_POST["e-category"]),
+            ':dr' => htmlentities($_POST["e-desc"]),
+            ':ir' => $_FILES["e-img"]["size"] == 0 ? null : base64_encode(file_get_contents($_FILES["e-img"]["tmp_name"])),
+            ':br' => isset($_SESSION["USER_AUTH"]) ? $_SESSION["USER_AUTH"]["email"] : htmlentities($_POST["e-r-email"]),
+            ':dtr' => $date["year"] . "-" . $date["mon"] . "-" . $date["mday"] . " " . $date["hours"] . ":" . $date["minutes"] . ":" . $date["seconds"]
+        ));
+
+        $_SESSION["msg"] = "<span class='mensaje-success'><i class='fa-solid fa-circle-exclamation'></i>Reporte realizado con éxito!</span>";
+        header("Location: " . $_SERVER["REQUEST_URI"] . "");
+        exit;
     }
 ?>
 <!DOCTYPE html>
@@ -73,7 +88,7 @@
             </div>
             <form action="" method="post" class="report-form-content" enctype="multipart/form-data">
                 <label for="e-category"><p class="caption">Selecciona el problema</p>
-                    <select name="e-category" id="e-category" <?= !isset($_SESSION["cache"]) ? 'autofocus="autofocus"' : '' ?>>
+                    <select name="e-category" id="e-category" autofocus="autofocus">
                         <option value="">Seleccione</option><hr class="new">
                         <option value="e-d">Error de diseño</option>
                         <option value="e-r">Error al registrar</option>
@@ -83,7 +98,7 @@
                 </label>
                 <div class="divisor"></div>
                 <label for="e-desc"><p class="caption">Háblanos sobre el problema [Carácteres - Min: 100/Max: 512]</p>
-                    <textarea name="e-desc" id="e-desc" placeholder="Escribe aquí..." style="resize: none;" <?= isset($_SESSION["cache"]) ? 'autofocus="autofocus"' : '' ?>><?= isset($_SESSION["cache"]) ? $_SESSION["cache"] : '' ?><?php unset($_SESSION["cache"]) ?></textarea>
+                    <textarea name="e-desc" id="e-desc" placeholder="Escribe aquí..." style="resize: none;<?= isset($_SESSION["cache"]) ? 'outline: 2px solid var(--background-color);"' : '' ?>"><?= isset($_SESSION["cache"]) ? $_SESSION["cache"] : '' ?><?php unset($_SESSION["cache"]) ?></textarea>
                 </label>
                 <div class="divisor"></div>
                 <label for="e-img"><p class="caption">Adjuntar una imagen del problema [Max: 2MB / Formato: .png, .jpg] <b>(Opcional)</b></p>
