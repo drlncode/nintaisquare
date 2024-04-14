@@ -16,9 +16,6 @@
     <link rel="icon" type="image/x-icon" href="../sources/assets/img/favicon.png">
 </head>
 <body>
-    <?php
-        require_once("../sources/templates/no-resposive/index.php");
-    ?>
     <div class="container">
     <?php
         require_once("../sources/templates/header/header-login.php");
@@ -26,5 +23,8 @@
         require_once("../sources/templates/footer/footer.php");
     ?>
     </div>
+    <?php
+        require_once("../sources/templates/no-resposive/index.php");
+    ?>
 </body>
 </html>

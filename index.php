@@ -1,5 +1,13 @@
 <?php
     session_start();
+    $_SESSION["USER_AUTH"] = [
+        "user_id" => 1,
+        "name" => "Darlin",
+        "name_parts" => explode(" ", "Darlin"),
+        "email" => "darlin@gmail.com",
+        "user_pw" => "81dc9bdb52d04dc20036dbd8313ed055",
+        "admin" => true
+    ];
     require_once("sources/controller/funciones.php");
     set();
 ?>
@@ -18,9 +26,6 @@
     <link rel="icon" type="image/x-icon" href="sources/assets/img/favicon.png">
 </head>
 <body>
-    <?php
-        require_once("sources/templates/no-resposive/index.php");
-    ?>
     <div class="container">
     <?php
         require_once("sources/templates/header/header-no-login.php");
@@ -28,5 +33,8 @@
         require_once("sources/templates/footer/footer.php");
     ?>
     </div>
+    <?php
+        require_once("sources/templates/no-resposive/index.php");
+    ?>
 </body>
 </html>
