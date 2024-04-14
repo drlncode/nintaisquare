@@ -98,7 +98,8 @@
                 </label>
                 <div class="divisor"></div>
                 <label for="e-desc"><p class="caption">Háblanos sobre el problema [Carácteres - Min: 100/Max: 512]</p>
-                    <textarea name="e-desc" id="e-desc" placeholder="Escribe aquí..." style="resize: none;<?= isset($_SESSION["cache"]) ? 'outline: 2px solid var(--background-color);"' : '' ?>"><?= isset($_SESSION["cache"]) ? $_SESSION["cache"] : '' ?><?php unset($_SESSION["cache"]) ?></textarea>
+                    <textarea name="e-desc" id="e-desc" onfocus="contarCaracteres();" oninput="contarCaracteres();" placeholder="Escribe aquí..." maxlength="512" style="resize: none;<?= isset($_SESSION["cache"]) ? 'outline: 2px solid var(--background-color);"' : '' ?>"><?= isset($_SESSION["cache"]) ? $_SESSION["cache"] : '' ?><?php unset($_SESSION["cache"]) ?></textarea>
+                    <span id="counter" class="counter" style="display: flex; justify-content: end; font-size: 0.8em; margin-top: -3px;"></span>
                 </label>
                 <div class="divisor"></div>
                 <label for="e-img"><p class="caption">Adjuntar una imagen del problema [Max: 2MB / Formato: .png, .jpg] <b>(Opcional)</b></p>
@@ -128,5 +129,21 @@
             require_once("../../sources/templates/support/support-footer.php");
         ?>
     </div>
+    <script>
+        function contarCaracteres() {
+            var textarea = document.getElementById("e-desc");
+            var contador = document.getElementById("counter");
+            var maxCaracteres = textarea.getAttribute("maxlength");
+            var numCaracteres = textarea.value.length;
+
+            if (numCaracteres > maxCaracteres) {
+                textarea.value = textarea.value.substring(0, maxCaracteres);
+                numCaracteres = maxCaracteres;
+            }
+
+            contador.textContent = numCaracteres + "/512";
+        }
+</script>
+    </script>
 </body>
 </html>
