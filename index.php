@@ -1,13 +1,5 @@
 <?php
     session_start();
-    $_SESSION["USER_AUTH"] = [
-        "user_id" => 1,
-        "name" => "Darlin",
-        "name_parts" => explode(" ", "Darlin"),
-        "email" => "darlin@gmail.com",
-        "user_pw" => "81dc9bdb52d04dc20036dbd8313ed055",
-        "admin" => true
-    ];
     require_once("sources/controller/funciones.php");
     set();
 ?>
