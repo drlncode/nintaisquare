@@ -101,7 +101,7 @@
                     Contraseña:<input type="password" name="password-l" id="password" placeholder="Ingrese su contraseña">
                 </label>
                 <div class="lost-password">
-                    <p class="lost-p"><a href="https://nintaisquare.com/user/lost-pw.php" class="link"><i class="fa-regular fa-circle-question"></i>Olvidó su contraseña?</a> | No tienes cuenta? <a href="https://nintaisquare.com/user/signup.php" class="link"><i class="fa-solid fa-right-to-bracket"></i>Regístrate</a></p>
+                    <p class="lost-p"><a href="https://nintaisquare.com/support/contact-us/?recover-account" class="link"><i class="fa-regular fa-circle-question"></i>Olvidó su contraseña?</a> | No tienes cuenta? <a href="https://nintaisquare.com/user/signup.php" class="link"><i class="fa-solid fa-right-to-bracket"></i>Regístrate</a></p>
                 </div>
                 <div class="form-footer">
                     <button type="submit" class="boton">Entrar</button>
