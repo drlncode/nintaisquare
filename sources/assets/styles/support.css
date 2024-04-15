@@ -81,6 +81,7 @@ body::-webkit-scrollbar-thumb {
         padding: 0px 50px;
         min-height: 12vh;
         border-bottom: 1px solid var(--border-color-clear);
+        z-index: 1;
 
         .logo-text {
             display: flex;
@@ -555,6 +556,65 @@ body::-webkit-scrollbar-thumb {
             .go-github:hover {
                 border: 1px solid var(--background-color);
             }
+        }
+    }
+
+    .guides-container {
+        padding-top: 15vh;
+        min-height: 100vh;
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color-clear);
+            padding: 10px 0px 30px 0px;
+            position: relative;
+
+            .title {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                font-family: Merriweather-Titulos;
+            }
+
+            .back {
+                position: absolute;
+                right: 0;
+                top: auto;
+                bottom: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                text-decoration: none;
+                color: var(--background-color);
+                background-color: var(--background-color-support-secundary);
+                font-size: 0.9em;
+                padding: 10px;
+                border: 1px solid var(--background-color-support-secundary);
+                border-radius: 3px;
+                transition: 0.4s ease-in-out;
+
+                i {
+                    margin-top: 2px;
+                }
+            }
+
+            .back:hover {
+                border-color: var(--background-color);
+            }
+        }
+
+        .guides-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
         }
     }
 }

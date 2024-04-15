@@ -1,7 +1,6 @@
 <?php
     session_start();
     require_once("../../sources/controller/pdo.php");
-    require_once("../../sources/controller/funciones.php");
     date_default_timezone_set("America/Santo_Domingo");
     $date = getdate();
 
