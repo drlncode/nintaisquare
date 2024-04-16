@@ -183,7 +183,7 @@
                             </div>
                             <div class="results-content">
                                 <div class="resuls-filtred-header">
-                                    <h3 class="title"><i class="fa-solid fa-shop"></i>Tiendas</h3>
+                                    <h3 class="title"><i class="fa-solid fa-cart-shopping"></i>Productos</h3>
                                 </div>
                                 <div class="results">
                                     <?php
