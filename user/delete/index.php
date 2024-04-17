@@ -35,7 +35,7 @@
                         ':st' => "deleted",
                         ':by' => $_SESSION["USER_AUTH"]["user_id"],
                         ':cy' => "store",
-                        ':of' => $_SESSION["USER_AUTH"]["user_id"],
+                        ':of' => $store["store_id"],
                         ':dt' => $date["year"] . "-" . $date["mon"] . "-" . $date["mday"] . " " . $date["hours"] . ":" . $date["minutes"] . ":" . $date["seconds"]
                     ));
 
