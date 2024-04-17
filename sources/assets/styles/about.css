@@ -37,4 +37,136 @@
             font-family: Nunito-Sistema;
         }
     }
+
+    #content-about {
+        margin: unset;
+        padding-top: 5vh;
+        align-items: center;
+        padding-bottom: 100px;
+        gap: 35px;
+
+        .info-container {
+            width: 520px;
+            font-family: Nunito-Sistema;
+            text-align: center;
+        }
+
+        .sub-title {
+            font-family: Merriweather-Titulos;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 10px;
+
+            .title {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+            }
+        }
+
+        .divisor {
+            border-bottom: 1px solid var(--border-color-clear);
+            height: 1px;
+            width: 30%;
+        }
+
+        .member-container {
+            display: flex;
+            flex-direction: column;
+            font-family: Nunito-Sistema;
+            font-weight: bold;
+            padding: 15px;
+            border: 1px solid var(--border-color-clear);
+            transition: 0.4s ease-in-out;
+            border-radius: 7px;
+
+            .header-member-container {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                padding: 5px 0px 20px 0px;
+                border-bottom: 1px solid var(--border-color-clear);
+
+                .img-member {
+                    width: 100px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .no-image {
+                        font-style: italic;
+                    }
+
+                    img {
+                        clip-path: circle(50%);
+                    }
+                }
+
+                .info-member {
+                    padding-bottom: 20px;
+                    display: flex;
+                    flex-direction: column;
+
+                    .name {
+                        font-size: 1.1em;
+                    }
+
+                    .socials {
+                        display: flex;
+                        gap: 10px;
+                        padding: 0px 2px;
+
+                        .link {
+                            text-decoration: none;
+                            color: var(--border-color);
+                            font-size: 1.05em;
+                            transition: 0.4s ease-in-out;
+                        }
+
+                        .github:hover {
+                            color: #181717;
+                        }
+
+                        .linkedin:hover {
+                            color: #0077B5;
+                        }
+
+                        .email:hover {
+                            color: #DB4437;
+                        }
+
+                        .instagram:hover {
+                            color: #833AB4;
+                        }
+
+                        .twitter:hover {
+                            color: #1DA1F2;
+                        }
+                    }
+                }
+            }
+
+            .content-member-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 15px 3px 10px 3px;
+
+                .description {
+                    font-weight: 300;
+
+                    .nota {
+                        font-style: italic;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+
+        .member-container:hover {
+            border-radius: 0px;
+        }
+    }
 }
