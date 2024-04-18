@@ -1,7 +1,7 @@
 <?php
     session_start();
-    require_once("../sources/controller/pdo.php");
     require_once("../sources/controller/funciones.php");
+    noset();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,30 +82,26 @@
                             <div class="header-article">
                                 <h3 class="title">Misión</h3>
                             </div>
-                            <span class="info">Nintaisquare es una empresa que 
-                                te ayuda a ti y tu negocio a poder crecer a nivel 
-                                empresarial, brindandote un espacio totalmente 
-                                gratuito en nuestra plataforma para poder darle 
-                                promocion a tu negocio.</span>
+                            <span class="info">Nuestra misión es facilitarle
+                                a los emprendedores la publicidad de sus tiendas
+                                mediante nuestra plataforma de forma rápida, 
+                                sencilla y gratis.</span>
                         </article>
                         <article class="info-container">
                             <div class="header-article">
                                 <h3 class="title">Visión</h3>
                             </div>
-                            <span class="info">Los usuarios podran ver los diferentes 
-                                productos que registres en tu tienda, junto con sus 
-                                detalles y distintos precios. Para facilitar la 
-                                compra de sus productos.</span>
+                            <span class="info">Nuestra visión es hacer que los
+                                emprendedores tengan una mano amiga que los ayude
+                                publicitar sus tiendas.</span>
                         </article>
                         <article class="info-container">
                             <div class="header-article">
                                 <h3 class="title">Valores</h3>
                             </div>
-                            <span class="info">También contamos con un sistema de 
-                                soporte para que los usuarios puedan tener respuesta 
-                                a sus incovenientes o reportar problemas que hayan 
-                                surgido, para que nuestro equipo los solucione lo 
-                                antes posible.</span>
+                            <span class="info">Nos enfocamos en ser solidarios 
+                                con nuestros usuarios. También en respetar sus 
+                                decisiones.</span>
                         </article>
                     </div>
                 </div>
