@@ -73,8 +73,8 @@
                         <p class="p-text">Actualmente no hay un limite específico de tiendas y productos que el usuario puede registrar, pero en un futuro no muy lejano se tiene pensado implementarlo.</p>
                     </details>
                     <details>
-                        <summary>Cuanto tiempo tardan en aprobar mi tienda/productos?</summary>
-                        <p class="p-text">En circunstacias normales, nuestro equipo de verificación de tiendas y productos no tarda más de 24 horas en tomar una decisión, ya sea aprobar o rechazar su tienda/productos.</p>
+                        <summary>Cuanto tiempo tardan en aprobar mi tienda y productos?</summary>
+                        <p class="p-text">En circunstacias normales, nuestro equipo de verificación de tiendas y productos no tarda más de 24 horas en tomar una decisión, ya sea aprobar o rechazar su tienda o productos.</p>
                     </details>
                     <details>
                         <summary>Perdí mi cuenta, como la recupero?</summary>
