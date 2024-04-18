@@ -73,7 +73,42 @@
                     </div>
                 </div>
             <?php } elseif (isset($_GET["mission-vision-values"])) { ?>
-                
+                <div class="content">
+                    <div class="header">
+                        <h2 class="title"><i class="fa-solid fa-handshake"></i>Misión, visión y valores.</h2>
+                    </div>
+                    <div class="body-content" id="mvv">
+                        <article class="info-container">
+                            <div class="header-article">
+                                <h3 class="title">Misión</h3>
+                            </div>
+                            <span class="info">Nintaisquare es una empresa que 
+                                te ayuda a ti y tu negocio a poder crecer a nivel 
+                                empresarial, brindandote un espacio totalmente 
+                                gratuito en nuestra plataforma para poder darle 
+                                promocion a tu negocio.</span>
+                        </article>
+                        <article class="info-container">
+                            <div class="header-article">
+                                <h3 class="title">Visión</h3>
+                            </div>
+                            <span class="info">Los usuarios podran ver los diferentes 
+                                productos que registres en tu tienda, junto con sus 
+                                detalles y distintos precios. Para facilitar la 
+                                compra de sus productos.</span>
+                        </article>
+                        <article class="info-container">
+                            <div class="header-article">
+                                <h3 class="title">Valores</h3>
+                            </div>
+                            <span class="info">También contamos con un sistema de 
+                                soporte para que los usuarios puedan tener respuesta 
+                                a sus incovenientes o reportar problemas que hayan 
+                                surgido, para que nuestro equipo los solucione lo 
+                                antes posible.</span>
+                        </article>
+                    </div>
+                </div>
             <?php } else { ?>
                 <div class="content">
                     <div class="header">
