@@ -45,12 +45,13 @@
             }
         }
 
-        $query = $pdo -> prepare("INSERT INTO reports (category_report, desc_report, img_report, by_report, date_report) VALUES (:cr, :dr, :ir, :br, :dtr)");
+        $query = $pdo -> prepare("INSERT INTO reports (category_report, desc_report, img_report, by_report, `status`, date_report) VALUES (:cr, :dr, :ir, :br, :st, :dtr)");
         $query -> execute(array(
             ':cr' => htmlentities($_POST["e-category"]),
             ':dr' => htmlentities($_POST["e-desc"]),
             ':ir' => $_FILES["e-img"]["size"] == 0 ? null : base64_encode(file_get_contents($_FILES["e-img"]["tmp_name"])),
             ':br' => isset($_SESSION["USER_AUTH"]) ? $_SESSION["USER_AUTH"]["email"] : htmlentities($_POST["e-r-email"]),
+            ':st' => "slope",
             ':dtr' => $date["year"] . "-" . $date["mon"] . "-" . $date["mday"] . " " . $date["hours"] . ":" . $date["minutes"] . ":" . $date["seconds"]
         ));
 
