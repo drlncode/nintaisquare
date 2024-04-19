@@ -11,6 +11,7 @@
                 <h4>NintaiSquare</h4>
             </div>
             <div class="content-links">
+                <a href="https://nintaisquare.com/support/guide/" target="_blank">Guías</a>
                 <a href="https://nintaisquare.com/about/" target="_blank">Qué somos</a>
                 <a href="https://nintaisquare.com/about/?about-us" target="_blank">Quienes somos</a>
                 <a href="https://nintaisquare.com/about/?mission-vision-values" target="_blank">Misión, visión y valores</a>
