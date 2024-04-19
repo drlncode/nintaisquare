@@ -153,6 +153,35 @@ body::-webkit-scrollbar-thumb {
     justify-content: center;
     align-items: center;
     padding: 10px;
+    position: relative;
+
+    .link-reports {
+        font-family: Nunito-Sistema;
+        text-decoration: none;
+        position: absolute;
+        right: 0;
+        margin-right: 9px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        background-color: var(--border-color);
+        color: var(--background-color);
+        font-size: 0.8em;
+        border: 1px solid var(--border-color);
+        border-radius: 3px;
+        padding: 10px;
+        transition: 0.4s ease-in-out;
+
+        i {
+            margin-top: 3px;
+        }
+    }
+
+    .link-reports:hover {
+        color: var(--border-color);
+        background-color: var(--background-color);
+    }
 }
 
 .container .panel-container .title-container .title {

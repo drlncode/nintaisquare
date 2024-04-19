@@ -684,6 +684,14 @@
                 <div class="panel-container">
                     <div class="title-container">
                         <h2 class="title"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" --darkreader-inline-fill: #e8e6e3;" data-darkreader-inline-fill=""><path d="M10 3H4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zM9 9H5V5h4v4zm5 2h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1zm1-6h4v4h-4V5zM3 20a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v6zm2-5h4v4H5v-4zm8 5a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1h-6a1 1 0 0 0-1 1v6zm2-5h4v4h-4v-4z"></path></svg>Panel de control.</h2>
+                        <?php
+                            $query = $pdo -> query("SELECT id_report FROM reports");
+                            $count = $query -> rowCount();
+
+                            if ($count >= 1) { ?>
+                                <a href="reports/" class="link-reports">Ver <?= $count; ?> reportes<i class='fa-solid fa-arrow-right'></i></a>
+                            <?php }
+                        ?>
                     </div>
                     <div class="general-option div-1-options">
                         <div class="option-title"><h3 class="title"><i class="fa-solid fa-hourglass-half"></i>Solicitides de incorporación.</h3></div>

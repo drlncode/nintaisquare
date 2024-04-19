@@ -126,14 +126,13 @@
 
     .header {
         display: flex;
-        justify-content: baseline;
         align-items: center;
+        gap: 10px;
 
         .update {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-right: 10px;
             padding: 10px;
             border: 1px solid var(--border-color);
             color: var(--background-color);
@@ -154,10 +153,10 @@
 }
 
 .admin-statistics-container .title-statistics {
+    width: max-content;
     font-family: Merriweather-Titulos;
     font-size: 1.4em;
     color: var(--border-color);
-    width: 100%;
     display: flex;
     justify-content: start;
     align-items: center;
