@@ -1,0 +1,63 @@
+.admin-header-container {
+    position: fixed;
+    background-color: var(--background-color);
+}
+
+.reports-container {
+    padding-top: 10vh;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    .reports-container-header {
+        border-bottom: 1px solid var(--border-color);
+        padding: 25px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Merriweather-Titulos;
+
+        .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+    }
+
+    .nav-reports {
+        display: flex;
+        width: 500px;
+        margin: 0 auto;
+        gap: 10px;
+        padding: 10px 0px;
+        border-bottom: 1px solid var(--border-color);
+
+        .btn {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            padding: 15px;
+            text-decoration: none;
+            font-family: Nunito-Sistema;
+            border-radius: 3px;
+
+            & i {
+                margin-bottom: 1px;
+            }
+        }
+
+        .pen {
+            background-color: #e7c83e;
+            color: var(--background-color);
+        }
+
+        .resp {
+            background-color: #55b955;
+            color: var(--background-color);
+        }
+    }
+}
