@@ -1,3 +1,17 @@
+body {
+    background-color: var(--background-color);
+}
+
+body::-webkit-scrollbar {
+    width: 13px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--border-color-clear);
+    border-radius: 10px;
+    border: 3px solid var(--background-color);
+}
+
 .admin-header-container {
     position: fixed;
     background-color: var(--background-color);
@@ -28,7 +42,7 @@
 
     .nav-reports {
         display: flex;
-        width: 500px;
+        width: 600px;
         margin: 0 auto;
         gap: 10px;
         padding: 10px 0px;
@@ -58,6 +72,76 @@
         .resp {
             background-color: #55b955;
             color: var(--background-color);
+        }
+
+        .ign {
+            background-color: #dd5050;
+            color: var(--background-color);
+        }
+    }
+
+    .reports {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-family: Nunito-Sistema;
+        margin-top: 20px;
+
+        a {
+            text-decoration: none;
+            color: unset;
+
+            .report {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                padding: 15px;
+                border: 1px solid var(--border-color);
+                border-radius: 4px;
+
+                .info {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 5px;
+                }
+            }
+        }
+    }
+
+    .reports:has(.pen-report) {
+        a {
+            .report {
+                .info {
+                    i {
+                        color: #e7c83e;
+                    }
+                }
+            }
+        }
+    }
+
+    .reports:has(.ans-report) {
+        a {
+            .report {
+                .info {
+                    i {
+                        color: #55b955;
+                    }
+                }
+            }
+        }
+    }
+
+    .reports:has(.ign-report) {
+        a {
+            .report {
+                .info {
+                    i {
+                        color: #dd5050;
+                    }
+                }
+            }
         }
     }
 }

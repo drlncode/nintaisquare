@@ -13,7 +13,7 @@
         return;
     }
 
-    if (!isset($_GET["pen-reports"]) && !isset($_GET["resp-reports"]) && !isset($_GET["report-details"])) {
+    if (!isset($_GET["pen-reports"]) && !isset($_GET["resp-reports"]) && !isset($_GET["ign-reports"]) && !isset($_GET["report-details"])) {
         header("Location: " . $_SERVER["REQUEST_URI"] . "?pen-reports");
         exit;
     }
@@ -64,35 +64,82 @@
                     <div class="nav-reports">
                         <a href="?pen-reports" class="btn pen" style="border-bottom: <?= isset($_GET["pen-reports"]) ? "4px solid #e7c83e; background-color: unset; color: #e7c83e;" : "" ?>"><i class="fa-regular fa-clock"></i>Pendientes</a>
                         <a href="?resp-reports" class="btn resp" style="border-bottom: <?= isset($_GET["resp-reports"]) ? "4px solid #55b955; background-color: unset; color: #55b955;" : "" ?>"><i class="fa-regular fa-circle-check"></i>Respondidos</a>
+                        <a href="?ign-reports" class="btn ign" style="border-bottom: <?= isset($_GET["ign-reports"]) ? "4px solid #dd5050; background-color: unset; color: #dd5050;" : "" ?>"><i class="fa-regular fa-circle-xmark"></i>Ignorados</a>
                     </div>
-                    <?php
-                        if (isset($_GET["pen-reports"])) {
-                            $query_pen = $pdo -> query("SELECT * FROM reports WHERE `status` = 'slope'");
-                            
-                            while ($report_pen = $query_pen -> fetch(PDO::FETCH_ASSOC)) { ?>
-                                <a href="?report-details=<?= $report_pen["id_report"] ?>">
-                                    <div class="report pen-report">
-                                        <p class="info"><i class="fa-regular fa-clock"></i><?php
-                                            if ($report_pen["category_report"] == "e-o") {
-                                                echo $report_pen["by_report"] . " reportó un error no regístrado el " . $report_pen["date_report"] . ".";
-                                            } else {
-                                                if ($report_pen["category_report"] == "e-d") {
-                                                    echo $report_pen["by_report"] . " reportó un error de diseño el " . $report_pen["date_report"] . ".";
-                                                } elseif ($report_pen["category_report"] == "e-r") {
-                                                    echo $report_pen["by_report"] . " reportó un error de regístro el " . $report_pen["date_report"] . ".";
-                                                } elseif ($report_pen["category_report"] == "e-e") {
-                                                    echo $report_pen["by_report"] . " reportó un error al eliminar el " . $report_pen["date_report"] . ".";
+                    <div class="reports">
+                        <?php
+                            if (isset($_GET["pen-reports"])) {
+                                $query_pen = $pdo -> query("SELECT * FROM reports WHERE `status` = 'slope'");
+                                
+                                while ($report_pen = $query_pen -> fetch(PDO::FETCH_ASSOC)) { ?>
+                                    <a href="?report-details=<?= $report_pen["id_report"] ?>">
+                                        <div class="report pen-report">
+                                            <p class="info"><i class="fa-regular fa-clock"></i><?php
+                                                if ($report_pen["category_report"] == "e-o") {
+                                                    echo $report_pen["by_report"] . " reportó un error no regístrado el <span style='font-style: italic; font-size: 0.9em;'>" . $report_pen["date_report"] . ".</span>";
+                                                } else {
+                                                    if ($report_pen["category_report"] == "e-d") {
+                                                        echo $report_pen["by_report"] . " reportó un error de diseño el <span style='font-style: italic; font-size: 0.9em;'>" . $report_pen["date_report"] . ".</span>";
+                                                    } elseif ($report_pen["category_report"] == "e-r") {
+                                                        echo $report_pen["by_report"] . " reportó un error de regístro el <span style='font-style: italic; font-size: 0.9em;'>" . $report_pen["date_report"] . ".</span>";
+                                                    } elseif ($report_pen["category_report"] == "e-e") {
+                                                        echo $report_pen["by_report"] . " reportó un error al eliminar el <span style='font-style: italic; font-size: 0.9em;'>" . $report_pen["date_report"] . ".</span>";
+                                                    }
                                                 }
-                                            }
-                                        ?>
-                                        </p>
-                                    </div>
-                                </a>
-                            <?php }
-                        } else { 
-
-                        }
-                    ?>
+                                            ?>
+                                            </p>
+                                        </div>
+                                    </a>
+                                <?php }
+                            } elseif (isset($_GET["resp-reports"])) { 
+                                $query_ans = $pdo -> query("SELECT * FROM reports WHERE `status` = 'answered'");
+                                
+                                while ($report_ans = $query_ans -> fetch(PDO::FETCH_ASSOC)) { ?>
+                                    <a href="?report-details=<?= $report_ans["id_report"] ?>">
+                                        <div class="report ans-report">
+                                            <p class="info"><i class="fa-regular fa-circle-check"></i><?php
+                                                if ($report_ans["category_report"] == "e-o") {
+                                                    echo $report_ans["by_report"] . " reportó un error no regístrado el <span style='font-style: italic; font-size: 0.9em;'>" . $report_ans["date_report"] . ".</span>";
+                                                } else {
+                                                    if ($report_ans["category_report"] == "e-d") {
+                                                        echo $report_ans["by_report"] . " reportó un error de diseño el <span style='font-style: italic; font-size: 0.9em;'>" . $report_ans["date_report"] . ".</span>";
+                                                    } elseif ($report_ans["category_report"] == "e-r") {
+                                                        echo $report_ans["by_report"] . " reportó un error de regístro el <span style='font-style: italic; font-size: 0.9em;'>" . $report_ans["date_report"] . ".</span>";
+                                                    } elseif ($report_ans["category_report"] == "e-e") {
+                                                        echo $report_ans["by_report"] . " reportó un error al eliminar el <span style='font-style: italic; font-size: 0.9em;'>" . $report_ans["date_report"] . ".</span>";
+                                                    }
+                                                }
+                                            ?>
+                                            </p>
+                                        </div>
+                                    </a>
+                                <?php }
+                            } else {
+                                $query_ign = $pdo -> query("SELECT * FROM reports WHERE `status` = 'ignored'");
+                                
+                                while ($report_ign = $query_ign -> fetch(PDO::FETCH_ASSOC)) { ?>
+                                    <a href="?report-details=<?= $report_ign["id_report"] ?>">
+                                        <div class="report ign-report">
+                                            <p class="info"><i class="fa-regular fa-circle-xmark"></i><?php
+                                                if ($report_ign["category_report"] == "e-o") {
+                                                    echo $report_ign["by_report"] . " reportó un error no regístrado el <span style='font-style: italic; font-size: 0.9em;'>" . $report_ign["date_report"] . ".</span>";
+                                                } else {
+                                                    if ($report_ign["category_report"] == "e-d") {
+                                                        echo $report_ign["by_report"] . " reportó un error de diseño el <span style='font-style: italic; font-size: 0.9em;'>" . $report_ign["date_report"] . ".</span>";
+                                                    } elseif ($report_ign["category_report"] == "e-r") {
+                                                        echo $report_ign["by_report"] . " reportó un error de regístro el <span style='font-style: italic; font-size: 0.9em;'>" . $report_ign["date_report"] . ".</span>";
+                                                    } elseif ($report_ign["category_report"] == "e-e") {
+                                                        echo $report_ign["by_report"] . " reportó un error al eliminar el <span style='font-style: italic; font-size: 0.9em;'>" . $report_ign["date_report"] . ".</span>";
+                                                    }
+                                                }
+                                            ?>
+                                            </p>
+                                        </div>
+                                    </a>
+                                <?php }
+                            }
+                        ?>
+                    </div>
                 </div>
             <?php } else { ?>
                 <div class="report-details-container">

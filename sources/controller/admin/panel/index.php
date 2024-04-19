@@ -690,6 +690,8 @@
 
                             if ($count >= 1) { ?>
                                 <a href="reports/" class="link-reports">Ver <?= $count; ?> reportes<i class='fa-solid fa-arrow-right'></i></a>
+                            <?php } else { ?>
+                                <a href="reports/?resp-reports" class="link-reports">Ver reportes<i class='fa-solid fa-arrow-right'></i></a>
                             <?php }
                         ?>
                     </div>
