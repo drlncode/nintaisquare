@@ -13,7 +13,7 @@
         return;
     }
 
-    if (!isset($_GET["pen-reports"]) && !isset($_GET["resp-reports"])) {
+    if (!isset($_GET["pen-reports"]) && !isset($_GET["resp-reports"]) && !isset($_GET["report-details"])) {
         header("Location: " . $_SERVER["REQUEST_URI"] . "?pen-reports");
         exit;
     }
@@ -67,7 +67,28 @@
                     </div>
                     <?php
                         if (isset($_GET["pen-reports"])) {
+                            $query_pen = $pdo -> query("SELECT * FROM reports WHERE `status` = 'slope'");
                             
+                            while ($report_pen = $query_pen -> fetch(PDO::FETCH_ASSOC)) { ?>
+                                <a href="?report-details=<?= $report_pen["id_report"] ?>">
+                                    <div class="report pen-report">
+                                        <p class="info"><i class="fa-regular fa-clock"></i><?php
+                                            if ($report_pen["category_report"] == "e-o") {
+                                                echo $report_pen["by_report"] . " reportó un error no regístrado el " . $report_pen["date_report"] . ".";
+                                            } else {
+                                                if ($report_pen["category_report"] == "e-d") {
+                                                    echo $report_pen["by_report"] . " reportó un error de diseño el " . $report_pen["date_report"] . ".";
+                                                } elseif ($report_pen["category_report"] == "e-r") {
+                                                    echo $report_pen["by_report"] . " reportó un error de regístro el " . $report_pen["date_report"] . ".";
+                                                } elseif ($report_pen["category_report"] == "e-e") {
+                                                    echo $report_pen["by_report"] . " reportó un error al eliminar el " . $report_pen["date_report"] . ".";
+                                                }
+                                            }
+                                        ?>
+                                        </p>
+                                    </div>
+                                </a>
+                            <?php }
                         } else { 
 
                         }
