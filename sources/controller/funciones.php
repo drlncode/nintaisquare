@@ -200,4 +200,20 @@
 
         return $value;
     }
+
+    function prettyCategoryReport($value) {
+        switch ($value) {
+            case "e-d":
+                return "Error de diseño.";
+                break;
+            case "e-r":
+                return "Error al regístrar";
+                break;
+            case "e-e":
+                return "Error al eliminar";
+                break;
+            default:
+                return "Error no regístrado";
+        }
+    }
 ?>
