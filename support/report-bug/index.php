@@ -143,7 +143,6 @@
 
             contador.textContent = numCaracteres + "/512";
         }
-</script>
     </script>
 </body>
 </html>
