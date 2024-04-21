@@ -66,7 +66,7 @@ body::-webkit-scrollbar-thumb {
 
         .pen {
             background-color: #e7c83e;
-            color: var(--background-color);
+            color: var(--text-color);
         }
 
         .resp {
@@ -142,6 +142,155 @@ body::-webkit-scrollbar-thumb {
                     }
                 }
             }
+        }
+    }
+}
+
+.report-details-container {
+    padding-top: 10vh;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    .report-status {
+        font-family: Nunito-Sistema;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 5px 0px;
+        border-radius: 3px;
+        font-size: 0.9em;
+
+        .text {
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3px;
+
+            i {
+                margin-top: 2px;
+            }
+        }
+    }
+
+    .report-status:has(.slope) {
+        background-color: #e7c83e;
+    }
+
+    .report-status:has(.answered) {
+        color: var(--background-color);
+        background-color: #55b955;
+    }
+
+    .report-status:has(.ignored) {
+        color: var(--background-color);
+        background-color: #dd5050;
+    }
+
+    .report-content {
+        max-width: 100%;
+        border: 1px solid var(--border-color-clear);
+        border-radius: 3px;
+        
+        .table-container {
+            width: 100%;
+            padding: 3px;
+
+            th {
+                background-color: var(--border-color);
+                color: var(--background-color);
+                font-family: Nunito-Sistema;
+                font-weight: normal;
+                font-size: 0.85em;
+                padding: 5px;
+                border-radius: 2px;
+                width: 50%;
+            }
+
+            td {
+                font-family: Nunito-Sistema;
+                text-align: center;
+                border: 1px solid var(--border-color);
+                border-radius: 2px;
+                padding: 10px;
+                font-size: 0.9em;
+
+                .img-container {
+                    max-width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    img {
+                        max-width: 420px;
+                        max-height: 370px;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+
+    .report-actions {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 0px;
+
+        .btn {
+            padding: 10px;
+            border-radius: 3px;
+            font-family: Nunito-Sistema;
+            font-size: 0.9em;
+            text-decoration: none;
+            transition: 0.3s ease-in-out;
+        }
+
+        .ans-btn {
+            background-color: #55b955;
+            border: 1px solid #55b955;
+            color: var(--background-color);
+        }
+
+        .ans-btn:hover {
+            color: #55b955;
+            background-color: var(--background-color);
+        }
+
+        .ign-btn {
+            background-color: #dd5050;
+            border: 1px solid #dd5050;
+            color: var(--background-color);
+        }
+
+        .ign-btn:hover {
+            color: #dd5050;
+            background-color: var(--background-color);
+        }
+
+        .slo-btn {
+            background-color: #e7c83e;
+            border: 1px solid #e7c83e;
+            color: var(--text-color);
+        }
+
+        .slo-btn:hover {
+            background-color: var(--background-color);
+        }
+
+        .bck-btn {
+            background-color: var(--border-color);
+            border: 1px solid var(--border-color);
+            color: var(--background-color);
+        }
+
+        .bck-btn:hover {
+            color: var(--border-color);
+            background-color: var(--background-color);
         }
     }
 }

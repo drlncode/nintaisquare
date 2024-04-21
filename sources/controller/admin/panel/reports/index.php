@@ -17,6 +17,32 @@
         header("Location: " . $_SERVER["REQUEST_URI"] . "?pen-reports");
         exit;
     }
+
+    if (isset($_GET["answered"])) {
+        $query_ans = $pdo -> prepare("UPDATE reports SET status = 'answered' WHERE id_report = :id");
+        $query_ans -> execute (array(
+            ':id' => $_GET["report-details"]
+        ));
+
+        header("Location: ../reports/");
+        exit;
+    } elseif (isset($_GET["ignored"])) {
+        $query_ign = $pdo -> prepare("UPDATE reports SET status = 'ignored' WHERE id_report = :id");
+        $query_ign -> execute (array(
+            ':id' => $_GET["report-details"]
+        ));
+
+        header("Location: ../reports/");
+        exit;
+    } elseif (isset($_GET["slope"])) {
+        $query_slope = $pdo -> prepare("UPDATE reports SET status = 'slope' WHERE id_report = :id");
+        $query_slope -> execute (array(
+            ':id' => $_GET["report-details"]
+        ));
+
+        header("Location: ../reports/");
+        exit;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,7 +90,7 @@
                     <div class="nav-reports">
                         <a href="?pen-reports" class="btn pen" style="border-bottom: <?= isset($_GET["pen-reports"]) ? "4px solid #e7c83e; background-color: unset; color: #e7c83e;" : "" ?>"><i class="fa-regular fa-clock"></i>Pendientes</a>
                         <a href="?resp-reports" class="btn resp" style="border-bottom: <?= isset($_GET["resp-reports"]) ? "4px solid #55b955; background-color: unset; color: #55b955;" : "" ?>"><i class="fa-regular fa-circle-check"></i>Respondidos</a>
-                        <a href="?ign-reports" class="btn ign" style="border-bottom: <?= isset($_GET["ign-reports"]) ? "4px solid #dd5050; background-color: unset; color: #dd5050;" : "" ?>"><i class="fa-regular fa-circle-xmark"></i>Ignorados</a>
+                        <a href="?ign-reports" class="btn ign" style="border-bottom: <?= isset($_GET["ign-reports"]) ? "4px solid #dd5050; background-color: unset;" : "" ?>"><i class="fa-regular fa-circle-xmark"></i>Ignorados</a>
                     </div>
                     <div class="reports">
                         <?php
@@ -143,7 +169,77 @@
                 </div>
             <?php } else { ?>
                 <div class="report-details-container">
-                    <div class="report-status"></div>
+                    <div class="report-status">
+                        <?php
+                            $q_report = $pdo -> prepare("SELECT * FROM reports WHERE id_report = :id");
+                            $q_report -> execute(array(
+                                ':id' => $_GET["report-details"]
+                            ));
+
+                            if ($q_report -> rowCount() < 1) {
+                                header("Location: ../");
+                            } else {
+                                $report = $q_report -> fetch(PDO::FETCH_ASSOC);
+                                $img = $report["img_report"];
+
+                                switch($report["status"]) {
+                                    case "slope":
+                                        echo "<p class='text slope'><i class='fa-regular fa-clock'></i>Reporte pendiente.</p>";
+                                        break;
+                                    case "answered":
+                                        echo "<p class='text answered'><i class='fa-regular fa-circle-check'></i>Reporte respondido.</p>";
+                                        break;
+                                    case "ignored":
+                                        echo "<p class='text ignored'><i class='fa-regular fa-circle-xmark'></i>Reporte ignorado.</p>";
+                                        break;
+                                    default:
+                                        echo "Reporte.";
+                                }
+                            }
+                        ?>
+                    </div>
+                    <div class="report-content">
+                        <table class="table-container">
+                            <tr>
+                                <th colspan="2">Hecho por</th>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><?= $report["by_report"] ?></td>
+                            </tr>
+                            <tr>
+                                <th>Categoría</th>
+                                <th>Fecha</th>
+                            </tr>
+                            <tr>
+                                <td><?= prettyCategoryReport($report["category_report"]); ?></td>
+                                <td><?= $report["date_report"]; ?></td>
+                            </tr>
+                            <tr>
+                                <th>Descripción</th>
+                                <th>Imagen descriptiva.</th>
+                            </tr>
+                            <tr>
+                                <td><?= $report["desc_report"]; ?></td>
+                                <td><div class="img-container">
+                                    <?= $img == NULL 
+                                    ? "Sin imagen" 
+                                    : "<img src='data:img/png;base64,$img'>" ?>
+                                </div></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="report-actions">
+                        <?php
+                            if ($report["status"] == "slope") { ?>
+                                <a href="<?= $_SERVER["REQUEST_URI"]; ?>&answered" class="btn ans-btn">Respondido</a>
+                                <a href="<?= $_SERVER["REQUEST_URI"]; ?>&ignored" class="btn ign-btn">Ignorar</a>
+                                <a href="../reports/" class="btn bck-btn">Volver</a>
+                            <?php } else { ?>
+                                <a href="<?= $_SERVER["REQUEST_URI"]; ?>&slope" class="btn slo-btn">Enviar a pendiente</a>
+                                <a href="../reports/" class="btn bck-btn">Volver</a>
+                            <?php }
+                        ?>
+                    </div>
                 </div>
             <?php }
         ?>
