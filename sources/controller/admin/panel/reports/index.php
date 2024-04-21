@@ -90,7 +90,7 @@
                     <div class="nav-reports">
                         <a href="?pen-reports" class="btn pen" style="border-bottom: <?= isset($_GET["pen-reports"]) ? "4px solid #e7c83e; background-color: unset; color: #e7c83e;" : "" ?>"><i class="fa-regular fa-clock"></i>Pendientes</a>
                         <a href="?resp-reports" class="btn resp" style="border-bottom: <?= isset($_GET["resp-reports"]) ? "4px solid #55b955; background-color: unset; color: #55b955;" : "" ?>"><i class="fa-regular fa-circle-check"></i>Respondidos</a>
-                        <a href="?ign-reports" class="btn ign" style="border-bottom: <?= isset($_GET["ign-reports"]) ? "4px solid #dd5050; background-color: unset;" : "" ?>"><i class="fa-regular fa-circle-xmark"></i>Ignorados</a>
+                        <a href="?ign-reports" class="btn ign" style="border-bottom: <?= isset($_GET["ign-reports"]) ? "4px solid #dd5050; background-color: unset; color: #dd5050;" : "" ?>"><i class="fa-regular fa-circle-xmark"></i>Ignorados</a>
                     </div>
                     <div class="reports">
                         <?php
