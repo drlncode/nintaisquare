@@ -84,13 +84,11 @@
         array_push($users_data, ["count_users_deleted" => $users_deleted_count -> rowCount()]);
         array_push($all_data, $users_data);
 
-        $json = json_encode($all_data);
-        file_put_contents("data/statistics.json", $json);
+        file_put_contents("data/statistics.json", json_encode($all_data));
         header("Location: index.php");
         exit;
     } else {
-        $statistics = json_decode("https://nintaisquare.com/sources/controller/admin/data/statistics.json", true);
-        var_dump($statistics);
+        $statistic = json_decode(file_get_contents("https://nintaisquare.com/sources/controller/admin/data/statistics.json", true), true);
     }
 ?>
 <!DOCTYPE html>
@@ -136,22 +134,22 @@
             </div>
             <div class="statistics-container">
                 <ul class="statistics-content"><p class="statistic-title"><i class="fa-solid fa-shop"></i>Tiendas</p>
-                    <li class="statistic-value">Total:</li>
-                    <li class="statistic-value">Aceptadas:</li>
-                    <li class="statistic-value">Rechazadas:</li>
-                    <li class="statistic-value">Eliminadas:</li>
+                    <li class="statistic-value">Total: <?= $statistic[0][0]["count_total"]; ?></li>
+                    <li class="statistic-value">Aceptadas: <?= $statistic[0][1]["stores_accepted"]; ?></li>
+                    <li class="statistic-value">Rechazadas: <?= $statistic[0][2]["stores_denied"]; ?></li>
+                    <li class="statistic-value">Eliminadas: <?= $statistic[0][3]["stores_deleted"]; ?></li>
                 </ul>
                 <ul class="statistics-content"><p class="statistic-title"><i class="fa-solid fa-cart-shopping"></i>Productos</p>
-                    <li class="statistic-value">Total:</li>
-                    <li class="statistic-value">Aceptados:</li>
-                    <li class="statistic-value">Rechazados:</li>
-                    <li class="statistic-value">Eliminados:</li>
+                    <li class="statistic-value">Total: <?= $statistic[1][0]["count_total"]; ?></li>
+                    <li class="statistic-value">Aceptados: <?= $statistic[1][1]["products_accepted"]; ?></li>
+                    <li class="statistic-value">Rechazados: <?= $statistic[1][2]["products_denied"]; ?></li>
+                    <li class="statistic-value">Eliminados: <?= $statistic[1][3]["products_deleted"]; ?></li>
                 </ul>
                 <ul class="statistics-content"><p class="statistic-title"><i class="fa-solid fa-users"></i>Usuarios</p>
-                    <li class="statistic-value">Total:</li>
-                    <li class="statistic-value">Administradores:</li>
-                    <li class="statistic-value">Usuarios:</li>
-                    <li class="statistic-value">Eliminados:</li>
+                    <li class="statistic-value">Total: <?= $statistic[2][0]["count_total"]; ?></li>
+                    <li class="statistic-value">Administradores: <?= $statistic[2][1]["count_admins_total"]; ?></li>
+                    <li class="statistic-value">Usuarios: <?= $statistic[2][2]["count_no_admins_total"]; ?></li>
+                    <li class="statistic-value">Eliminados: <?= $statistic[2][3]["count_users_deleted"]; ?></li>
                 </ul>      
             </div>  
         </div>
