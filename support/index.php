@@ -80,7 +80,7 @@
                         <summary>Perdí mi cuenta, como la recupero?</summary>
                         <p class="p-text">Si acaba de perder acceso a su cuenta de NintaiSquare, póngase en contacto con nosotros mediante nuestro correo electrónico: <b>nintaisquare@nintaisquare.com</b>. Obtendrá respuesta en un lapso de tiempo máximo de 24 horas.</p>
                     </details>
-                    <details>
+                    <details <?= isset($_GET["no-responsive"]) ? 'open' : '' ?>>
                         <summary>Por qué el contenido no está disponible en dispositivos móviles?</summary>
                         <p class="p-text">Actualmente NintaiSquare (aparte de la sección de soporte) no está disponible para pantallas pequeñas por dos razones: Complejidad y falta de tiempo. Sabemos que esto nos juega en contra, pero actualmente es muy complicado el adaptar la web a dispositivos móviles por la gran cantidad de contenido que posee. Pero no descartamos el adaptarla a dispositivos móviles en un futuro.</p>
                         <div id="last" style="display: none;"></div>

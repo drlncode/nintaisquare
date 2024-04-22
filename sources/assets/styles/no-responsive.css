@@ -46,7 +46,7 @@
 }
 
 .no-responsive .button a {
-    width: 75px;
+    width: max-content;
     display: flex;
     justify-content: center;
     align-items: center;

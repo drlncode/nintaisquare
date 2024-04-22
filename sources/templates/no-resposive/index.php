@@ -8,6 +8,6 @@
         <h5 class="sub-title" style="font-style: italic;">De momento solo puede acceder al contenido desde una computadora.</h5>
     </div>
     <div class="button">
-        <a href="https://www.google.com">Salir</a>
+        <a href="https://nintaisquare.com/support/?no-responsive#frequent-questions">Ir a Soporte</a>
     </div>
 </div>

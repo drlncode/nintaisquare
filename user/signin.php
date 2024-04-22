@@ -50,6 +50,9 @@
                 if (isset($_GET["support"])) {
                     header("Location: https://nintaisquare.com/support/");
                     exit;
+                } elseif (isset($_GET["admin"])) {
+                    header("Location: https://nintaisquare.com/sources/controller/admin/validation.php");
+                    exit;
                 } else {
                     header("Location: https://nintaisquare.com/home/");
                     exit;
@@ -67,16 +70,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="../sources/assets/styles/root.css">
     <link rel="stylesheet" href="../sources/assets/styles/styles-form.css">
-    <link rel="stylesheet" href="../sources/assets/styles/no-responsive.css">
+    <?php
+        if (!isset($_GET["admin"])) { ?>
+            <link rel="stylesheet" href="../sources/assets/styles/no-responsive.css">
+        <?php }
+    ?>
     <link rel="icon" type="image/x-icon" href="../sources/assets/img/favicon.png">
 </head>
 <body>
     <?php
-        require_once("../sources/templates/no-resposive/index.php");
+        if (!isset($_GET["admin"])) {
+            require_once("../sources/templates/no-resposive/index.php");
+        }
     ?>
     <div class="container">
         <div class="form-container-1">
-            <div class="form-content-1">
+            <div class="form-content-1" style="display: <?= isset($_GET['admin']) ? 'none' : '' ?>;">
                 <div class="content">
                     <h1 class="title">Iniciar sesión</h1>
                     <p class="text">Inicie sesión para acceder a las herramientas y múltiples recursos que le ofrecemos en NintaiSquare para impulsar su negocio. Asegúrese de introducir correctamente sus datos.</p>
