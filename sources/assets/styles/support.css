@@ -777,3 +777,122 @@ body::-webkit-scrollbar-thumb {
         }
     }
 }
+
+@media screen and (max-width: 845px) {
+    .container {
+        .contact-content {
+            .header {
+                .title {
+                    flex-wrap: wrap;
+                    gap: 10px;
+
+                    .back {
+                        align-self: end;
+                    }
+                }
+            }
+
+            .info-container {
+                .alert {
+                    width: auto;
+                    justify-content: start;
+                }
+
+                .info {
+                    width: auto;
+                }
+            }
+
+            .socials-container {
+                padding: 0px 0px 20px 0px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 750px){
+    .container {
+        .header-container {
+            padding: 0px 10px;
+        }
+
+        .content {
+            .support-questions {
+                .questions {
+                    width: 90%;
+                }
+            }
+        }
+
+        .report-container {
+            .report-form-content {
+                width: 90%;
+            }
+        }
+
+        .guides-container {
+            .header {
+                position: unset;
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                .back {
+                    position: inherit;
+                }
+            }
+
+            .guides-content {
+                .guides {
+                    width: 90%;
+                    padding-right: unset;
+                    border-right: unset;
+
+                    .guide {
+                        .guide-content {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .indice {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .footer-container {
+        flex-direction: column;
+        padding: unset;
+        padding: 10px 0px;
+        gap: 10px;
+
+        .text {
+            font-size: 0.8em;
+            padding: unset;
+        }
+        
+        .img {
+            img {
+                padding-left: 0px;
+                width: 150px;
+            }
+        }
+
+        .socials {
+            gap: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .container {
+        .guides-container {
+            .header {
+                justify-content: center;
+            }
+        }
+    }
+
+}
