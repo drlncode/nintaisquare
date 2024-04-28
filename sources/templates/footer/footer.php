@@ -12,9 +12,13 @@
             </div>
             <div class="content-links">
                 <a href="https://nintaisquare.com/support/guide/" target="_blank">Guías</a>
-                <a href="https://nintaisquare.com/about/" target="_blank">Qué somos</a>
-                <a href="https://nintaisquare.com/about/?about-us" target="_blank">Quienes somos</a>
-                <a href="https://nintaisquare.com/about/?mission-vision-values" target="_blank">Misión, visión y valores</a>
+                <?php
+                    if (isset($_SESSION["USER_AUTH"])) { ?>
+                        <a href="https://nintaisquare.com/about/" target="_blank">Qué somos</a>
+                        <a href="https://nintaisquare.com/about/?about-us" target="_blank">Quienes somos</a>
+                        <a href="https://nintaisquare.com/about/?mission-vision-values" target="_blank">Misión, visión y valores</a>
+                    <?php }
+                ?>
             </div>
         </div>
         <div class="ic content-2">
