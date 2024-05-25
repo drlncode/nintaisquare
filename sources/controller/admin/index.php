@@ -88,7 +88,7 @@
         header("Location: index.php");
         exit;
     } else {
-        $statistic = json_decode(file_get_contents("https://nintaisquare.com/sources/controller/admin/data/statistics.json", true), true);
+        $statistic = json_decode(file_get_contents("https://nintaisquare.com/sources/controller/admin/data/", true), true);
     }
 ?>
 <!DOCTYPE html>
